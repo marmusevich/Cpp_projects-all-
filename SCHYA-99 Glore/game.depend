@@ -1,0 +1,1321 @@
+# depslib dependency file v1.0
+1281611140 source:h:\c_lib\sdl--lib\sdl_gfx-2.0.20\sdl_rotozoom.c
+	<windows.h>
+	<stdlib.h>
+	<string.h>
+	"SDL_rotozoom.h"
+
+1253476998 h:\c_lib\sdl--lib\sdl_gfx-2.0.20\sdl_rotozoom.h
+	<math.h>
+	"SDL.h"
+
+1255352840 h:\c_lib\sdl-1.2.14\include\sdl.h
+	"SDL_main.h"
+	"SDL_stdinc.h"
+	"SDL_audio.h"
+	"SDL_cdrom.h"
+	"SDL_cpuinfo.h"
+	"SDL_endian.h"
+	"SDL_error.h"
+	"SDL_events.h"
+	"SDL_loadso.h"
+	"SDL_mutex.h"
+	"SDL_rwops.h"
+	"SDL_thread.h"
+	"SDL_timer.h"
+	"SDL_video.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1255352840 h:\c_lib\sdl-1.2.14\include\sdl_main.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+	"begin_code.h"
+	"close_code.h"
+
+1255901152 h:\c_lib\sdl-1.2.14\include\sdl_stdinc.h
+	"SDL_config.h"
+	<sys/types.h>
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<stdarg.h>
+	<stdlib.h>
+	<malloc.h>
+	<stddef.h>
+	<stdarg.h>
+	<memory.h>
+	<string.h>
+	<strings.h>
+	<inttypes.h>
+	<stdint.h>
+	<ctype.h>
+	<iconv.h>
+	"begin_code.h"
+	<alloca.h>
+	<malloc.h>
+	<malloc.h>
+	<malloc.h>
+	<stdlib.h>
+	"close_code.h"
+
+1255917068 h:\c_lib\sdl-1.2.14\include\sdl_config.h
+	"SDL_platform.h"
+	"SDL_config_dreamcast.h"
+	"SDL_config_macos.h"
+	"SDL_config_macosx.h"
+	"SDL_config_symbian.h"
+	"SDL_config_win32.h"
+	"SDL_config_os2.h"
+	"SDL_config_minimal.h"
+
+1255352840 h:\c_lib\sdl-1.2.14\include\sdl_platform.h
+
+1255352840 h:\c_lib\sdl-1.2.14\include\sdl_config_dreamcast.h
+	"SDL_platform.h"
+
+1255352840 h:\c_lib\sdl-1.2.14\include\sdl_config_macos.h
+	"SDL_platform.h"
+	<MacTypes.h>
+
+1255352840 h:\c_lib\sdl-1.2.14\include\sdl_config_macosx.h
+	"SDL_platform.h"
+	<AvailabilityMacros.h>
+
+1255352840 h:\c_lib\sdl-1.2.14\include\sdl_config_symbian.h
+	"SDL_platform.h"
+	<stdarg.h>
+	<stddef.h>
+
+1255352840 h:\c_lib\sdl-1.2.14\include\sdl_config_win32.h
+	"SDL_platform.h"
+
+1255352840 h:\c_lib\sdl-1.2.14\include\sdl_config_os2.h
+	"SDL_platform.h"
+
+1255352840 h:\c_lib\sdl-1.2.14\include\sdl_config_minimal.h
+	"SDL_platform.h"
+	<stdarg.h>
+
+1255352840 h:\c_lib\sdl-1.2.14\include\begin_code.h
+
+1255352840 h:\c_lib\sdl-1.2.14\include\close_code.h
+
+1255352840 h:\c_lib\sdl-1.2.14\include\sdl_audio.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_endian.h"
+	"SDL_mutex.h"
+	"SDL_thread.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1255352840 h:\c_lib\sdl-1.2.14\include\sdl_error.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1255352840 h:\c_lib\sdl-1.2.14\include\sdl_endian.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1255352840 h:\c_lib\sdl-1.2.14\include\sdl_mutex.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1255352840 h:\c_lib\sdl-1.2.14\include\sdl_thread.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_mutex.h"
+	"begin_code.h"
+	<process.h>
+	"close_code.h"
+
+1255352840 h:\c_lib\sdl-1.2.14\include\sdl_rwops.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1255352840 h:\c_lib\sdl-1.2.14\include\sdl_cdrom.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1255352840 h:\c_lib\sdl-1.2.14\include\sdl_cpuinfo.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1255352840 h:\c_lib\sdl-1.2.14\include\sdl_events.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_active.h"
+	"SDL_keyboard.h"
+	"SDL_mouse.h"
+	"SDL_joystick.h"
+	"SDL_quit.h"
+	"begin_code.h"
+	"close_code.h"
+
+1255352840 h:\c_lib\sdl-1.2.14\include\sdl_active.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1255352840 h:\c_lib\sdl-1.2.14\include\sdl_keyboard.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_keysym.h"
+	"begin_code.h"
+	"close_code.h"
+
+1255352840 h:\c_lib\sdl-1.2.14\include\sdl_keysym.h
+
+1255352840 h:\c_lib\sdl-1.2.14\include\sdl_mouse.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1255352840 h:\c_lib\sdl-1.2.14\include\sdl_video.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1255352840 h:\c_lib\sdl-1.2.14\include\sdl_joystick.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1255352840 h:\c_lib\sdl-1.2.14\include\sdl_quit.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+
+1255352840 h:\c_lib\sdl-1.2.14\include\sdl_loadso.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1255352840 h:\c_lib\sdl-1.2.14\include\sdl_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1255352840 h:\c_lib\sdl-1.2.14\include\sdl_version.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1281610109 source:h:\Документы\pr_c\schya-99 glore\cbackground.cpp
+	"cBackGround.h"
+	"SDL_rotozoom.h"
+
+1281610109 h:\Документы\pr_c\schya-99 glore\cbackground.h
+	"SDL.h"
+
+1282817867 source:h:\Документы\pr_c\schya-99 glore\cenemy.cpp
+	"cEnemy.h"
+
+1282817973 h:\Документы\pr_c\schya-99 glore\cenemy.h
+	"csprite.h"
+
+1282817937 h:\Документы\pr_c\schya-99 glore\csprite.h
+	"SDL.h"
+	"cSpriteRepository.h"
+
+1280323948 h:\Документы\pr_c\schya-99 glore\cspriterepository.h
+	"SDL.h"
+	<SDL_Image.h>
+
+1258242678 h:\c_lib\sdl--lib\sdl_image-1.2.10\include\sdl_image.h
+	"SDL.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1282797783 source:h:\Документы\pr_c\schya-99 glore\cplayer.cpp
+	"cPlayer.h"
+	"cSpriteEngine.h"
+
+1282733264 h:\Документы\pr_c\schya-99 glore\cplayer.h
+	"csprite.h"
+	"cWearon.h"
+
+1282910214 source:h:\Документы\pr_c\schya-99 glore\cspriteengine.cxx
+	<stdio.h>
+	<new>
+	"cSpriteEngine.h"
+
+1282910401 h:\Документы\pr_c\schya-99 glore\cspriteengine.h
+	"SDL.h"
+	"cSprite.h"
+
+1280913009 source:h:\Документы\pr_c\schya-99 glore\cspriterepository.cxx
+	<stdio.h>
+	<stdlib.h>
+	<new>
+	<string>
+	"SDL_image.h"
+	"cSpriteRepository.h"
+
+1282817703 source:h:\Документы\pr_c\schya-99 glore\cwearon.cpp
+	"cWearon.h"
+	"cExplore.h"
+
+1281612568 h:\Документы\pr_c\schya-99 glore\cwearon.h
+	"csprite.h"
+	"cSpriteEngine.h"
+
+1282816069 source:h:\Документы\pr_c\schya-99 glore\csprite.cxx
+	<stdio.h>
+	"csprite.h"
+
+1280318614 source:h:\Документы\pr_c\schya-99 glore\lib\guilib_1_2_1\gui.cpp
+	<stdlib.h>
+	"GUI.h"
+
+1175622844 h:\Документы\pr_c\schya-99 glore\lib\guilib_1_2_1\gui.h
+	"SDL.h"
+	"GUI_status.h"
+	"GUI_widget.h"
+
+1175622940 h:\Документы\pr_c\schya-99 glore\lib\guilib_1_2_1\gui_status.h
+
+1175622946 h:\Документы\pr_c\schya-99 glore\lib\guilib_1_2_1\gui_widget.h
+	<stdio.h>
+	<stdarg.h>
+	"SDL.h"
+	"GUI_status.h"
+
+1175622866 source:h:\Документы\pr_c\schya-99 glore\lib\guilib_1_2_1\gui_c.cpp
+	"GUI.h"
+	"GUI_generic.h"
+
+1175622926 h:\Документы\pr_c\schya-99 glore\lib\guilib_1_2_1\gui_generic.h
+	"GUI_C.h"
+	"GUI_widget.h"
+
+1175622912 h:\Документы\pr_c\schya-99 glore\lib\guilib_1_2_1\gui_c.h
+	"SDL.h"
+	"GUI_status.h"
+	"begin_code.h"
+	"close_code.h"
+
+1175622870 source:h:\Документы\pr_c\schya-99 glore\lib\guilib_1_2_1\gui_area.cpp
+	"GUI_area.h"
+	"math.h"
+
+1175622914 h:\Документы\pr_c\schya-99 glore\lib\guilib_1_2_1\gui_area.h
+	"GUI_widget.h"
+
+1175622874 source:h:\Документы\pr_c\schya-99 glore\lib\guilib_1_2_1\gui_button.cpp
+	<string.h>
+	"SDL.h"
+	"GUI_button.h"
+	"GUI_loadimage.h"
+	"the_checker.h"
+
+1175622916 h:\Документы\pr_c\schya-99 glore\lib\guilib_1_2_1\gui_button.h
+	"GUI_widget.h"
+	"GUI_font.h"
+
+954996532 h:\Документы\pr_c\schya-99 glore\lib\guilib_1_2_1\gui_font.h
+	<string.h>
+	"SDL.h"
+
+1175622930 h:\Документы\pr_c\schya-99 glore\lib\guilib_1_2_1\gui_loadimage.h
+	"SDL.h"
+	"begin_code.h"
+	"close_code.h"
+
+954996536 h:\Документы\pr_c\schya-99 glore\lib\guilib_1_2_1\the_checker.h
+
+954996532 source:h:\Документы\pr_c\schya-99 glore\lib\guilib_1_2_1\gui_font.cpp
+	<stdlib.h>
+	"SDL.h"
+	"GUI_font.h"
+	"GUI_loadimage.h"
+
+1175622882 source:h:\Документы\pr_c\schya-99 glore\lib\guilib_1_2_1\gui_generic.cpp
+	<stdio.h>
+	"GUI_generic.h"
+
+1175622884 source:h:\Документы\pr_c\schya-99 glore\lib\guilib_1_2_1\gui_image.cpp
+	"GUI_image.h"
+
+1175622928 h:\Документы\pr_c\schya-99 glore\lib\guilib_1_2_1\gui_image.h
+	"GUI_widget.h"
+
+954996532 source:h:\Документы\pr_c\schya-99 glore\lib\guilib_1_2_1\gui_loadimage.cpp
+	<string.h>
+	"GUI_loadimage.h"
+	"the_font.h"
+
+954996536 h:\Документы\pr_c\schya-99 glore\lib\guilib_1_2_1\the_font.h
+
+954996532 source:h:\Документы\pr_c\schya-99 glore\lib\guilib_1_2_1\gui_menu.cpp
+	<string.h>
+	"GUI.h"
+	"GUI_font.h"
+	"GUI_button.h"
+	"GUI_menu.h"
+
+1184562672 h:\Документы\pr_c\schya-99 glore\lib\guilib_1_2_1\gui_menu.h
+	<string.h>
+	"GUI.h"
+	"GUI_area.h"
+	"GUI_button.h"
+
+954996532 source:h:\Документы\pr_c\schya-99 glore\lib\guilib_1_2_1\gui_output.cpp
+	<stdarg.h>
+	<string.h>
+	<math.h>
+	"GUI.h"
+	"GUI_widgets.h"
+	"GUI_loadimage.h"
+	"GUI_output.h"
+	"okay_img.h"
+	"cancel_img.h"
+
+1175622952 h:\Документы\pr_c\schya-99 glore\lib\guilib_1_2_1\gui_widgets.h
+	"GUI_generic.h"
+	"GUI_area.h"
+	"GUI_image.h"
+	"GUI_button.h"
+	"GUI_scrollbar.h"
+	"GUI_termwin.h"
+	"GUI_menu.h"
+
+1175622938 h:\Документы\pr_c\schya-99 glore\lib\guilib_1_2_1\gui_scrollbar.h
+	"GUI_widget.h"
+	"GUI_scroll.h"
+
+1175622936 h:\Документы\pr_c\schya-99 glore\lib\guilib_1_2_1\gui_scroll.h
+	"GUI_widget.h"
+
+1175622942 h:\Документы\pr_c\schya-99 glore\lib\guilib_1_2_1\gui_termwin.h
+	"GUI_widget.h"
+	"GUI_scroll.h"
+
+1175622934 h:\Документы\pr_c\schya-99 glore\lib\guilib_1_2_1\gui_output.h
+	"SDL.h"
+	"begin_code.h"
+	"close_code.h"
+
+954996534 h:\Документы\pr_c\schya-99 glore\lib\guilib_1_2_1\okay_img.h
+
+954996530 h:\Документы\pr_c\schya-99 glore\lib\guilib_1_2_1\cancel_img.h
+
+1175622894 source:h:\Документы\pr_c\schya-99 glore\lib\guilib_1_2_1\gui_scrollbar.cpp
+	"GUI_scrollbar.h"
+
+1280316499 source:h:\Документы\pr_c\schya-99 glore\lib\guilib_1_2_1\gui_termwin.cpp
+	<stdarg.h>
+	<string.h>
+	<ctype.h>
+	"GUI_termwin.h"
+	"GUI_loadimage.h"
+
+1175622900 source:h:\Документы\pr_c\schya-99 glore\lib\guilib_1_2_1\gui_widget.cpp
+	"GUI_widget.h"
+
+1282906573 source:h:\Документы\pr_c\schya-99 glore\main.cpp
+	<cstring>
+	<cstdlib>
+	<cstdio>
+	<SDL.h>
+	<SDL_TTF.h>
+	"cSpriteEngine.h"
+	"cBackGround.h"
+	"cPlayer.h"
+	"cEnemy.h"
+	"cWearon.h"
+
+1255800450 h:\c_lib\sdl-1.2.14\include\sdl\sdl.h
+	"SDL_main.h"
+	"SDL_stdinc.h"
+	"SDL_audio.h"
+	"SDL_cdrom.h"
+	"SDL_cpuinfo.h"
+	"SDL_endian.h"
+	"SDL_error.h"
+	"SDL_events.h"
+	"SDL_loadso.h"
+	"SDL_mutex.h"
+	"SDL_rwops.h"
+	"SDL_thread.h"
+	"SDL_timer.h"
+	"SDL_video.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1255800450 h:\c_lib\sdl-1.2.14\include\sdl\sdl_main.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+	"begin_code.h"
+	"close_code.h"
+
+1255800450 h:\c_lib\sdl-1.2.14\include\sdl\sdl_stdinc.h
+	"SDL_config.h"
+	<sys/types.h>
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<stdarg.h>
+	<stdlib.h>
+	<malloc.h>
+	<stddef.h>
+	<stdarg.h>
+	<memory.h>
+	<string.h>
+	<strings.h>
+	<inttypes.h>
+	<stdint.h>
+	<ctype.h>
+	<iconv.h>
+	"begin_code.h"
+	<alloca.h>
+	<malloc.h>
+	<malloc.h>
+	<malloc.h>
+	<stdlib.h>
+	"close_code.h"
+
+1255800464 h:\c_lib\sdl-1.2.14\include\sdl\sdl_config.h
+	"SDL_platform.h"
+	<stdarg.h>
+
+1255800450 h:\c_lib\sdl-1.2.14\include\sdl\sdl_platform.h
+
+1255800450 h:\c_lib\sdl-1.2.14\include\sdl\begin_code.h
+
+1255800450 h:\c_lib\sdl-1.2.14\include\sdl\close_code.h
+
+1255800450 h:\c_lib\sdl-1.2.14\include\sdl\sdl_audio.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_endian.h"
+	"SDL_mutex.h"
+	"SDL_thread.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1255800450 h:\c_lib\sdl-1.2.14\include\sdl\sdl_error.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1255800450 h:\c_lib\sdl-1.2.14\include\sdl\sdl_endian.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1255800450 h:\c_lib\sdl-1.2.14\include\sdl\sdl_mutex.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1255800450 h:\c_lib\sdl-1.2.14\include\sdl\sdl_thread.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_mutex.h"
+	"begin_code.h"
+	<process.h>
+	"close_code.h"
+
+1255800450 h:\c_lib\sdl-1.2.14\include\sdl\sdl_rwops.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1255800450 h:\c_lib\sdl-1.2.14\include\sdl\sdl_cdrom.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1255800450 h:\c_lib\sdl-1.2.14\include\sdl\sdl_cpuinfo.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1255800450 h:\c_lib\sdl-1.2.14\include\sdl\sdl_events.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_active.h"
+	"SDL_keyboard.h"
+	"SDL_mouse.h"
+	"SDL_joystick.h"
+	"SDL_quit.h"
+	"begin_code.h"
+	"close_code.h"
+
+1255800450 h:\c_lib\sdl-1.2.14\include\sdl\sdl_active.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1255800450 h:\c_lib\sdl-1.2.14\include\sdl\sdl_keyboard.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_keysym.h"
+	"begin_code.h"
+	"close_code.h"
+
+1255800450 h:\c_lib\sdl-1.2.14\include\sdl\sdl_keysym.h
+
+1255800450 h:\c_lib\sdl-1.2.14\include\sdl\sdl_mouse.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1255800450 h:\c_lib\sdl-1.2.14\include\sdl\sdl_video.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1255800450 h:\c_lib\sdl-1.2.14\include\sdl\sdl_joystick.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1255800450 h:\c_lib\sdl-1.2.14\include\sdl\sdl_quit.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+
+1255800450 h:\c_lib\sdl-1.2.14\include\sdl\sdl_loadso.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1255800450 h:\c_lib\sdl-1.2.14\include\sdl\sdl_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1255800450 h:\c_lib\sdl-1.2.14\include\sdl\sdl_version.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1281610109 source:h:\документы\pr_c\schya-99 glore\cbackground.cpp
+	"cBackGround.h"
+	"SDL_rotozoom.h"
+
+1281610109 h:\документы\pr_c\schya-99 glore\cbackground.h
+	"SDL.h"
+
+1282817867 source:h:\документы\pr_c\schya-99 glore\cenemy.cpp
+	"cEnemy.h"
+
+1282817973 h:\документы\pr_c\schya-99 glore\cenemy.h
+	"csprite.h"
+
+1283073055 h:\документы\pr_c\schya-99 glore\csprite.h
+	"SDL.h"
+	"cSpriteRepository.h"
+
+1280323948 h:\документы\pr_c\schya-99 glore\cspriterepository.h
+	"SDL.h"
+	<SDL_Image.h>
+
+1283099268 h:\документы\pr_c\schya-99 glore\cspriteengine.h
+	"SDL.h"
+	"cSprite.h"
+
+1283072898 source:h:\документы\pr_c\schya-99 glore\cplayer.cpp
+	"cPlayer.h"
+	"cSpriteEngine.h"
+
+1282733264 h:\документы\pr_c\schya-99 glore\cplayer.h
+	"csprite.h"
+	"cWearon.h"
+
+1280913009 source:h:\документы\pr_c\schya-99 glore\cspriterepository.cxx
+	<stdio.h>
+	<stdlib.h>
+	<new>
+	<string>
+	"SDL_image.h"
+	"cSpriteRepository.h"
+
+1280318614 source:h:\документы\pr_c\schya-99 glore\lib\guilib_1_2_1\gui.cpp
+	<stdlib.h>
+	"GUI.h"
+
+1175622844 h:\документы\pr_c\schya-99 glore\lib\guilib_1_2_1\gui.h
+	"SDL.h"
+	"GUI_status.h"
+	"GUI_widget.h"
+
+1175622940 h:\документы\pr_c\schya-99 glore\lib\guilib_1_2_1\gui_status.h
+
+1175622946 h:\документы\pr_c\schya-99 glore\lib\guilib_1_2_1\gui_widget.h
+	<stdio.h>
+	<stdarg.h>
+	"SDL.h"
+	"GUI_status.h"
+
+1175622866 source:h:\документы\pr_c\schya-99 glore\lib\guilib_1_2_1\gui_c.cpp
+	"GUI.h"
+	"GUI_generic.h"
+
+1175622926 h:\документы\pr_c\schya-99 glore\lib\guilib_1_2_1\gui_generic.h
+	"GUI_C.h"
+	"GUI_widget.h"
+
+1175622912 h:\документы\pr_c\schya-99 glore\lib\guilib_1_2_1\gui_c.h
+	"SDL.h"
+	"GUI_status.h"
+	"begin_code.h"
+	"close_code.h"
+
+1175622870 source:h:\документы\pr_c\schya-99 glore\lib\guilib_1_2_1\gui_area.cpp
+	"GUI_area.h"
+	"math.h"
+
+1175622914 h:\документы\pr_c\schya-99 glore\lib\guilib_1_2_1\gui_area.h
+	"GUI_widget.h"
+
+1175622874 source:h:\документы\pr_c\schya-99 glore\lib\guilib_1_2_1\gui_button.cpp
+	<string.h>
+	"SDL.h"
+	"GUI_button.h"
+	"GUI_loadimage.h"
+	"the_checker.h"
+
+1175622916 h:\документы\pr_c\schya-99 glore\lib\guilib_1_2_1\gui_button.h
+	"GUI_widget.h"
+	"GUI_font.h"
+
+954996532 h:\документы\pr_c\schya-99 glore\lib\guilib_1_2_1\gui_font.h
+	<string.h>
+	"SDL.h"
+
+1175622930 h:\документы\pr_c\schya-99 glore\lib\guilib_1_2_1\gui_loadimage.h
+	"SDL.h"
+	"begin_code.h"
+	"close_code.h"
+
+954996536 h:\документы\pr_c\schya-99 glore\lib\guilib_1_2_1\the_checker.h
+
+954996532 source:h:\документы\pr_c\schya-99 glore\lib\guilib_1_2_1\gui_font.cpp
+	<stdlib.h>
+	"SDL.h"
+	"GUI_font.h"
+	"GUI_loadimage.h"
+
+1175622882 source:h:\документы\pr_c\schya-99 glore\lib\guilib_1_2_1\gui_generic.cpp
+	<stdio.h>
+	"GUI_generic.h"
+
+1175622884 source:h:\документы\pr_c\schya-99 glore\lib\guilib_1_2_1\gui_image.cpp
+	"GUI_image.h"
+
+1175622928 h:\документы\pr_c\schya-99 glore\lib\guilib_1_2_1\gui_image.h
+	"GUI_widget.h"
+
+954996532 source:h:\документы\pr_c\schya-99 glore\lib\guilib_1_2_1\gui_loadimage.cpp
+	<string.h>
+	"GUI_loadimage.h"
+	"the_font.h"
+
+954996536 h:\документы\pr_c\schya-99 glore\lib\guilib_1_2_1\the_font.h
+
+954996532 source:h:\документы\pr_c\schya-99 glore\lib\guilib_1_2_1\gui_menu.cpp
+	<string.h>
+	"GUI.h"
+	"GUI_font.h"
+	"GUI_button.h"
+	"GUI_menu.h"
+
+1184562672 h:\документы\pr_c\schya-99 glore\lib\guilib_1_2_1\gui_menu.h
+	<string.h>
+	"GUI.h"
+	"GUI_area.h"
+	"GUI_button.h"
+
+954996532 source:h:\документы\pr_c\schya-99 glore\lib\guilib_1_2_1\gui_output.cpp
+	<stdarg.h>
+	<string.h>
+	<math.h>
+	"GUI.h"
+	"GUI_widgets.h"
+	"GUI_loadimage.h"
+	"GUI_output.h"
+	"okay_img.h"
+	"cancel_img.h"
+
+1175622952 h:\документы\pr_c\schya-99 glore\lib\guilib_1_2_1\gui_widgets.h
+	"GUI_generic.h"
+	"GUI_area.h"
+	"GUI_image.h"
+	"GUI_button.h"
+	"GUI_scrollbar.h"
+	"GUI_termwin.h"
+	"GUI_menu.h"
+
+1175622938 h:\документы\pr_c\schya-99 glore\lib\guilib_1_2_1\gui_scrollbar.h
+	"GUI_widget.h"
+	"GUI_scroll.h"
+
+1175622936 h:\документы\pr_c\schya-99 glore\lib\guilib_1_2_1\gui_scroll.h
+	"GUI_widget.h"
+
+1175622942 h:\документы\pr_c\schya-99 glore\lib\guilib_1_2_1\gui_termwin.h
+	"GUI_widget.h"
+	"GUI_scroll.h"
+
+1175622934 h:\документы\pr_c\schya-99 glore\lib\guilib_1_2_1\gui_output.h
+	"SDL.h"
+	"begin_code.h"
+	"close_code.h"
+
+954996534 h:\документы\pr_c\schya-99 glore\lib\guilib_1_2_1\okay_img.h
+
+954996530 h:\документы\pr_c\schya-99 glore\lib\guilib_1_2_1\cancel_img.h
+
+1175622894 source:h:\документы\pr_c\schya-99 glore\lib\guilib_1_2_1\gui_scrollbar.cpp
+	"GUI_scrollbar.h"
+
+1280316499 source:h:\документы\pr_c\schya-99 glore\lib\guilib_1_2_1\gui_termwin.cpp
+	<stdarg.h>
+	<string.h>
+	<ctype.h>
+	"GUI_termwin.h"
+	"GUI_loadimage.h"
+
+1175622900 source:h:\документы\pr_c\schya-99 glore\lib\guilib_1_2_1\gui_widget.cpp
+	"GUI_widget.h"
+
+1283096764 source:h:\документы\pr_c\schya-99 glore\main.cpp
+	<cstring>
+	<cstdlib>
+	<cstdio>
+	<SDL.h>
+	<SDL_TTF.h>
+	"cSpriteEngine.h"
+	"cBackGround.h"
+	"cPlayer.h"
+	"cEnemy.h"
+	"cWearon.h"
+
+1281612568 h:\документы\pr_c\schya-99 glore\cwearon.h
+	"csprite.h"
+	"cSpriteEngine.h"
+
+1283099268 source:h:\документы\pr_c\schya-99 glore\cspriteengine.cxx
+	<stdio.h>
+	<new>
+	"cSpriteEngine.h"
+
+1282910408 source:h:\документы\pr_c\schya-99 glore\cwearon.cpp
+	"cWearon.h"
+	"cExplore.h"
+
+1282816069 source:h:\документы\pr_c\schya-99 glore\csprite.cxx
+	<stdio.h>
+	"csprite.h"
+
+1280913505 h:\документы\pr_c\schya-99 glore\cbackground.cpp
+	"SDL.h"
+	"SDL_rotozoom.h"
+
+1280913441 h:\документы\pr_c\schya-99 glore\cplayer.cpp
+	"csprite.h"
+
+1280911526 h:\документы\pr_c\schya-99 glore\cenemy.cpp
+	"csprite.h"
+
+1280912032 h:\документы\pr_c\schya-99 glore\cwearon.cpp
+	"csprite.h"
+
+1282797783 source:h:\документы\pr_c\schya-99 glore\cexplore.cpp
+	"cExplore.h"
+
+1282817937 h:\документы\pr_c\schya-99 glore\cexplore.h
+	"csprite.h"
+	"cSpriteEngine.h"
+
+1282797783 source:h:\Документы\pr_c\schya-99 glore\cexplore.cpp
+	"cExplore.h"
+
+1282817937 h:\Документы\pr_c\schya-99 glore\cexplore.h
+	"csprite.h"
+	"cSpriteEngine.h"
+
+1282820158 source:h:\Документы\pr_c\schya-99 glore\ctraektorylibrary.cpp
+	"cTraektoryLibrary.h"
+
+1282819733 h:\Документы\pr_c\schya-99 glore\ctraektorylibrary.h
+	"SDL.h"
+
+1282819058 source:h:\Документы\pr_c\schya-99 glore\ctrigonometri.cpp
+	<iostream>
+	<cmath>
+	"cTrigonometri.h"
+
+1279120008 h:\Документы\pr_c\schya-99 glore\ctrigonometri.h
+
+1282820158 source:h:\документы\pr_c\schya-99 glore\ctraektorylibrary.cpp
+	"cTraektoryLibrary.h"
+
+1282819733 h:\документы\pr_c\schya-99 glore\ctraektorylibrary.h
+	"SDL.h"
+
+1282819058 source:h:\документы\pr_c\schya-99 glore\ctrigonometri.cpp
+	<iostream>
+	<cmath>
+	"cTrigonometri.h"
+
+1279120008 h:\документы\pr_c\schya-99 glore\ctrigonometri.h
+
+1283074507 source:h:\документы\pr_c\schya-99 glore\cgui.cpp
+	"cGUI.h"
+
+1283099268 h:\документы\pr_c\schya-99 glore\cgui.h
+	"SDL.h"
+	"cWidgets.h"
+
+1283097131 source:h:\документы\pr_c\schya-99 glore\cwidgets.cpp
+	"cWidgets.h"
+
+1283097131 h:\документы\pr_c\schya-99 glore\cwidgets.h
+
+1342512092 source:k:\cpp\scr\schya-99 glore\cbackground.cpp
+	"cBackGround.h"
+	"SDL_rotozoom.h"
+
+1281606508 k:\cpp\scr\schya-99 glore\cbackground.h
+	"SDL.h"
+
+1282814266 source:k:\cpp\scr\schya-99 glore\cenemy.cpp
+	"cEnemy.h"
+
+1282814372 k:\cpp\scr\schya-99 glore\cenemy.h
+	"csprite.h"
+
+1283069454 k:\cpp\scr\schya-99 glore\csprite.h
+	"SDL.h"
+	"cSpriteRepository.h"
+
+1280320348 k:\cpp\scr\schya-99 glore\cspriterepository.h
+	"SDL.h"
+	<SDL_Image.h>
+
+1282794182 source:k:\cpp\scr\schya-99 glore\cexplore.cpp
+	"cExplore.h"
+
+1282814336 k:\cpp\scr\schya-99 glore\cexplore.h
+	"csprite.h"
+	"cSpriteEngine.h"
+
+1283095668 k:\cpp\scr\schya-99 glore\cspriteengine.h
+	"SDL.h"
+	"cSprite.h"
+
+1283069298 source:k:\cpp\scr\schya-99 glore\cplayer.cpp
+	"cPlayer.h"
+	"cSpriteEngine.h"
+
+1282729664 k:\cpp\scr\schya-99 glore\cplayer.h
+	"csprite.h"
+	"cWearon.h"
+
+1281608968 k:\cpp\scr\schya-99 glore\cwearon.h
+	"csprite.h"
+	"cSpriteEngine.h"
+
+1283095668 source:k:\cpp\scr\schya-99 glore\cspriteengine.cxx
+	<stdio.h>
+	<new>
+	"cSpriteEngine.h"
+
+1280909408 source:k:\cpp\scr\schya-99 glore\cspriterepository.cxx
+	<stdio.h>
+	<stdlib.h>
+	<new>
+	<string>
+	"SDL_image.h"
+	"cSpriteRepository.h"
+
+1282816558 source:k:\cpp\scr\schya-99 glore\ctraektorylibrary.cpp
+	"cTraektoryLibrary.h"
+
+1282816132 k:\cpp\scr\schya-99 glore\ctraektorylibrary.h
+	"SDL.h"
+
+1282815458 source:k:\cpp\scr\schya-99 glore\ctrigonometri.cpp
+	<iostream>
+	<cmath>
+	"cTrigonometri.h"
+
+1279116408 k:\cpp\scr\schya-99 glore\ctrigonometri.h
+
+1282906808 source:k:\cpp\scr\schya-99 glore\cwearon.cpp
+	"cWearon.h"
+	"cExplore.h"
+
+1283093530 source:k:\cpp\scr\schya-99 glore\cwidgets.cpp
+	"cWidgets.h"
+
+1283096000 k:\cpp\scr\schya-99 glore\cwidgets.h
+
+1282812468 source:k:\cpp\scr\schya-99 glore\csprite.cxx
+	<stdio.h>
+	"csprite.h"
+
+1342512078 source:k:\cpp\scr\schya-99 glore\main.cpp
+	<cstring>
+	<cstdlib>
+	<cstdio>
+	<SDL.h>
+	<SDL_TTF.h>
+	"cSpriteEngine.h"
+	"cBackGround.h"
+	"cPlayer.h"
+	"cEnemy.h"
+	"cWearon.h"
+
+1283095926 source:k:\cpp\scr\schya-99 glore\cgui.cpp
+	"cGUI.h"
+	<stdio.h>
+	<new>
+
+1283095668 k:\cpp\scr\schya-99 glore\cgui.h
+	"SDL.h"
+	"cWidgets.h"
+
+1253476998 k:\cpp\lib\sdl--lib\sdl_gfx-2.0.20\sdl_rotozoom.h
+	<math.h>
+	"SDL.h"
+
+1258022560 k:\cpp\lib\sdl--lib\sdl_image-1.2.10\sdl_image.h
+	"SDL.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1281611140 source:k:\cpp\lib\sdl--lib\sdl_gfx-2.0.20\sdl_rotozoom.c
+	<windows.h>
+	<stdlib.h>
+	<string.h>
+	"SDL_rotozoom.h"
+
+1185003004 k:\cpp\lib\sdl--lib\sdl_ttf-2.0.9\include\sdl_ttf.h
+	"SDL.h"
+	"begin_code.h"
+	"close_code.h"
+
+1342515692 source:d:\cpp_proj\schya-99 glore\cbackground.cpp
+	"cBackGround.h"
+	"SDL_rotozoom.h"
+
+1281606508 d:\cpp_proj\schya-99 glore\cbackground.h
+	"SDL.h"
+
+1282814266 source:d:\cpp_proj\schya-99 glore\cenemy.cpp
+	"cEnemy.h"
+
+1282814372 d:\cpp_proj\schya-99 glore\cenemy.h
+	"csprite.h"
+
+1283069454 d:\cpp_proj\schya-99 glore\csprite.h
+	"SDL.h"
+	"cSpriteRepository.h"
+
+1280320348 d:\cpp_proj\schya-99 glore\cspriterepository.h
+	"SDL.h"
+	<SDL_Image.h>
+
+1282794182 source:d:\cpp_proj\schya-99 glore\cexplore.cpp
+	"cExplore.h"
+
+1282814336 d:\cpp_proj\schya-99 glore\cexplore.h
+	"csprite.h"
+	"cSpriteEngine.h"
+
+1283095668 d:\cpp_proj\schya-99 glore\cspriteengine.h
+	"SDL.h"
+	"cSprite.h"
+
+1283095926 source:d:\cpp_proj\schya-99 glore\cgui.cpp
+	"cGUI.h"
+	<stdio.h>
+	<new>
+
+1283095668 d:\cpp_proj\schya-99 glore\cgui.h
+	"SDL.h"
+	"cWidgets.h"
+
+1283096000 d:\cpp_proj\schya-99 glore\cwidgets.h
+
+1283069298 source:d:\cpp_proj\schya-99 glore\cplayer.cpp
+	"cPlayer.h"
+	"cSpriteEngine.h"
+
+1282729664 d:\cpp_proj\schya-99 glore\cplayer.h
+	"csprite.h"
+	"cWearon.h"
+
+1281608968 d:\cpp_proj\schya-99 glore\cwearon.h
+	"csprite.h"
+	"cSpriteEngine.h"
+
+1282812468 source:d:\cpp_proj\schya-99 glore\csprite.cxx
+	<stdio.h>
+	"csprite.h"
+
+1283095668 source:d:\cpp_proj\schya-99 glore\cspriteengine.cxx
+	<stdio.h>
+	<new>
+	"cSpriteEngine.h"
+
+1280909408 source:d:\cpp_proj\schya-99 glore\cspriterepository.cxx
+	<stdio.h>
+	<stdlib.h>
+	<new>
+	<string>
+	"SDL_image.h"
+	"cSpriteRepository.h"
+
+1282816558 source:d:\cpp_proj\schya-99 glore\ctraektorylibrary.cpp
+	"cTraektoryLibrary.h"
+
+1282816132 d:\cpp_proj\schya-99 glore\ctraektorylibrary.h
+	"SDL.h"
+
+1282815458 source:d:\cpp_proj\schya-99 glore\ctrigonometri.cpp
+	<iostream>
+	<cmath>
+	"cTrigonometri.h"
+
+1279116408 d:\cpp_proj\schya-99 glore\ctrigonometri.h
+
+1282906808 source:d:\cpp_proj\schya-99 glore\cwearon.cpp
+	"cWearon.h"
+	"cExplore.h"
+
+1283093530 source:d:\cpp_proj\schya-99 glore\cwidgets.cpp
+	"cWidgets.h"
+
+1342512078 source:d:\cpp_proj\schya-99 glore\main.cpp
+	<cstring>
+	<cstdlib>
+	<cstdio>
+	<SDL.h>
+	<SDL_TTF.h>
+	"cSpriteEngine.h"
+	"cBackGround.h"
+	"cPlayer.h"
+	"cEnemy.h"
+	"cWearon.h"
+
+1255349240 d:\cpp\lib\sdl\include\sdl.h
+	"SDL_main.h"
+	"SDL_stdinc.h"
+	"SDL_audio.h"
+	"SDL_cdrom.h"
+	"SDL_cpuinfo.h"
+	"SDL_endian.h"
+	"SDL_error.h"
+	"SDL_events.h"
+	"SDL_loadso.h"
+	"SDL_mutex.h"
+	"SDL_rwops.h"
+	"SDL_thread.h"
+	"SDL_timer.h"
+	"SDL_video.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1255349240 d:\cpp\lib\sdl\include\sdl_main.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+	"begin_code.h"
+	"close_code.h"
+
+1255897552 d:\cpp\lib\sdl\include\sdl_stdinc.h
+	"SDL_config.h"
+	<sys/types.h>
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<stdarg.h>
+	<stdlib.h>
+	<malloc.h>
+	<stddef.h>
+	<stdarg.h>
+	<memory.h>
+	<string.h>
+	<strings.h>
+	<inttypes.h>
+	<stdint.h>
+	<ctype.h>
+	<iconv.h>
+	"begin_code.h"
+	<alloca.h>
+	<malloc.h>
+	<malloc.h>
+	<malloc.h>
+	<stdlib.h>
+	"close_code.h"
+
+1340102350 d:\cpp\lib\sdl\include\sdl_config.h
+	"SDL_platform.h"
+	<stdarg.h>
+
+1255349240 d:\cpp\lib\sdl\include\sdl_platform.h
+
+1255349240 d:\cpp\lib\sdl\include\begin_code.h
+
+1255349240 d:\cpp\lib\sdl\include\close_code.h
+
+1255349240 d:\cpp\lib\sdl\include\sdl_audio.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_endian.h"
+	"SDL_mutex.h"
+	"SDL_thread.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1255349240 d:\cpp\lib\sdl\include\sdl_error.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1255349240 d:\cpp\lib\sdl\include\sdl_endian.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1255349240 d:\cpp\lib\sdl\include\sdl_mutex.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1255349240 d:\cpp\lib\sdl\include\sdl_thread.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_mutex.h"
+	"begin_code.h"
+	<process.h>
+	"close_code.h"
+
+1255349240 d:\cpp\lib\sdl\include\sdl_rwops.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1255349240 d:\cpp\lib\sdl\include\sdl_cdrom.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1255349240 d:\cpp\lib\sdl\include\sdl_cpuinfo.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1255349240 d:\cpp\lib\sdl\include\sdl_events.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_active.h"
+	"SDL_keyboard.h"
+	"SDL_mouse.h"
+	"SDL_joystick.h"
+	"SDL_quit.h"
+	"begin_code.h"
+	"close_code.h"
+
+1255349240 d:\cpp\lib\sdl\include\sdl_active.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1255349240 d:\cpp\lib\sdl\include\sdl_keyboard.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_keysym.h"
+	"begin_code.h"
+	"close_code.h"
+
+1255349240 d:\cpp\lib\sdl\include\sdl_keysym.h
+
+1255349240 d:\cpp\lib\sdl\include\sdl_mouse.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1255349240 d:\cpp\lib\sdl\include\sdl_video.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1255349240 d:\cpp\lib\sdl\include\sdl_joystick.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1255349240 d:\cpp\lib\sdl\include\sdl_quit.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+
+1255349240 d:\cpp\lib\sdl\include\sdl_loadso.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1255349240 d:\cpp\lib\sdl\include\sdl_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1255349240 d:\cpp\lib\sdl\include\sdl_version.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+

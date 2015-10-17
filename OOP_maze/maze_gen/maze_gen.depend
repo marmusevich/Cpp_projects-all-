@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1354275204 source:k:\cpp\scr\maze_gen\main.cpp
+	<stdio.h>
+	<stdlib.h>
+	<malloc.h>
+	<conio.h>
+	<windows.h>
+	<time.h>
+

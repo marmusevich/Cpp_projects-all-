@@ -1,0 +1,491 @@
+# depslib dependency file v1.0
+1322652726 source:k:\cpp\lib\lua-5.2.0\src\lapi.c
+	<stdarg.h>
+	<string.h>
+	"lua.h"
+	"lapi.h"
+	"ldebug.h"
+	"ldo.h"
+	"lfunc.h"
+	"lgc.h"
+	"lmem.h"
+	"lobject.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+	"ltm.h"
+	"lundump.h"
+	"lvm.h"
+
+1322578508 k:\cpp\lib\lua-5.2.0\src\lua.h
+	<stdarg.h>
+	<stddef.h>
+	"luaconf.h"
+
+1323187116 k:\cpp\lib\lua-5.2.0\src\luaconf.h
+	<limits.h>
+	<stddef.h>
+	<stdio.h>
+	<math.h>
+
+1259332680 k:\cpp\lib\lua-5.2.0\src\lapi.h
+	"llimits.h"
+	"lstate.h"
+
+1323187116 k:\cpp\lib\lua-5.2.0\src\llimits.h
+	<limits.h>
+	<stddef.h>
+	"lua.h"
+	<assert.h>
+	<math.h>
+	<float.h>
+	<math.h>
+
+1317383108 k:\cpp\lib\lua-5.2.0\src\lstate.h
+	"lua.h"
+	"lobject.h"
+	"ltm.h"
+	"lzio.h"
+
+1320079702 k:\cpp\lib\lua-5.2.0\src\lobject.h
+	<stdarg.h>
+	"llimits.h"
+	"lua.h"
+
+1298910730 k:\cpp\lib\lua-5.2.0\src\ltm.h
+	"lobject.h"
+
+1310730484 k:\cpp\lib\lua-5.2.0\src\lzio.h
+	"lua.h"
+	"lmem.h"
+
+1322828814 k:\cpp\lib\lua-5.2.0\src\lmem.h
+	<stddef.h>
+	"llimits.h"
+	"lua.h"
+
+1318016720 k:\cpp\lib\lua-5.2.0\src\ldebug.h
+	"lstate.h"
+
+1322578508 k:\cpp\lib\lua-5.2.0\src\ldo.h
+	"lobject.h"
+	"lstate.h"
+	"lzio.h"
+
+1275653176 k:\cpp\lib\lua-5.2.0\src\lfunc.h
+	"lobject.h"
+
+1317660866 k:\cpp\lib\lua-5.2.0\src\lgc.h
+	"lobject.h"
+	"lstate.h"
+
+1270481198 k:\cpp\lib\lua-5.2.0\src\lstring.h
+	"lgc.h"
+	"lobject.h"
+	"lstate.h"
+
+1313609208 k:\cpp\lib\lua-5.2.0\src\ltable.h
+	"lobject.h"
+
+1304685318 k:\cpp\lib\lua-5.2.0\src\lundump.h
+	"lobject.h"
+	"lzio.h"
+
+1306862876 k:\cpp\lib\lua-5.2.0\src\lvm.h
+	"ldo.h"
+	"lobject.h"
+	"ltm.h"
+
+1323185636 source:k:\cpp\lib\lua-5.2.0\src\lauxlib.c
+	<errno.h>
+	<stdarg.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"lauxlib.h"
+	<sys/wait.h>
+
+1322578508 k:\cpp\lib\lua-5.2.0\src\lauxlib.h
+	<stddef.h>
+	<stdio.h>
+	"lua.h"
+
+1322654604 source:k:\cpp\lib\lua-5.2.0\src\lbaselib.c
+	<ctype.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+
+1323342698 k:\cpp\lib\lua-5.2.0\src\lualib.h
+	"lua.h"
+
+1308584124 source:k:\cpp\lib\lua-5.2.0\src\lbitlib.c
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+
+1314718002 source:k:\cpp\lib\lua-5.2.0\src\lcode.c
+	<stdlib.h>
+	"lua.h"
+	"lcode.h"
+	"ldebug.h"
+	"ldo.h"
+	"lgc.h"
+	"llex.h"
+	"lmem.h"
+	"lobject.h"
+	"lopcodes.h"
+	"lparser.h"
+	"lstring.h"
+	"ltable.h"
+	"lvm.h"
+
+1314718002 k:\cpp\lib\lua-5.2.0\src\lcode.h
+	"llex.h"
+	"lobject.h"
+	"lopcodes.h"
+	"lparser.h"
+
+1322653432 k:\cpp\lib\lua-5.2.0\src\llex.h
+	"lobject.h"
+	"lzio.h"
+
+1310730630 k:\cpp\lib\lua-5.2.0\src\lopcodes.h
+	"llimits.h"
+
+1311786542 k:\cpp\lib\lua-5.2.0\src\lparser.h
+	"llimits.h"
+	"lobject.h"
+	"lzio.h"
+
+1314116674 source:k:\cpp\lib\lua-5.2.0\src\lcorolib.c
+	<stdlib.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+
+1317655164 source:k:\cpp\lib\lua-5.2.0\src\lctype.c
+	"lctype.h"
+	<limits.h>
+
+1310730630 k:\cpp\lib\lua-5.2.0\src\lctype.h
+	"lua.h"
+	<limits.h>
+	"llimits.h"
+	<ctype.h>
+
+1319464446 source:k:\cpp\lib\lua-5.2.0\src\ldblib.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+
+1322653432 source:k:\cpp\lib\lua-5.2.0\src\ldebug.c
+	<stdarg.h>
+	<stddef.h>
+	<string.h>
+	"lua.h"
+	"lapi.h"
+	"lcode.h"
+	"ldebug.h"
+	"ldo.h"
+	"lfunc.h"
+	"lobject.h"
+	"lopcodes.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+	"ltm.h"
+	"lvm.h"
+
+1322578508 source:k:\cpp\lib\lua-5.2.0\src\ldo.c
+	<setjmp.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"lapi.h"
+	"ldebug.h"
+	"ldo.h"
+	"lfunc.h"
+	"lgc.h"
+	"lmem.h"
+	"lobject.h"
+	"lopcodes.h"
+	"lparser.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+	"ltm.h"
+	"lundump.h"
+	"lvm.h"
+	"lzio.h"
+
+1322066898 source:k:\cpp\lib\lua-5.2.0\src\ldump.c
+	<stddef.h>
+	"lua.h"
+	"lobject.h"
+	"lstate.h"
+	"lundump.h"
+
+1277903478 source:k:\cpp\lib\lua-5.2.0\src\lfunc.c
+	<stddef.h>
+	"lua.h"
+	"lfunc.h"
+	"lgc.h"
+	"lmem.h"
+	"lobject.h"
+	"lstate.h"
+
+1322828322 source:k:\cpp\lib\lua-5.2.0\src\lgc.c
+	<string.h>
+	"lua.h"
+	"ldebug.h"
+	"ldo.h"
+	"lfunc.h"
+	"lgc.h"
+	"lmem.h"
+	"lobject.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+	"ltm.h"
+
+1302286656 source:k:\cpp\lib\lua-5.2.0\src\linit.c
+	"lua.h"
+	"lualib.h"
+	"lauxlib.h"
+
+1322221804 source:k:\cpp\lib\lua-5.2.0\src\liolib.c
+	<errno.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+
+1322653432 source:k:\cpp\lib\lua-5.2.0\src\llex.c
+	<locale.h>
+	<string.h>
+	"lua.h"
+	"lctype.h"
+	"ldo.h"
+	"llex.h"
+	"lobject.h"
+	"lparser.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+	"lzio.h"
+
+1309866576 source:k:\cpp\lib\lua-5.2.0\src\lmathlib.c
+	<stdlib.h>
+	<math.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+
+1322653370 source:k:\cpp\lib\lua-5.2.0\src\lmem.c
+	<stddef.h>
+	"lua.h"
+	"ldebug.h"
+	"ldo.h"
+	"lgc.h"
+	"lmem.h"
+	"lobject.h"
+	"lstate.h"
+
+1323704044 source:k:\cpp\lib\lua-5.2.0\src\loadlib.c
+	<windows.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+	<dlfcn.h>
+
+1322677816 source:k:\cpp\lib\lua-5.2.0\src\lobject.c
+	<stdarg.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"lctype.h"
+	"ldebug.h"
+	"ldo.h"
+	"lmem.h"
+	"lobject.h"
+	"lstate.h"
+	"lstring.h"
+	"lvm.h"
+	<math.h>
+
+1303226534 source:k:\cpp\lib\lua-5.2.0\src\lopcodes.c
+	"lopcodes.h"
+
+1322652906 source:k:\cpp\lib\lua-5.2.0\src\loslib.c
+	<errno.h>
+	<locale.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+	<unistd.h>
+
+1322828636 source:k:\cpp\lib\lua-5.2.0\src\lparser.c
+	<string.h>
+	"lua.h"
+	"lcode.h"
+	"ldebug.h"
+	"ldo.h"
+	"lfunc.h"
+	"llex.h"
+	"lmem.h"
+	"lobject.h"
+	"lopcodes.h"
+	"lparser.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+
+1317660866 source:k:\cpp\lib\lua-5.2.0\src\lstate.c
+	<stddef.h>
+	"lua.h"
+	"lapi.h"
+	"ldebug.h"
+	"ldo.h"
+	"lfunc.h"
+	"lgc.h"
+	"llex.h"
+	"lmem.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+	"ltm.h"
+
+1304434918 source:k:\cpp\lib\lua-5.2.0\src\lstring.c
+	<string.h>
+	"lua.h"
+	"lmem.h"
+	"lobject.h"
+	"lstate.h"
+	"lstring.h"
+
+1322673896 source:k:\cpp\lib\lua-5.2.0\src\lstrlib.c
+	<ctype.h>
+	<stddef.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+
+1322653306 source:k:\cpp\lib\lua-5.2.0\src\ltable.c
+	<string.h>
+	"lua.h"
+	"ldebug.h"
+	"ldo.h"
+	"lgc.h"
+	"lmem.h"
+	"lobject.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+	"lvm.h"
+
+1322497590 source:k:\cpp\lib\lua-5.2.0\src\ltablib.c
+	<stddef.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+
+1307039500 source:k:\cpp\lib\lua-5.2.0\src\ltm.c
+	<string.h>
+	"lua.h"
+	"lobject.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+	"ltm.h"
+
+1323704044 source:k:\cpp\lib\lua-5.2.0\src\lua.c
+	<signal.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+	<unistd.h>
+	<io.h>
+	<stdio.h>
+	<stdio.h>
+	<readline/readline.h>
+	<readline/history.h>
+
+1322585194 source:k:\cpp\lib\lua-5.2.0\src\luac.c
+	<errno.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"lauxlib.h"
+	"lobject.h"
+	"lstate.h"
+	"lundump.h"
+	<ctype.h>
+	<stdio.h>
+	"ldebug.h"
+	"lobject.h"
+	"lopcodes.h"
+
+1323250752 source:k:\cpp\lib\lua-5.2.0\src\lundump.c
+	<string.h>
+	"lua.h"
+	"ldebug.h"
+	"ldo.h"
+	"lfunc.h"
+	"lmem.h"
+	"lobject.h"
+	"lstring.h"
+	"lundump.h"
+	"lzio.h"
+
+1323265436 source:k:\cpp\lib\lua-5.2.0\src\lvm.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"ldebug.h"
+	"ldo.h"
+	"lfunc.h"
+	"lgc.h"
+	"lobject.h"
+	"lopcodes.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+	"ltm.h"
+	"lvm.h"
+
+1310729732 source:k:\cpp\lib\lua-5.2.0\src\lzio.c
+	<string.h>
+	"lua.h"
+	"llimits.h"
+	"lmem.h"
+	"lstate.h"
+	"lzio.h"
+
+1355817938 source:k:\cpp\scr\lua_test\main.cpp
+	<iostream>
+	<lua.hpp>
+

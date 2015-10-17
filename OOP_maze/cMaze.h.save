@@ -1,0 +1,136 @@
+#ifndef CMAZE_H
+#define CMAZE_H
+
+#include <stack>
+#include <string>
+#include <iostream>
+#include <fstream>
+#include <stdlib.h>
+#include <time.h>
+#include "c2DArray.h"
+
+
+
+namespace Maze
+{
+
+class cMaze
+{
+public:
+    ///виды элементов
+    enum elements
+    {
+        elementBegin = 0,
+        elementSpase = 0,
+        elementWall = 1,
+        elementIndestructibleWall = 2,
+        elementEnd = 2
+    };
+    ///выды алгоритмов построения
+    enum generatorType
+    {
+        genType_1 = 1,
+    };
+
+    ///конструкторы
+    cMaze() : mArray(0, 0)
+    {}
+
+    cMaze(unsigned short int x, unsigned short int y): mArray(x, y)
+    {}
+
+    // деструктор
+    //virtual ~cMaze();
+
+    /// устоновить новый размер
+    void setSize(unsigned short int x, unsigned short int y)
+    {
+        mArray.resize(x,y);
+    }
+
+    /// получит текущие размеры
+    unsigned short int getSize_x(void) {return mArray.getSize_x();}
+    unsigned short int getSize_y(void) {return mArray.getSize_y();}
+
+    /// переопределение оператора скобки ()
+    elements &operator()(unsigned short int x, unsigned short int y)
+    {
+        return mArray(x,y);
+    }
+    const elements &operator()(unsigned short int x, unsigned short int y) const
+    {
+        return mArray(x,y);
+    }
+
+
+
+
+
+    ///генерация лабиринта,
+    void generate(generatorType genType);
+
+
+    /// построить вокруг лабиринта стену по умолчанию неразрушимая стена
+    void generateAroundWall(const  elements elem = cMaze::elementIndestructibleWall);
+
+    /// заполнить пространство элементом
+    void fillMaze(const  elements elem = cMaze::elementSpase);
+
+
+    ///для случайных чисел
+    /// инициировать
+    static void randomize(unsigned n = 0)
+    {
+        if(!n)
+            srand(time(NULL));
+        else
+            srand(n);
+    }
+    /// получить в диапозоне от 0 до max
+    static unsigned short int rnd(unsigned short int max)
+    {
+        if (max>0) {return rand() % (max);}
+        return 0;
+    }
+    /// получить в диапозоне от N до M
+    static unsigned short int rnd(unsigned short int min, unsigned short int max)
+    {
+        if (((max-min)>0) &&(min>=0))
+            {return rand() % (max-min) + min;}
+        return 0;
+    }
+
+
+
+
+    /// печать в стандартный поток вывода - консоль
+    void printToConsole(void) { outToStrim(std::cout);   }
+    /// сохранить в файл
+    void saveToFile(const std::string fileName);
+private:
+    // для коордианат
+    struct coordinate
+    {
+        unsigned short int x; // the x coordinate
+        unsigned short int y; // the y coordinate
+    };
+
+
+    // хранит масив лабиринта
+    C2DArray< elements > mArray;
+
+    // генерация тип 1
+    void generateTape1(void);
+
+    // вывести в поток
+    void outToStrim(std::ostream &out);
+
+
+
+    //запрет копирования и присваивания
+    cMaze(const cMaze& other);
+    cMaze& operator=(const cMaze& other);
+};
+
+}
+#endif // CMAZE_H

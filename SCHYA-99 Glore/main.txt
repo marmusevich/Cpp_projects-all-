@@ -1,0 +1,229 @@
+﻿#include <cstdlib>
+#include <cstring>
+#include <cstdlib>
+#include <cstdio>
+
+#include <SDL.h>
+#include <SDL_TTF.h>
+
+#include "cSpriteEngine.h"
+#include "cBackGround.h"
+#include "cPlayer.h"
+#include "cEnemy.h"
+#include "cWearon.h"
+
+//㲥 Რ泱 FPS
+Uint32 ShowFPS_func(Uint32 interval, void *param);//Ჷ沠衢㯤 FPS
+void *param_for_FPS_func;
+SDL_TimerID FPS_timer_id ; // ᪬氠嬿 Ჷ泠
+
+inline void ClearScr(SDL_Surface *Screen, int r=0, int g=0, int b=0); // ︨렠뱠
+
+void TipeText(const char *text,int x, int y, int R, int G, int B); //렠嬿 㼢怒 櫱͊
+
+bool        ShowFPS,            //௪ᨻ㡲 FPS
+            ShowFPSInWinCap,    //௪ᨻ㡲 FPS ⡧᤮쯢률﫭͊            fullscreen,         //௫뱠顰槻썊            ShowCursor;         //௪ᨠ 鲲歭顪ﰍ
+int         width,              //鱨뱠
+            height,             //㼱ﳠ 뱠
+            bpp,                //⩲ 뱠
+            FPS_caunter,         //র步 嬿 Ჷ泠 FPS
+            FPS;                //讠殨塆PS
+char        *WinCaption,        //衣אַ㯪 﫭͊            *WinIconCaption;    //衣אַ㯪 髮 﫭͊SDL_Surface *WinIcon,           //髮 﫭͊            *Screen;            //쫠 뱠퍊
+TTF_Font *main_font = NULL; // 롧᳥켠鵲
+
+int main ( int argc, char** argv )
+{
+   {//鮨鬨衶鿠౮䱠���
+      ShowFPS=true;            //௪ᨻ㡲 FPS
+      ShowFPSInWinCap=true;    //௪ᨻ㡲 FPS ⡧᤮쯢률﫭͊      fullscreen=false;        //௫뱠顰槻썊      ShowCursor=true;        //௪ᨠ 鲲歭顪ﰍ
+      width=800;               //鱨뱠
+      height=600;              //㼱ﳠ 뱠
+      bpp=32;                  //⩲ 뱠
+      FPS=0;
+      FPS_caunter=0;
+      WinCaption=new char[20] ;
+      strcpy(WinCaption, "My App");
+      //    *WinIconCaption;         //衣אַ㯪 髮 﫭͊      //    *WinIcon,                //髮 﫭͊      //鮨鬨衶鿠SDL
+      if ( SDL_Init( ShowFPS ? SDL_INIT_TIMER|SDL_INIT_VIDEO : SDL_INIT_VIDEO ) < 0 )
+      {
+        fprintf(stderr, "Unable to init SDL: %s\n", SDL_GetError() );
+        return 1;
+      }
+      // 椨鱳欠龠㼵怒
+      //atexit(SDL_Quit);
+      //ᮠ㬨㡥졧᤮쯢猪﫭ଠ表믭볍
+      SDL_WM_SetCaption(WinCaption,WinIconCaption);
+      SDL_WM_SetIcon(WinIcon, NULL);
+      //ᨰ湥 뱠
+      Screen = SDL_SetVideoMode( width, height, bpp, fullscreen ? SDL_HWSURFACE|SDL_DOUBLEBUF|SDL_FULLSCREEN : SDL_HWSURFACE|SDL_DOUBLEBUF);
+      if ( Screen == NULL )
+      {
+        fprintf(stderr, "Unable to set %d x %d - %d video: %s\n", width, height, bpp, SDL_GetError());
+        exit(1);
+      }
+      //ﳮⱠ硲 봰ﰍ
+      SDL_ShowCursor(ShowCursor);
+      //᪬氠嬿 ௤泠 FPS
+      if (ShowFPS)
+        FPS_timer_id = SDL_AddTimer(1000, ShowFPS_func, param_for_FPS_func);
+      //鮨鬨衶鿠ষ᳨
+      if (TTF_Init() == -1)
+      {
+        fprintf(stderr, "Unable to initialize SDL_ttf: %s \n", TTF_GetError());
+      }
+      main_font = TTF_OpenFont("LucidaSansDemiBold.ttf", 16); // 䱳詬 鵲
+      if (main_font == NULL) {  // 沫衮���塧ᤰ詫 衮ᬱ NULL
+         fprintf(stderr, "Unable to load font: %s \n", TTF_GetError());
+         return false;
+      }
+
+   }//衪﮷鮠 ௤䯲ࡓDL
+
+
+   //鮨鬨衶鿠র步
+   cSpriteRepository *Repository=new cSpriteRepository((char*)"Sprites.info");
+   srand((1));
+   cSpriteEngine *sEn= new cSpriteEngine(Screen);
+   cBackGround *back_ground = new cBackGround(Screen, Repository->Image[0].Anim[0].image);
+   //鮨鬨衶鿠র步
+
+   cPlayer *player=new cPlayer(Repository, 4);
+   player->x = (Screen->w-player->w)/2;
+   player->y = (Screen->h-player->h);
+   player->z =50;
+   sEn->add(player);
+
+   cWearon *war;
+
+
+   cEnemy *sp;
+
+   for(int i=0;i<9;i++)
+   {
+      sp=new cEnemy(Repository, 5);
+      sp->x = rand() % (800+2*sp->w)-sp->w;
+      sp->y = rand() % (600+2*sp->h)-sp->h;
+      sp->z = rand() % (49);
+      sp->dx = rand() % (5)-3;
+      sp->dy = rand() % (5)-3;
+      sEn->add(sp);
+   }
+
+   //䬠㮻顶髫 ౮䱠���
+   bool done = false;
+   while (!done)
+   {
+      // ౮㦰렠驍
+      SDL_Event event;
+      while (SDL_PollEvent(&event))
+      {
+         switch (event.type)
+         {
+         case SDL_QUIT: //㼵鸞沫衮뮮 衪             done = true;
+             break;
+         case SDL_KEYDOWN: // 㼵鸞沫衭᧠ࡪ졢鹠 ESC
+             {
+                 if (event.key.keysym.sym == SDLK_ESCAPE)
+                     done = true;
+                 break;
+             }
+         }
+      } // ౮㦰렠驍
+      //௫殨塭᧠褐뮮૨
+      Uint8* keys;
+      keys=SDL_GetKeyState(NULL);
+      if(keys[SDLK_LEFT])
+      {
+        player->dx(-1);
+      }
+      if(keys[SDLK_RIGHT])
+      {
+       player->dx(1);
+      }
+      if(keys[SDLK_UP])
+      {
+       player->dy(-1);
+      }
+      if(keys[SDLK_DOWN])
+      {
+         player->dy(1);
+      }
+      if(keys[SDLK_SPACE])
+      {
+         //㼱櫍
+         war=new cWearon(Repository, 6);
+         war->x=player->x+player->w/2;
+         war->y=player->y;//+player->h/2;
+         sEn->add(war);
+      }
+
+
+//      if(!FPS_caunter)
+//      {
+//        int i= sEn->GetCount();//;
+//
+//        if(i>2)
+//         sEn->kill( (rand() % (i-2))  +1);
+//
+//        printf("i= %d   \n",i);
+//      }
+
+      sEn->process();
+
+      // ︨렠뱠
+      //ClearScr(Screen);
+      back_ground->draw();
+      sEn->draw();
+
+      if (ShowFPSInWinCap) //㼢鸞㲯ﭮ䡲欼 鮴ﱬᷨ荊      {
+         char text_tmp[100];
+         sprintf(text_tmp, "FPS: %d, ү᪲ : %d" ,FPS, sEn->GetCount());
+         TipeText(text_tmp,0, 0, 255, 0, 0);
+      }
+
+      SDL_Flip(Screen);
+      FPS_caunter++;
+   } //䬠㮻顶髫 ౮䱠���
+
+   //痢 衮鲲렠࡬荊   delete back_ground;
+   delete sp;
+   delete player;
+   delete sEn;
+   delete Repository;
+
+   SDL_RemoveTimer(FPS_timer_id);
+
+   TTF_CloseFont(main_font); // 衪怜 鲯לּ败��� 鵲
+   TTF_Quit(); // 衪怜 ⩡쩮櫳 鵲
+   SDL_Quit(); // 衪怜 SDL
+   return 0;
+}
+
+
+//--------------------------------------------------------------------------
+//Ჷ沠FPS
+Uint32 ShowFPS_func(Uint32 interval, void *param)
+{
+   FPS=FPS_caunter;
+   FPS_caunter=0;
+   return interval;
+}
+
+//------------------------------------------------------------------------
+// ︨렠뱠
+//Screen - 쫠 ︨᦬顽뱠퍊// r, g, b - 㦲 ﮠ ஠���ᮨ 汭顶㦲
+inline void ClearScr(SDL_Surface *Screen, int r, int g, int b)
+{
+    SDL_FillRect(Screen, 0, SDL_MapRGB(Screen->format, r, g, b));
+}
+
+
+void TipeText(const char *text,int x=0, int y=0, int R=0, int G=0, int B=0)
+{
+
+   SDL_Surface* textSurface = NULL; //﨤ᬨ ௢汵
+   SDL_Rect textLocation = { x, y, 0, 0 };//롧ᬨ 믮婭᳻
+   textSurface = TTF_RenderUTF8_Solid(main_font, text, { R, G, B });//﨤ᬨ ੱ
+   SDL_BlitSurface(textSurface, NULL, Screen, &textLocation); // 믯鱳欠櫲 檱 뱠 screen
+   SDL_FreeSurface(textSurface); // ﲢ婬 ௢汵 嬿 櫱͊}
+

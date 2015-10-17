@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="game" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="Debug" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj\Debug\" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Option projectIncludeDirsRelation="0" />
+				<Compiler>
+					<Add option="-ansi" />
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin\Release" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj\Release\" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+
+		</Compiler>
+		<Linker>
+
+		</Linker>
+		<Unit filename="Sprites.info" />
+		<Unit filename="ToDo.list">
+			<Option target="Debug" />
+		</Unit>
+		<Unit filename="cBackGround.cpp" />
+		<Unit filename="cBackGround.h" />
+		<Unit filename="cEnemy.cpp" />
+		<Unit filename="cEnemy.h" />
+		<Unit filename="cExplore.cpp" />
+		<Unit filename="cExplore.h" />
+		<Unit filename="cGUI.cpp" />
+		<Unit filename="cGUI.h" />
+		<Unit filename="cPlayer.cpp" />
+		<Unit filename="cPlayer.h" />
+		<Unit filename="cSpriteEngine.cxx" />
+		<Unit filename="cSpriteEngine.h" />
+		<Unit filename="cSpriteRepository.cxx" />
+		<Unit filename="cSpriteRepository.h" />
+		<Unit filename="cTraektoryLibrary.cpp" />
+		<Unit filename="cTraektoryLibrary.h" />
+		<Unit filename="cTrigonometri.cpp" />
+		<Unit filename="cTrigonometri.h" />
+		<Unit filename="cWearon.cpp" />
+		<Unit filename="cWearon.h" />
+		<Unit filename="cWidgets.cpp" />
+		<Unit filename="cWidgets.h" />
+		<Unit filename="csprite.cxx" />
+		<Unit filename="csprite.h" />
+		<Unit filename="main.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

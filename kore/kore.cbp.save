@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="kore" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="kore" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj\Debug\" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+		</Compiler>
+		<Unit filename="deprecated\cCheckBox.cpp" />
+		<Unit filename="deprecated\cCheckBox.h" />
+		<Unit filename="deprecated\cContainer.cpp" />
+		<Unit filename="deprecated\cContainer.h" />
+		<Unit filename="deprecated\cGuiManager.cpp" />
+		<Unit filename="deprecated\cTextBox.h" />
+		<Unit filename="deprecated\cTextbox.cpp" />
+		<Unit filename="deprecated\cWidget.cpp" />
+		<Unit filename="deprecated\cWidget.h" />
+		<Unit filename="deprecated\cWindow.cpp" />
+		<Unit filename="deprecated\cWindow.h" />
+		<Unit filename="include\Engine.h" />
+		<Unit filename="include\GraphicTypes.h" />
+		<Unit filename="include\SDL_rwops_zzip.h" />
+		<Unit filename="include\Singleton.h" />
+		<Unit filename="include\cAnimation.h" />
+		<Unit filename="include\cAnimationManager.h" />
+		<Unit filename="include\cApp.h" />
+		<Unit filename="include\cCamera.h" />
+		<Unit filename="include\cFontManager.h" />
+		<Unit filename="include\cGraphics.h" />
+		<Unit filename="include\cInput.h" />
+		<Unit filename="include\cMusic.h" />
+		<Unit filename="include\cProcessManager.h" />
+		<Unit filename="include\cSound.h" />
+		<Unit filename="include\cSoundManager.h" />
+		<Unit filename="include\cStateManager.h" />
+		<Unit filename="include\cTextureManager.h" />
+		<Unit filename="include\cTimer.h" />
+		<Unit filename="include\ePurpose.h" />
+		<Unit filename="include\globals.h" />
+		<Unit filename="include\keys.h" />
+		<Unit filename="include\kore.h" />
+		<Unit filename="src\Engine.cpp" />
+		<Unit filename="src\SDL_rwops_zzip.cpp" />
+		<Unit filename="src\cAnimation.cpp" />
+		<Unit filename="src\cAnimationManager.cpp" />
+		<Unit filename="src\cApp.cpp" />
+		<Unit filename="src\cCamera.cpp" />
+		<Unit filename="src\cFontManager.cpp" />
+		<Unit filename="src\cGraphics.cpp" />
+		<Unit filename="src\cInput.cpp" />
+		<Unit filename="src\cMusic.cpp" />
+		<Unit filename="src\cProcessManager.cpp" />
+		<Unit filename="src\cSound.cpp" />
+		<Unit filename="src\cSoundManager.cpp" />
+		<Unit filename="src\cStateManager.cpp" />
+		<Unit filename="src\cTextureManager.cpp" />
+		<Unit filename="src\cTimer.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

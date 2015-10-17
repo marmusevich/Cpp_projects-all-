@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="t12" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin\Debug\t12" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj\Debug\" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="Tutorial\AIBase.cpp" />
+		<Unit filename="Tutorial\AIBase.h" />
+		<Unit filename="Tutorial\Bullet.cpp" />
+		<Unit filename="Tutorial\Bullet.h" />
+		<Unit filename="Tutorial\Enemy.cpp" />
+		<Unit filename="Tutorial\Enemy.h" />
+		<Unit filename="Tutorial\Explosion.cpp" />
+		<Unit filename="Tutorial\Explosion.h" />
+		<Unit filename="Tutorial\Graphics.cpp" />
+		<Unit filename="Tutorial\Graphics.h" />
+		<Unit filename="Tutorial\LiveObject.cpp" />
+		<Unit filename="Tutorial\LiveObject.h" />
+		<Unit filename="Tutorial\PlayerShip.cpp" />
+		<Unit filename="Tutorial\PlayerShip.h" />
+		<Unit filename="Tutorial\Resource.h" />
+		<Unit filename="Tutorial\Shader.cpp" />
+		<Unit filename="Tutorial\Shader.h" />
+		<Unit filename="Tutorial\Sprite.cpp" />
+		<Unit filename="Tutorial\Sprite.h" />
+		<Unit filename="Tutorial\SpriteAnimation.cpp" />
+		<Unit filename="Tutorial\SpriteAnimation.h" />
+		<Unit filename="Tutorial\StarField.cpp" />
+		<Unit filename="Tutorial\StarField.h" />
+		<Unit filename="Tutorial\Texture.cpp" />
+		<Unit filename="Tutorial\Texture.h" />
+		<Unit filename="Tutorial\Tutorial.cpp" />
+		<Unit filename="Tutorial\Tutorial.h" />
+		<Unit filename="Tutorial\Utils.cpp" />
+		<Unit filename="Tutorial\Utils.h" />
+		<Unit filename="Tutorial\VertexTypes.h" />
+		<Unit filename="Tutorial\ai.lua" />
+		<Unit filename="Tutorial\ps.hlsl" />
+		<Unit filename="Tutorial\singleton.h" />
+		<Unit filename="Tutorial\stdafx.cpp" />
+		<Unit filename="Tutorial\stdafx.h" />
+		<Unit filename="Tutorial\targetver.h" />
+		<Unit filename="Tutorial\vs.hlsl" />
+		<Unit filename="main.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

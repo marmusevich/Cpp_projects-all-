@@ -1,0 +1,95 @@
+# depslib dependency file v1.0
+1355990073 source:k:\cpp\scr\oop_maze\main.cpp
+	<iostream>
+	"cMaze.h"
+
+1355145447 source:k:\cpp\scr\oop_maze\cmaze.cpp
+	"cMaze.h"
+
+1355136861 k:\cpp\scr\oop_maze\cmaze.h
+	<stack>
+	<string>
+	<iostream>
+	<fstream>
+	<stdlib.h>
+	<time.h>
+	<clocale>
+	<cwchar>
+	"c2DArray.h"
+
+1355070020 k:\cpp\scr\oop_maze\c2darray.h
+	<vector>
+	<assert.h>
+
+1355077545 source:d:\cpp\scr\oop_maze\main.cpp
+	<iostream>
+	"cMaze.h"
+
+1355078155 d:\cpp\scr\oop_maze\cmaze.h
+	<stack>
+	<string>
+	<iostream>
+	<fstream>
+	<stdlib.h>
+	<time.h>
+	<cwchar>
+	"c2DArray.h"
+
+1355070020 d:\cpp\scr\oop_maze\c2darray.h
+	<vector>
+	<assert.h>
+
+1355077503 source:d:\cpp\scr\oop_maze\cmaze.cpp
+	"cMaze.h"
+
+1355000592 source:d:\cpp\scr\oop_maze\untitled1.c
+
+1355072153 source:m:\cpp\scr\oop_maze\cmaze.cpp
+	"cMaze.h"
+
+1355071362 m:\cpp\scr\oop_maze\cmaze.h
+	<stack>
+	<string>
+	<iostream>
+	<fstream>
+	<stdlib.h>
+	<time.h>
+	"c2DArray.h"
+
+1355070019 m:\cpp\scr\oop_maze\c2darray.h
+	<vector>
+	<assert.h>
+
+1355072153 source:m:\cpp\scr\oop_maze\main.cpp
+	<iostream>
+	"cMaze.h"
+
+1355000592 source:m:\cpp\scr\oop_maze\untitled1.c
+
+1355000592 source:k:\cpp\scr\oop_maze\tipe1_beta.cpp
+
+1355149048 source:e:\lexa\cpp_proj\oop_maze\cmaze.cpp
+	"cMaze.h"
+
+1355140462 e:\lexa\cpp_proj\oop_maze\cmaze.h
+	<stack>
+	<string>
+	<iostream>
+	<fstream>
+	<stdlib.h>
+	<time.h>
+	<clocale>
+	<cwchar>
+	"c2DArray.h"
+
+1355073620 e:\lexa\cpp_proj\oop_maze\c2darray.h
+	<vector>
+	<assert.h>
+
+1355004192 source:e:\lexa\cpp_proj\oop_maze\tipe1_beta.cpp
+
+1411922714 source:e:\lexa\cpp_proj\oop_maze\main.cpp
+	<iostream>
+	<fstream>
+	"cMaze.h"
+

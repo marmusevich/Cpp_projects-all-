@@ -1,0 +1,46 @@
+SPRITES: 8
+# количество спрайтов
+#
+#»м€ файла --> количество кадров анимации --> пауза между кадрами -->
+# Ўирина кадра --> высота кадра --> R --> G --> B прозрачного
+#
+
+##########img\
+img\background.jpg 	01 001 512 410 -01 -01 -01
+img\Boom.png  		25 050 064 064 000 000 000
+#img\cursor.png 	01 001 150 120 000 000 000
+img\Explo.png 		14 80 128 110 000 000 000
+#img\font_0.png 	01 001 150 120 000 000 000
+#img\Left.jpg 		01 001 150 120 000 000 000
+img\Player.png 		01 001 050 050 255 000 255
+img\Ship.png 		01 001 064 064 000 255 255
+#img\space.png 		01 001 150 120 000 000 000
+
+##########img\enemy\
+#img\enemy\Asteroid.png 01 001 512 410 -01 -01 -01
+#img\enemy\fighter1.png 01 001 512 410 -01 -01 -01
+#img\enemy\fighter2.png 01 001 512 410 -01 -01 -01
+img\enemy\Monster1.png 08 080 048 048 254 -00 254
+#img\enemy\ship1.png    01 001 512 410 -01 -01 -01
+#img\enemy\ship2.png    01 001 512 410 -01 -01 -01
+
+##########img\wearon\
+#img\wearon\big_cannon.png          01 001 512 410 -01 -01 -01
+#img\wearon\big_cannon_logo.png     01 001 512 410 -01 -01 -01
+img\wearon\Bullet.png              01 001 014 026 000 000 000
+#img\wearon\Bullet_logo.png         01 001 512 410 -01 -01 -01
+#img\wearon\cannon.png              01 001 512 410 -01 -01 -01
+#img\wearon\cannon_logo.png         01 001 512 410 -01 -01 -01
+#img\wearon\catapult_rock.png       01 001 512 410 -01 -01 -01
+#img\wearon\catapult_rock_logo.png  01 001 512 410 -01 -01 -01
+#img\wearon\Plasma.png              01 001 512 410 -01 -01 -01
+#img\wearon\Plasma_logo.png         01 001 512 410 -01 -01 -01
+#img\wearon\rocket.png              01 001 512 410 -01 -01 -01
+#img\wearon\rocket_logo.png         01 001 512 410 -01 -01 -01
+#img\wearon\rune.png                01 001 512 410 -01 -01 -01
+#img\wearon\rune_logo.png           01 001 512 410 -01 -01 -01
+#img\wearon\touch_of_death.png      01 001 512 410 -01 -01 -01
+#img\wearon\touch_of_death_logo.png 01 001 512 410 -01 -01 -01
+
+################################################################
+img\GUI\cursors.png 01 001 040 040 000 255 255
