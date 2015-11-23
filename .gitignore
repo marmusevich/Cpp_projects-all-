@@ -1,4 +1,10 @@
 obj
 *.exe
+exe
 *.o
+o
 Release
+*.save
+save
+*.save
+/kore/*.save
