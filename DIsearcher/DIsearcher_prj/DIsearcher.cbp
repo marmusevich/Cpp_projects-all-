@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="DIsearcher" />
+		<Option pch_mode="2" />
+		<Option default_target="Release" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="DIsearcher" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Option parameters="2.txt genlist_mouse_isx.txt 40 list1_.txt list2_.txt 50000" />
+				<Compiler>
+					<Add option="-std=c++11" />
+					<Add option="-pg" />
+					<Add option="-g" />
+				</Compiler>
+				<Linker>
+					<Add option="-pg -lgmon" />
+				</Linker>
+			</Target>
+			<Target title="win Release">
+				<Option platforms="Windows;" />
+				<Option output="DIsearcher" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Option parameters="1.txt gene.txt 40 20000 list1.txt list2.txt " />
+				<Compiler>
+					<Add option="-fexpensive-optimizations" />
+					<Add option="-O3" />
+					<Add option="-O2" />
+					<Add option="-O1" />
+					<Add option="-O" />
+					<Add option="-std=c++11" />
+				</Compiler>
+			</Target>
+			<Target title="lin Release">
+				<Option platforms="Unix;" />
+				<Option output="DIsearcher_Linux" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Option parameters="1.txt gene.txt 40 20000 list1.txt list2.txt " />
+				<Compiler>
+					<Add option="-fexpensive-optimizations" />
+					<Add option="-O3" />
+					<Add option="-O2" />
+					<Add option="-O1" />
+					<Add option="-O" />
+					<Add option="-std=c++11" />
+				</Compiler>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-std=c++0x" />
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="cDI_out.cpp" />
+		<Unit filename="cDI_out.h" />
+		<Unit filename="cDIindex.cpp" />
+		<Unit filename="cDIindex.h" />
+		<Unit filename="cDupl.cpp" />
+		<Unit filename="cDupl.h" />
+		<Unit filename="cGenesParam.cpp" />
+		<Unit filename="cGenesParam.h" />
+		<Unit filename="cGloballRunable.cpp" />
+		<Unit filename="cGloballRunable.h" />
+		<Unit filename="cOneGene.cpp" />
+		<Unit filename="cOneGene.h" />
+		<Unit filename="cOutResult.cpp" />
+		<Unit filename="cOutResult.h" />
+		<Unit filename="cRSS.cpp" />
+		<Unit filename="cRSS.h" />
+		<Unit filename="cStatistic.cpp" />
+		<Unit filename="cStatistic.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="my_type.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="utils.cpp" />
+		<Unit filename="utils.h" />
+		<Extensions>
+			<DoxyBlocks>
+				<comment_style block="0" line="0" />
+				<doxyfile_project />
+				<doxyfile_build />
+				<doxyfile_warnings />
+				<doxyfile_output />
+				<doxyfile_dot />
+				<general />
+			</DoxyBlocks>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
