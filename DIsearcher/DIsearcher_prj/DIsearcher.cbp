@@ -27,7 +27,7 @@
 				<Option output="DIsearcher" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/" />
 				<Option type="1" />
-				<Option compiler="gcc" />
+				<Option compiler="cb64-gnu_gcc_compiler" />
 				<Option parameters="1.txt gene.txt 40 20000 list1.txt list2.txt " />
 				<Compiler>
 					<Add option="-fexpensive-optimizations" />
