@@ -242,18 +242,7 @@ bool cOneGene::di_out_push_back(eDeleciya del_inv, const cDI_out &_di)
         if ( find_it == DI_out.end() )
         {
             vector<cDI_out> di_out;
-            try
-            {
-                di_out.push_back(_di);
-            }
-            catch (bad_alloc xa)
-            {
-                cout <<"   !!!(VECTOR) di_out.size= "<<(di_out.size()) ;// <<endl;
-                cout <<"    di_out.max_size= "<<(di_out.max_size()) <<" " <<xa.what() <<endl;
-                throw;
-                return false;
-            }
-
+            di_out.push_back(_di);
             DI_out.insert( pair<uint8_t, vector<cDI_out> >(static_cast<uint8_t>(del_inv), di_out));
         }
         else
@@ -276,8 +265,8 @@ bool cOneGene::di_out_push_back(eDeleciya del_inv, const cDI_out &_di)
     }
     catch (bad_alloc xa)
     {
-        cout <<"   !!! (MAP) DI_out.size= "<<(DI_out.size());//<<endl;
-        cout <<"    DI_out.max_size= "<<(DI_out.max_size()) <<" " <<xa.what() <<endl;
+        cout <<"!!!! di_out.size= "<<long(DI_out.size()) <<" " <<endl;
+        cout <<"!!!! di_out.max_size= "<<long(DI_out.max_size()) <<" " <<endl;
         return false;
     }
 }

@@ -5,10 +5,10 @@ using namespace std;
 
 //#define func(t, a, b) { t temp; temp = a; a = b; b = temp;}
 
-func a(int aaa);
+//func a(int aaa);
 
 int main()
-{/*
+{
 int num [3][4] = {{3,   6,    9,    12},
                   {15,  25,   30,   35},
                   {66,  77,   88,   99}};
@@ -21,7 +21,7 @@ int num [3][4] = {{3,   6,    9,    12},
 
 
     cout << ( *(*(num + 1) +1) +1  ) << endl;
-  */
+
 /*
     char op = 5;
     int i =5;
