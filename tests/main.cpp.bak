@@ -3,60 +3,26 @@
 
 using namespace std;
 
-#define func(t, a, b) { t temp; temp = a; a = b; b = temp;}
-
-int main()
-{/*
-int num [3][4] = {{3,   6,    9,    12},
-                  {15,  25,   30,   35},
-                  {66,  77,   88,   99}};
-
-    for( int i = 0; i<3; i++)
-        for( int j = 0; j<4; j++)
-
-    //cout <<"[ " <<i <<", " <<j <<" ] = "  << ( *(*(num + i) +j)  ) << endl;
-    cout <<"[ " <<i <<", " <<j <<" ] = "  << ( *( *num + 1)  ) << endl;
-
-
-    cout << ( *(*(num + 1) +1) +1  ) << endl;
-  */
-/*
-    char op = 5;
-    int i =5;
-    switch(op)
+class A
+{
+private:
+public:
+    A()
     {
- case '5':
-        cout << "case 1" << endl;
-        break;
-     case i:
-        cout << "case 2" << endl;
-        break;
-     default:
-        cout << "case 3" << endl;
-        break;
 
     }
-*/
-/*
-int a = 3, b = 4;
-float c = 4.5, d = 5.99;
-func(int, a, b);
-func(float, c, d);
+    ~A()
+    {
+        cout << "Animall speacking" << endl;
+    }
+};
 
-printf("%d %d", a, b);
-printf("%.2f %.2f", c, d);
-*/
 
-void addup(int b);
-    addup(b);
+
+int main()
+{
+    A a;
+    a.~A();
     return 0;
 }
 
-int b = 5;
-
-void appud(int b)
-{
-    static int v1;
-    v1 = v1 + b;
-    printf("%d ", v1);
-}

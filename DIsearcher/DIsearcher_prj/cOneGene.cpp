@@ -248,7 +248,7 @@ bool cOneGene::di_out_push_back(eDeleciya del_inv, const cDI_out &_di)
             }
             catch (bad_alloc xa)
             {
-                cout <<"   !!!(VECTOR) di_out.size= "<<(di_out.size()) ;// <<endl;
+                cout <<"   !!!(VECTOR NEW) di_out.size= "<<(di_out.size()) ;// <<endl;
                 cout <<"    di_out.max_size= "<<(di_out.max_size()) <<" " <<xa.what() <<endl;
                 throw;
                 return false;
@@ -257,7 +257,17 @@ bool cOneGene::di_out_push_back(eDeleciya del_inv, const cDI_out &_di)
             DI_out.insert( pair<uint8_t, vector<cDI_out> >(static_cast<uint8_t>(del_inv), di_out));
         }
         else
-            find_it->second.push_back(_di);
+            try
+            {
+                find_it->second.push_back(_di);
+            }
+            catch (bad_alloc xa)
+            {
+                cout <<"   !!!(VECTOR ADD) di_out.size= "<<(find_it->second.size()) ;// <<endl;
+                cout <<"    di_out.max_size= "<<(find_it->second.max_size()) <<" " <<xa.what() <<endl;
+                throw;
+                return false;
+            }
 
 
 #ifdef __test
