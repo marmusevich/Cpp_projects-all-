@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<FileVersion major="1" minor="0" />
+	<ActiveTarget name="Debug" />
+	<File name="tipe2.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="951" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="c2DArray.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="main.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="358" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="cMaze.cpp" open="1" top="1" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="7757" topLine="83" />
+		</Cursor>
+		<Folding>
+			<Collapse line="4" />
+			<Collapse line="32" />
+			<Collapse line="39" />
+			<Collapse line="85" />
+			<Collapse line="104" />
+			<Collapse line="131" />
+			<Collapse line="148" />
+			<Collapse line="189" />
+			<Collapse line="292" />
+			<Collapse line="309" />
+			<Collapse line="322" />
+			<Collapse line="343" />
+			<Collapse line="355" />
+			<Collapse line="371" />
+			<Collapse line="387" />
+		</Folding>
+	</File>
+	<File name="tipe1_beta.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="313" topLine="31" />
+		</Cursor>
+	</File>
+	<File name="cMaze.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="92" topLine="137" />
+		</Cursor>
+		<Folding>
+			<Collapse line="21" />
+			<Collapse line="143" />
+			<Collapse line="151" />
+			<Collapse line="160" />
+		</Folding>
+	</File>
+	<EditorTabsLayout layout="097b982056b38c790000b8fe00000002=0;OOP_maze:main.cpp,*1;OOP_maze:cMaze.cpp,2;OOP_maze:cMaze.h,3;OOP_maze:c2DArray.h@layout2|name=dummy;caption=;state=2098174;dir=3;layer=0;row=0;pos=0;prop=100000;bestw=768;besth=338;minw=768;minh=338;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=097b982056b38c790000b8fe00000002;caption=;state=2098172;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=200;besth=200;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(5,0,0)=202|" />
+</CodeBlocks_layout_file>

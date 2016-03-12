@@ -93,3 +93,28 @@
 	<fstream>
 	"cMaze.h"
 
+1355145448 source:d:\lexa\_github\cpp_projects-all-\oop_maze\cmaze.cpp
+	"cMaze.h"
+
+1355136862 d:\lexa\_github\cpp_projects-all-\oop_maze\cmaze.h
+	<stack>
+	<string>
+	<iostream>
+	<fstream>
+	<stdlib.h>
+	<time.h>
+	<clocale>
+	<cwchar>
+	"c2DArray.h"
+
+1355070020 d:\lexa\_github\cpp_projects-all-\oop_maze\c2darray.h
+	<vector>
+	<assert.h>
+
+1355000592 source:d:\lexa\_github\cpp_projects-all-\oop_maze\tipe1_beta.cpp
+
+1454602264 source:d:\lexa\_github\cpp_projects-all-\oop_maze\main.cpp
+	<iostream>
+	<fstream>
+	"cMaze.h"
+

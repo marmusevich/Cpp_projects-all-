@@ -11,9 +11,9 @@ int main(int argc, char *argv[])
 {
     cMaze m(35,25);
     m.generate(cMaze::genType_1);
-    //m.printToConsole();
+    m.printToConsole();
     //m.setSomeSpacePercent(60);
-    //cout <<endl;
+    cout <<endl;
     //m.printToConsole();
 
 
