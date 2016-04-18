@@ -19,42 +19,42 @@
 		<Compiler>
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
-			<Add directory="Z:/opencv2411/include" />
-			<Add directory="Z:/opencv2411/include/opencv" />
-			<Add directory="Z:/opencv2411/include/opencv2" />
+			<Add directory="../../../cpp/cpp_lib/opencv2411/include" />
+			<Add directory="../../../cpp/cpp_lib/opencv2411/include/opencv" />
+			<Add directory="../../../cpp/cpp_lib/opencv2411/include/opencv2" />
 		</Compiler>
 		<ResourceCompiler>
-			<Add directory="Z:/opencv2411/mingw_x64/bin" />
+			<Add directory="../../../cpp/cpp_lib/opencv2411/mingw_x64/bin" />
 		</ResourceCompiler>
 		<Linker>
-			<Add library="Z:/opencv2411/mingw_x64/lib/libopencv_core2411.dll.a" />
-			<Add library="Z:/opencv2411/mingw_x64/lib/libopencv_highgui2411.dll.a" />
-			<Add library="Z:/opencv2411/mingw_x64/lib/libopencv_imgproc2411.dll.a" />
-			<Add library="Z:/opencv2411/mingw_x64/lib/libopencv_calib3d2411.dll.a" />
-			<Add library="Z:/opencv2411/mingw_x64/lib/libopencv_contrib2411.dll.a" />
-			<Add library="Z:/opencv2411/mingw_x64/lib/libopencv_features2d2411.dll.a" />
-			<Add library="Z:/opencv2411/mingw_x64/lib/libopencv_flann2411.dll.a" />
-			<Add library="Z:/opencv2411/mingw_x64/lib/libopencv_gpu2411.dll.a" />
-			<Add library="Z:/opencv2411/mingw_x64/lib/libopencv_legacy2411.dll.a" />
-			<Add library="Z:/opencv2411/mingw_x64/lib/libopencv_ml2411.dll.a" />
-			<Add library="Z:/opencv2411/mingw_x64/lib/libopencv_nonfree2411.dll.a" />
-			<Add library="Z:/opencv2411/mingw_x64/lib/libopencv_objdetect2411.dll.a" />
-			<Add library="Z:/opencv2411/mingw_x64/lib/libopencv_ocl2411.dll.a" />
-			<Add library="Z:/opencv2411/mingw_x64/lib/libopencv_photo2411.dll.a" />
-			<Add library="Z:/opencv2411/mingw_x64/lib/libopencv_stitching2411.dll.a" />
-			<Add library="Z:/opencv2411/mingw_x64/lib/libopencv_superres2411.dll.a" />
-			<Add library="Z:/opencv2411/mingw_x64/lib/libopencv_ts2411.a" />
-			<Add library="Z:/opencv2411/mingw_x64/lib/libopencv_video2411.dll.a" />
-			<Add library="Z:/opencv2411/mingw_x64/lib/libopencv_videostab2411.dll.a" />
-			<Add directory="Z:/opencv2411/mingw_x64/lib" />
-			<Add directory="Z:/opencv2411/mingw_x64/bin" />
+			<Add library="../../../cpp/cpp_lib/opencv2411/mingw_x64/lib/libopencv_core2411.dll.a" />
+			<Add library="../../../cpp/cpp_lib/opencv2411/mingw_x64/lib/libopencv_highgui2411.dll.a" />
+			<Add library="../../../cpp/cpp_lib/opencv2411/mingw_x64/lib/libopencv_imgproc2411.dll.a" />
+			<Add library="../../../cpp/cpp_lib/opencv2411/mingw_x64/lib/libopencv_calib3d2411.dll.a" />
+			<Add library="../../../cpp/cpp_lib/opencv2411/mingw_x64/lib/libopencv_contrib2411.dll.a" />
+			<Add library="../../../cpp/cpp_lib/opencv2411/mingw_x64/lib/libopencv_features2d2411.dll.a" />
+			<Add library="../../../cpp/cpp_lib/opencv2411/mingw_x64/lib/libopencv_flann2411.dll.a" />
+			<Add library="../../../cpp/cpp_lib/opencv2411/mingw_x64/lib/libopencv_gpu2411.dll.a" />
+			<Add library="../../../cpp/cpp_lib/opencv2411/mingw_x64/lib/libopencv_legacy2411.dll.a" />
+			<Add library="../../../cpp/cpp_lib/opencv2411/mingw_x64/lib/libopencv_ml2411.dll.a" />
+			<Add library="../../../cpp/cpp_lib/opencv2411/mingw_x64/lib/libopencv_nonfree2411.dll.a" />
+			<Add library="../../../cpp/cpp_lib/opencv2411/mingw_x64/lib/libopencv_objdetect2411.dll.a" />
+			<Add library="../../../cpp/cpp_lib/opencv2411/mingw_x64/lib/libopencv_ocl2411.dll.a" />
+			<Add library="../../../cpp/cpp_lib/opencv2411/mingw_x64/lib/libopencv_photo2411.dll.a" />
+			<Add library="../../../cpp/cpp_lib/opencv2411/mingw_x64/lib/libopencv_stitching2411.dll.a" />
+			<Add library="../../../cpp/cpp_lib/opencv2411/mingw_x64/lib/libopencv_superres2411.dll.a" />
+			<Add library="../../../cpp/cpp_lib/opencv2411/mingw_x64/lib/libopencv_ts2411.a" />
+			<Add library="../../../cpp/cpp_lib/opencv2411/mingw_x64/lib/libopencv_video2411.dll.a" />
+			<Add library="../../../cpp/cpp_lib/opencv2411/mingw_x64/lib/libopencv_videostab2411.dll.a" />
+			<Add directory="../../../cpp/cpp_lib/opencv2411/mingw_x64/lib" />
+			<Add directory="../../../cpp/cpp_lib/opencv2411/mingw_x64/bin" />
 		</Linker>
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />
 			<debugger>
-				<search_path add="Z:\opencv2411\mingw_x64\bin" />
+				<search_path add="../../../cpp/cpp_lib/opencv2411/mingw_x64/bin" />
 			</debugger>
 			<lib_finder disable_auto="1" />
 		</Extensions>

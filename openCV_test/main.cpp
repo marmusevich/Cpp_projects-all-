@@ -8,7 +8,7 @@ using namespace std;
 void ShowPic()
 {
     Mat img;
-    img = imread("z:\IMG_4223.jpg");
+    img = imread("PASA002.png");
     imshow("Original Image", img);
     waitKey();
 }
