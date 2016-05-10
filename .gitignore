@@ -10,3 +10,4 @@ save
 /kore/*.save
 bin
 /openCV_test/*.layout
+/tests/*.layout
