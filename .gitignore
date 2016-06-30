@@ -11,3 +11,5 @@ save
 bin
 /openCV_test/*.layout
 /tests/*.layout
+/wx_test/wx_pch.h.gch
+/wx_test/Debug
