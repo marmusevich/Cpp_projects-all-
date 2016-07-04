@@ -40,9 +40,12 @@
 			<Add library="../../../../cpp/MinGW64_6.1.0/lib/libboost_regex.a" />
 			<Add library="../../../../cpp/MinGW64_6.1.0/lib/libboost_system.a" />
 			<Add library="../../../../cpp/MinGW64_6.1.0/x86_64-w64-mingw32/lib/libws2_32.a" />
+			<Add library="../../../../cpp/MinGW64_6.1.0/lib/libboost_thread.a" />
 			<Add directory="../../../../cpp/MinGW64_6.1.0/lib" />
 			<Add directory="../../../../cpp/MinGW64_6.1.0/x86_64-w64-mingw32/lib" />
 		</Linker>
+		<Unit filename="../chat_message.hpp" />
+		<Unit filename="chat_client.cpp" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />

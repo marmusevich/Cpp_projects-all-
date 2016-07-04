@@ -44,6 +44,8 @@
 			<Add directory="../../../../cpp/MinGW64_6.1.0/lib" />
 			<Add directory="../../../../cpp/MinGW64_6.1.0/x86_64-w64-mingw32/lib" />
 		</Linker>
+		<Unit filename="../chat_message.hpp" />
+		<Unit filename="chat_server.cpp" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />
