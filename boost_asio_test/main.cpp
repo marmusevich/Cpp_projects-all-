@@ -61,3 +61,10 @@ int main(int argc, char *argv[])
     return 0;
 }
 
+// получить адрес
+// удаленный
+//From the socket object that serve given connection.
+//std::cout << "Peer IP: " << socket.remote_endpoint().address().to_string() << std::endl;
+// локальный
+//    boost::asio::ip::address addr = socket.local_endpoint().address();
+//    std::cout << "My IP according to google is: " << addr.to_string() << std::endl;
