@@ -30,8 +30,19 @@
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
+			<Add option="-std=c++11" />
 			<Add option="-fexceptions" />
+			<Add directory="../../../../cpp/MinGW64_6.1.0/include" />
+			<Add directory="../../../../cpp/MinGW64_6.1.0/x86_64-w64-mingw32/include" />
 		</Compiler>
+		<Linker>
+			<Add library="../../../../cpp/MinGW64_6.1.0/lib/libboost_date_time.a" />
+			<Add library="../../../../cpp/MinGW64_6.1.0/lib/libboost_regex.a" />
+			<Add library="../../../../cpp/MinGW64_6.1.0/lib/libboost_system.a" />
+			<Add library="../../../../cpp/MinGW64_6.1.0/x86_64-w64-mingw32/lib/libws2_32.a" />
+			<Add directory="../../../../cpp/MinGW64_6.1.0/lib" />
+			<Add directory="../../../../cpp/MinGW64_6.1.0/x86_64-w64-mingw32/lib" />
+		</Linker>
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />
