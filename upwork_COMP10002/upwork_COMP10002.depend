@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1493137136 source:d:\_github\cpp_projects-all-\upwork_comp10002\assmt1.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+
