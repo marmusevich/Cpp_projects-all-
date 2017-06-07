@@ -1,0 +1,56 @@
+# depslib dependency file v1.0
+1383690114 source:d:\_github\cpp_projects-all-\vectors\main.cpp
+	<iostream>
+
+1494394982 source:d:\_github\cpp_projects-all-\vectors\book.cpp
+	"book.h"
+
+1494394982 d:\_github\cpp_projects-all-\vectors\book.h
+	<iostream>
+	<string>
+
+1494394968 source:d:\_github\cpp_projects-all-\vectors\mergecatalogs.cpp
+	<iostream>
+	<string>
+	<fstream>
+	"book.h"
+	"catalog.h"
+
+1494394946 d:\_github\cpp_projects-all-\vectors\catalog.h
+	<string>
+	<iostream>
+	<vector>
+	"book.h"
+
+1495521784 source:d:\_github\cpp_projects-all-\vectors\testcatalog.cpp
+	<iostream>
+	<string>
+	<sstream>
+	"catalog.h"
+	"unittest.h"
+
+1495521782 d:\_github\cpp_projects-all-\vectors\unittest.h
+	<exception>
+	<string>
+	<map>
+	<sstream>
+	<vector>
+
+1495521784 source:d:\_github\cpp_projects-all-\vectors\unittest.cpp
+	<iostream>
+	<iomanip>
+	<set>
+	<sstream>
+	<chrono>
+	<thread>
+	<mutex>
+	<condition_variable>
+	<signal.h>
+	<setjmp.h>
+	<cstdlib>
+	"unittest.h"
+
+1496814368 source:d:\_github\cpp_projects-all-\vectors\catalog.cpp
+	"catalog.h"
+	<algorithm>
+
