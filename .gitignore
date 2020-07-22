@@ -17,3 +17,5 @@ bin
 /boost_asio_simple_server_client/client/Debug
 /boost_asio_simple_server_client/server/Debug
 /boost_asio_simple_server_client/*.layout
+*.depend
+*.bak

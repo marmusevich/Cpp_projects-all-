@@ -8,7 +8,7 @@
 		<Build>
 			<Target title="Debug">
 				<Option output="Debug" prefix_auto="1" extension_auto="1" />
-				<Option object_output="obj\Debug\" />
+				<Option object_output="obj/Debug/" />
 				<Option type="0" />
 				<Option compiler="gcc" />
 				<Option projectIncludeDirsRelation="0" />
@@ -18,8 +18,8 @@
 				</Compiler>
 			</Target>
 			<Target title="Release">
-				<Option output="bin\Release" prefix_auto="1" extension_auto="1" />
-				<Option object_output="obj\Release\" />
+				<Option output="bin/Release" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
 				<Option type="0" />
 				<Option compiler="gcc" />
 				<Compiler>
@@ -32,10 +32,11 @@
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
-
+			<Add directory="../../../cpp/MinGW_7.1.0/include/SDL2" />
 		</Compiler>
 		<Linker>
-
+			<Add library="../../../cpp/MinGW_7.1.0/lib/libSDL2.a" />
+			<Add library="../../../cpp/MinGW_7.1.0/lib/libSDL2_mixer.a" />
 		</Linker>
 		<Unit filename="Sprites.info" />
 		<Unit filename="ToDo.list">
