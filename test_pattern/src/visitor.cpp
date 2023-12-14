@@ -92,10 +92,10 @@ namespace
 void visitor_test()
 {
 	std::vector<std::shared_ptr<iFirst>> vf{
-		std::make_shared< cFirst_1>(),
-		std::make_shared< cFirst_2>(),
-		std::make_shared< cFirst_1>(),
-		std::make_shared< cFirst_2>(),
+		std::make_shared<cFirst_1>(),
+		std::make_shared<cFirst_2>(),
+		std::make_shared<cFirst_1>(),
+		std::make_shared<cFirst_2>(),
 	};
 
 
