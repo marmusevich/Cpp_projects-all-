@@ -8,7 +8,7 @@ namespace
 }
 
 
-void decorator_test()
+void stratege_test()
 {
 
 }

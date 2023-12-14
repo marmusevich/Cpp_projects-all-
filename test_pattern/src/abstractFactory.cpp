@@ -7,8 +7,7 @@ namespace
 
 }
 
-
-void decorator_test()
+void abstractFactory_test()
 {
 
 }

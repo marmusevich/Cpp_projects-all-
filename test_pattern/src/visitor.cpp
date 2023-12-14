@@ -91,9 +91,6 @@ namespace
 
 void visitor_test()
 {
-	std::cout << "Hello visitor!\n";
-
-
 	std::vector<std::shared_ptr<iFirst>> vf{
 		std::make_shared< cFirst_1>(),
 		std::make_shared< cFirst_2>(),
