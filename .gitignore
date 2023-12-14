@@ -4,14 +4,15 @@ exe
 *.o
 o
 Release
+Debug
+/Release
+/Debug
 *.save
 save
-*.save
 *.layout
-/kore/*.save
 bin
-/openCV_test/*.layout
-/tests/*.layout
+/bin
+/*.layout
 /wx_test/wx_pch.h.gch
 /wx_test/Debug
 /boost_asio_simple_server_client/client/Debug
@@ -19,3 +20,4 @@ bin
 /boost_asio_simple_server_client/*.layout
 *.depend
 *.bak
+
