@@ -1,8 +1,10 @@
 #include <iostream>
 #include <string>
 
-#include <conio.h> //getch() - windos only - todo get rid
-
+//windos only - todo get rid
+#ifdef  _WIN32
+#include <conio.h> //getch()
+#endif
 
 #define DEF_FUN(fn_name) void fn_name##_test()
 
@@ -46,11 +48,12 @@ int main()
 	CALL_FUN(templMethod);
 	CALL_FUN(visitor);
 
-
 	//------------------------
-	std::cout <<"\n\nEnd - press any key\n";
-	//windos only - todo get rid
-	(void)getch();
+    //windos only - todo get rid
+#ifdef  _WIN32
+    std::cout <<"\n\nEnd - press any key\n";
+    (void)getch();
+#endif
 }
 
 #undef DEF_FUN

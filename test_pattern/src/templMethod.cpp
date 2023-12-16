@@ -23,11 +23,8 @@ namespace
 
 	protected:
 		virtual void m1() const noexcept = 0;
-		virtual void m2() const noexcept = 0;
-		virtual void m3() const noexcept = 0
-		{
-			std::cout << " ---  m3 - default\n";
-		}
+        virtual void m2() const noexcept = 0;
+        virtual void m3() const noexcept = 0;
 
 	private:
 		void p1() const noexcept
@@ -86,7 +83,7 @@ namespace
 		void m3() const noexcept override
 		{
 			//use default impl
-			ADificultCalc::m3();
+            std::cout << "ERROR in *NIX (but not in ms visual c++): ADificultCalc::m3();\n";
 		}
 
 	private:

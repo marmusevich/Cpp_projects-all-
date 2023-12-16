@@ -1,11 +1,7 @@
 #include <iostream>
-#include <vector>
-#include <functional>
 
 namespace
 {
-	//fwd
-
 	struct IServer
 	{
 		virtual void doTask() const noexcept = 0;
@@ -25,13 +21,13 @@ namespace
 	struct IExtendServer : public IServer
 	{
 		IExtendServer(IServer const& parent)
-			: mParent(parent)
+        : mParent(parent)
 		{
 
 		}
 
 	protected:
-		std::reference_wrapper<const IServer> mParent;
+        const IServer& mParent;
 	};
 
 	struct CLogServer : public IExtendServer
@@ -45,11 +41,10 @@ namespace
 		void doTask() const noexcept override
 		{
 			std::cout << "\t\t>>> log work of server before\n";
-			mParent.get().doTask();
+            mParent.doTask();
 			std::cout << "\t\t>>> log work of server after\n";
 		}
 	};
-
 
 	struct CMeasureServer : public IExtendServer
 	{
@@ -62,7 +57,7 @@ namespace
 		void doTask() const noexcept override
 		{
 			std::cout << "\t--- measure work of server before\n";
-			mParent.get().doTask();
+            mParent.doTask();
 			std::cout << "\t--- measure work of server after\n";
 		}
 	};
