@@ -1,10 +1,6 @@
 #include <iostream>
 #include <string>
 
-//windos only - todo get rid
-#ifdef  _WIN32
-#include <conio.h> //getch()
-#endif
 
 #define DEF_FUN(fn_name) void fn_name##_test()
 
@@ -49,11 +45,8 @@ int main()
 	CALL_FUN(visitor);
 
 	//------------------------
-    //windos only - todo get rid
-#ifdef  _WIN32
-    std::cout <<"\n\nEnd - press any key\n";
-    (void)getch();
-#endif
+	std::cout << "\n\nEnd - press 'any'Enter' key\n";
+	(void)std::cin.get();
 }
 
 #undef DEF_FUN

@@ -2,3 +2,5 @@
 /out
 /build
 /_ms_build
+CMakeLists.txt.user
+build-test_pattern-Desktop-Debug

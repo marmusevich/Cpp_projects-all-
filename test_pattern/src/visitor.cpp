@@ -4,7 +4,6 @@
 #include <vector>
 #include <memory>
 
-
 namespace
 {
 	//fwd
@@ -20,7 +19,6 @@ namespace
 	};
 
 	//----------------------------------
-
 	struct iFirst
 	{
 		virtual void accept(iVisitor const& v) noexcept = 0;
@@ -56,10 +54,7 @@ namespace
 		}
 	};
 
-
-
 	//--------------
-
 	struct cVisitor_1 : public iVisitor
 	{
 		void boo(cFirst_1 const& fi1) const noexcept override
@@ -85,9 +80,7 @@ namespace
 			std::cout << "Another Visitor_2::boo with  >>> \t" << fi2.doAnother() << "\n";
 		}
 	};
-
 }
-
 
 void visitor_test()
 {
@@ -97,7 +90,6 @@ void visitor_test()
 		std::make_shared<cFirst_1>(),
 		std::make_shared<cFirst_2>(),
 	};
-
 
 	cVisitor_1 v1;
 	for (auto& p : vf)

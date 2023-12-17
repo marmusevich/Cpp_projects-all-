@@ -1,4 +1,5 @@
 #include <iostream>
+#include <memory>
 
 namespace
 {
@@ -20,19 +21,19 @@ namespace
 
 	struct IExtendServer : public IServer
 	{
-		IExtendServer(IServer const& parent)
-        : mParent(parent)
+		explicit IExtendServer(std::shared_ptr<IServer> parent)
+			: mParent(parent)
 		{
 
 		}
 
 	protected:
-        const IServer& mParent;
+		const std::shared_ptr<IServer> mParent;
 	};
 
 	struct CLogServer : public IExtendServer
 	{
-		CLogServer(IServer const& parent)
+		explicit CLogServer(std::shared_ptr<IServer> parent)
 			: IExtendServer(parent)
 		{
 
@@ -41,14 +42,14 @@ namespace
 		void doTask() const noexcept override
 		{
 			std::cout << "\t\t>>> log work of server before\n";
-            mParent.doTask();
+			mParent->doTask();
 			std::cout << "\t\t>>> log work of server after\n";
 		}
 	};
 
 	struct CMeasureServer : public IExtendServer
 	{
-		CMeasureServer(IServer const& parent)
+		explicit CMeasureServer(std::shared_ptr<IServer> parent)
 			: IExtendServer(parent)
 		{
 
@@ -57,7 +58,7 @@ namespace
 		void doTask() const noexcept override
 		{
 			std::cout << "\t--- measure work of server before\n";
-            mParent.doTask();
+			mParent->doTask();
 			std::cout << "\t--- measure work of server after\n";
 		}
 	};
@@ -66,33 +67,32 @@ namespace
 
 void decorator_test()
 {
-
-	CServer server;
+	auto server = std::make_shared<CServer>();
 
 	{
 		std::cout << "clear server: \n";
-		server.doTask();
+		server->doTask();
 		std::cout << " ...\n\n";
 	}
 
 	{
-		auto decarated = CLogServer{ server };
+		auto decarated = std::make_shared<CLogServer>(server);
 		std::cout << "logging server: \n";
-		decarated.doTask();
+		decarated->doTask();
 		std::cout << " ...\n\n";
 	}
 
 	{
-		auto decarated = CLogServer{ CMeasureServer{server } };
+		auto decarated = std::make_shared<CLogServer>(std::make_shared<CMeasureServer>(server));
 		std::cout << "logging + measure server: \n";
-		decarated.doTask();
+		decarated->doTask();
 		std::cout << " ...\n\n";
 	}
 
 	{
-		auto decarated = CMeasureServer{ CLogServer{server } };
+		auto decarated = std::make_shared<CMeasureServer>(std::make_shared<CLogServer>(server));
 		std::cout << "measure logging server: \n";
-		decarated.doTask();
+		decarated->doTask();
 		std::cout << " ...\n\n";
 	}
 }
