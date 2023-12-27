@@ -30,6 +30,11 @@ DEF_FUN(stratege);
 DEF_FUN(templMethod);
 DEF_FUN(visitor);
 
+//------------------------
+//review questions
+DEF_FUN(rq1);
+
+
 
 int main()
 {
@@ -43,6 +48,11 @@ int main()
 	CALL_FUN(stratege);
 	CALL_FUN(templMethod);
 	CALL_FUN(visitor);
+
+	//------------------------
+	//review questions
+	CALL_FUN(rq1);
+
 
 	//------------------------
 	std::cout << "\n\nEnd - press 'any'Enter' key\n";
