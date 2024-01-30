@@ -14,7 +14,8 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 FILE(GLOB_RECURSE headers "include/*.h")
 FILE(GLOB_RECURSE sources "src/*.cpp")
 
-add_executable(tests ${sources} ${headers})
+add_executable(pattern_tests ${sources} ${headers})
+
+target_include_directories(pattern_tests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR}  FILES ${sources} ${headers})
-

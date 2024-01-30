@@ -1,20 +1,4 @@
-#include <iostream>
-#include <string>
-
-
-#define DEF_FUN(fn_name) void fn_name##_test()
-
-#define CALL_FUN(fn_name) \
-do \
-{ \
-	std::cout << "----------------------------------------------------------\n"; \
-	std::cout << "\t\t\t\t<"#fn_name">\n"; \
-	std::cout << "----------------------------------------------------------\n"; \
-	fn_name##_test(); \
-	std::cout << "==========================================================\n\n"; \
-} \
-while (false)
-//[END] CALL_FUN
+#include "macros.h"
 
 
 
@@ -33,7 +17,7 @@ DEF_FUN(visitor);
 //------------------------
 //review questions
 DEF_FUN(rq1);
-
+DEF_FUN(rq2);
 
 
 int main()
@@ -52,12 +36,10 @@ int main()
 	//------------------------
 	//review questions
 	CALL_FUN(rq1);
-
+	CALL_FUN(rq2);
 
 	//------------------------
 	std::cout << "\n\nEnd - press 'any'Enter' key\n";
 	(void)std::cin.get();
 }
 
-#undef DEF_FUN
-#undef CALL_FUN
