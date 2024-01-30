@@ -39,7 +39,12 @@ int main()
 	CALL_FUN(rq2);
 
 	//------------------------
+#ifndef _MSC_VER
 	std::cout << "\n\nEnd - press 'any'Enter' key\n";
 	(void)std::cin.get();
+#endif // !_MSC_VER
+
+
+	
 }
 

@@ -11,6 +11,7 @@
 #include <unordered_set>
 #include <forward_list>
 #include <type_traits>
+#include <cctype>
 
 /*
 Задачи
@@ -525,21 +526,118 @@ class Solution_9 {
 public:
 	bool isPalindrome(int x) 
 	{
+		if (x < 0) return false;
 
+		long revert{ 0 };
+		for (auto copy = x; copy > 0; copy = copy / 10)
+		{
+			revert = revert * 10 + copy % 10;
+		}
+
+		if (revert > std::numeric_limits<int>::max()) return false;
+
+		return x == static_cast<int>(revert);
 	}
 
 	static void test()
 	{
 		std::cout << "----------------------------------------------------- \n";
-		std::cout << "209. Minimum Size Subarray Sum \n";
+		std::cout << "9. Palindrome Number \n";
 		Solution_9 s;
 
-		IS_TRUE((s.isPalindrome(4)));
+		IS_TRUE((s.isPalindrome(123) == true));
+		IS_TRUE((s.isPalindrome(121) == true));
+		IS_TRUE((s.isPalindrome(-121) == false));
+		IS_TRUE((s.isPalindrome(10) == false));
+		IS_TRUE((s.isPalindrome(4) == true));
+		IS_TRUE((s.isPalindrome(0) == true));
 
 		std::cout << "----------------------------------------------------- \n";
 	}
 };
 
+//125. Valid Palindrome
+//https://leetcode.com/problems/valid-palindrome/description/?envType=study-plan-v2&envId=top-interview-150
+class Solution_125
+{
+public:
+	bool isPalindrome_(std::string s)
+	{
+		if (s.empty()) return true;
+
+		auto lit = std::cbegin(s);
+		auto rit = std::cend(s);
+		--rit;
+
+		auto fnToLower = [](const char c) -> char
+			{
+				return (c >= 'A' && c <= 'Z') ? c + ('a' - 'A') : c;
+			};
+
+		auto fnIsLetter = [](const char c) -> bool
+			{
+				return (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z');
+			};
+
+		while (lit < rit)
+		{
+			while (!fnIsLetter(*lit) && lit < rit)
+			{
+				++lit;
+			}
+			char l = fnToLower(*lit);
+
+			while (!fnIsLetter(*rit) && lit < rit)
+			{
+				--rit;
+			}
+			char r = fnToLower(*rit);
+
+			if (l != r) return false;
+			++lit;
+			--rit;
+		}
+		return true;
+	}
+
+	bool isPalindrome(std::string s)
+	{
+		if (s.empty()) return true;
+
+		auto lit = std::cbegin(s);
+		auto rit = std::cend(s);
+		--rit;
+
+		while (lit < rit)
+		{
+			while (!std::isalnum(static_cast<unsigned char>(*lit)) && lit < rit) ++lit;
+			while (!std::isalnum(static_cast<unsigned char>(*rit)) && lit < rit) --rit;
+
+			const char r = std::tolower(static_cast<unsigned char>(*rit));
+			const char l = std::tolower(static_cast<unsigned char>(*lit));
+			if (l != r) return false;
+			++lit;
+			--rit;
+		}
+		return true;
+	}
+
+
+	static void test()
+	{
+		std::cout << "----------------------------------------------------- \n";
+		std::cout << "125. Valid Palindrome \n";
+		Solution_125 s;
+
+		IS_TRUE((s.isPalindrome("A man, a plan, a canal: Panama") == true));
+		IS_TRUE((s.isPalindrome("race a car") == false));
+		IS_TRUE((s.isPalindrome("0P") == false));
+		IS_TRUE((s.isPalindrome(" ") == true));
+		IS_TRUE((s.isPalindrome("") == true));
+
+		std::cout << "----------------------------------------------------- \n";
+	}
+};
 }
 
 
@@ -552,6 +650,7 @@ void rq2_test()
 	Solution_1::test();
 	Solution_209::test();
 	Solution_2::test();
+	Solution_125::test();
 	Solution_9::test();
 }
 
