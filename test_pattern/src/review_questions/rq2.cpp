@@ -12,6 +12,8 @@
 #include <forward_list>
 #include <type_traits>
 #include <cctype>
+#include <limits>
+#include <memory>
 
 /*
 Задачи
@@ -29,7 +31,7 @@ struct cTack1
 {
 	using tTokens = std::list<std::string>;
 
-	static constexpr char* DELIMITERS = " \t\n";
+    static constexpr char* DELIMITERS { " \t\n" };
 
 	static tTokens tokenize1(std::string_view in)
 	{
@@ -255,7 +257,7 @@ public:
 class Solution_1
 {
 public:
-	std::vector<int> twoSum(std::vector<int>& nums, int target)
+    std::vector<int> twoSum(const std::vector<int>& nums, int target)
 	{
 		std::unordered_map<int, int> valToIndex;
 		for (int i = 0; i < nums.size(); ++i)
@@ -302,7 +304,7 @@ public:
 //209. Minimum Size Subarray Sum
 class Solution_209 {
 public:
-	int minSubArrayLen(int target, std::vector<int>& nums) 
+    int minSubArrayLen(int target, const std::vector<int>& nums)
 	{
 		int a = 0;
 		int b = 0;

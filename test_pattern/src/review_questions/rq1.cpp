@@ -123,7 +123,7 @@ std::cout << "target = " << target << "\t data[m] = " << data[m] << "\t m = " <<
 			{
 				std::cout << "!!!!!!!!!\n";
 				//break;
-				h = std::max(m, 1ull) - 1ull;
+                h = std::max(m, 1ul) - 1ull;
 				//l = m + 1;
 				//h = l = m;
 			}
@@ -133,7 +133,7 @@ std::cout << "target = " << target << "\t data[m] = " << data[m] << "\t m = " <<
 			}
 			else// if(target < data[m])
 			{
-				h = std::max(m , 1ull)  -1ull;
+                h = std::max(m , 1ul)  -1ull;
 			}
 
 		}
