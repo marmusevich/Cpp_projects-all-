@@ -640,6 +640,57 @@ public:
 		std::cout << "----------------------------------------------------- \n";
 	}
 };
+
+//58. Length of Last Word
+class Solution_58
+{
+public:
+	int lengthOfLastWord(const std::string s) 
+	{
+		int ret = -1;
+
+		auto it = s.rbegin();
+		bool isWordBegin = false;
+		while (it < s.rend())
+		{
+			if (!isWordBegin )
+			{
+				if (*it != ' ')
+				{
+					isWordBegin = true;
+					ret = 1;
+				}
+			}
+			else // if (isWordBegin)
+			{
+				if (*it != ' ')
+				{
+					ret++;
+				}
+				else // if (*it == ' ')
+				{
+					return ret;
+				}
+			}
+			++it;
+		}
+
+		return ret;
+	}
+
+	static void test()
+	{
+		std::cout << "----------------------------------------------------- \n";
+		std::cout << "58. Length of Last Word \n";
+		Solution_58 s;
+
+		IS_TRUE((s.lengthOfLastWord("   fly me   to   the moon  ") == 4));
+		IS_TRUE((s.lengthOfLastWord("Hello World") == 5));
+		IS_TRUE((s.lengthOfLastWord("luffy is still joyboy") == 6));
+
+		std::cout << "----------------------------------------------------- \n";
+	}
+};
 }
 
 
@@ -654,6 +705,7 @@ void rq2_test()
 	Solution_2::test();
 	Solution_125::test();
 	Solution_9::test();
+	Solution_58::test();
 }
 
 /*
