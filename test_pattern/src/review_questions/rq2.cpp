@@ -691,8 +691,122 @@ public:
 		std::cout << "----------------------------------------------------- \n";
 	}
 };
-}
 
+//48. Rotate Image
+class Solution_48
+{
+public:
+	void rotate(std::vector<std::vector<int>>& matrix)
+	{
+		//todo check, not empty, sizeX == sizeY
+		const auto size = matrix.size();
+
+		//mirror by diagonally (max, 0) - (0, max).
+		for (size_t j = 0; j < size; ++j)
+		{
+			for (size_t i = 0; i < (size - 1) - j; ++i)
+			{
+				const size_t x = (size - 1) - j;
+				const size_t y = (size - 1) - i;
+				std::swap(matrix[y][x], matrix[j][i]);
+			}
+		}
+
+		//mirror by the Y axis (0, ? )(max, ? ).
+		for (size_t j = 0; j < size / 2; ++j)
+		{
+			std::swap(matrix[j], matrix[(size - 1) -j]);
+		}
+	}
+
+
+	static void test()
+	{
+		std::cout << "----------------------------------------------------- \n";
+		std::cout << "48. Rotate Image \n";
+
+		using tMatrix = std::vector<std::vector<int>>;
+
+		auto fnPrintMatrix = [](const tMatrix& matrix)
+			{
+				for (const auto& row : matrix)
+				{
+					std::cout << "[ ";
+					for (const auto el : row)
+					{
+						std::cout << el << " ";
+					}
+					std::cout << "]\n";
+				}
+			};
+
+		auto fnCheck = [&fnPrintMatrix](tMatrix& inOut, const tMatrix& expect)
+			{
+				Solution_48 s;
+				std::cout << "Input: \n";
+				fnPrintMatrix(inOut);
+
+				s.rotate(inOut);
+
+				std::cout << "Output: \n";
+				fnPrintMatrix(inOut);
+
+
+				if (inOut == expect)
+				{
+					std::cout << "\tPASS\n\n";
+				}
+				else
+				{
+					std::cout << "\t WRONG - EXPECTED :\n";
+					fnPrintMatrix(expect);
+					std::cout << "\n\n";
+				}
+			};
+
+		//
+		{
+			tMatrix inOut
+			{
+				{1,2,3},
+				{4,5,6},
+				{7,8,9},
+			};
+
+			const tMatrix EXPEXTED
+			{
+				{7,4,1},
+				{8,5,2},
+				{9,6,3},
+			};
+
+			fnCheck(inOut, EXPEXTED);
+		}
+
+		{
+			tMatrix inOut
+			{
+				{5,1,9,11},
+				{2,4,8,10},
+				{13,3,6,7},
+				{15,14,12,16},
+			};
+
+			const tMatrix EXPEXTED
+			{
+				{15,13,2,5},
+				{14,3,4,1},
+				{12,6,8,9},
+				{16,7,10,11},
+			};
+			fnCheck(inOut, EXPEXTED);
+		}
+
+		std::cout << "----------------------------------------------------- \n";
+	}
+};
+
+}
 
 void rq2_test()
 {
@@ -706,6 +820,7 @@ void rq2_test()
 	Solution_125::test();
 	Solution_9::test();
 	Solution_58::test();
+	Solution_48::test();
 }
 
 /*
