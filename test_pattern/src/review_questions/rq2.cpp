@@ -812,15 +812,74 @@ namespace
 	public:
 		void merge(std::vector<int>& nums1, int m, std::vector<int>& nums2, int n)
 		{
-			return;
+			int i = m + n - 1;
+			int i1 = m  - 1;
+			int i2 = n - 1;
+
+			while (i >= 0 && (i1 >= 0 || i2 >= 0))
+			{
+				printf("i = %d \ti1 = %d \ti2 = %d \n", i, i1, i2);
+
+				if (i2 < 0)
+				{
+					nums1[i] = nums1[i1];
+					i1--;
+				}
+				else if (i1 < 0)
+				{
+					nums1[i] = nums2[i2];
+					i2--;
+				}
+				else if (nums1[i1] > nums2[i2])
+				{
+					nums1[i] = nums1[i1];
+					i1--;
+				}
+				else
+				{
+					nums1[i] = nums2[i2];
+					i2--;
+				}
+				i--;
+			}
+
 		}
 
 		static void test()
 		{
 			std::cout << "----------------------------------------------------- \n";
 			std::cout << "88. Merge Sorted Array \n";
-
 			std::cout << "----------------------------------------------------- \n";
+
+			Solution_88 s;
+
+			{
+				std::vector<int> nums1{ 1 };
+				int m = 1;
+				std::vector<int> nums2{};
+				int n = 0;
+				const std::vector<int> EXPECT{ 1 };
+				s.merge(nums1, m, nums2, n);
+				IS_TRUE(nums1 == EXPECT);
+			}
+			{
+				std::vector<int> nums1{ 0 };
+				int m = 0;
+				std::vector<int> nums2{ 1 };
+				int n = 1;
+				const std::vector<int> EXPECT{ 1 };
+				s.merge(nums1, m, nums2, n);
+				IS_TRUE(nums1 == EXPECT);
+			}
+			{
+				std::vector<int> nums1{ 1,2,3,0,0,0 };
+				int m = 3;
+				std::vector<int> nums2{ 2,5,6 };
+				int n = 3;
+				const std::vector<int> EXPECT{ 1,2,2,3,5,6 };
+				s.merge(nums1, m, nums2, n);
+				IS_TRUE(nums1 == EXPECT);
+			}
 		}
 	};
 
@@ -839,4 +898,5 @@ void rq2_test()
 	Solution_9::test();
 	Solution_58::test();
 	Solution_48::test();
+	Solution_88::test();
 }
