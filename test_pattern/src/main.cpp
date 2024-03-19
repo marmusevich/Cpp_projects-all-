@@ -18,6 +18,7 @@ DEF_FUN(visitor);
 //review questions
 DEF_FUN(rq1);
 DEF_FUN(rq2);
+DEF_FUN(rq3_binary_tree);
 
 
 int main()
@@ -37,6 +38,7 @@ int main()
 	//review questions
 	CALL_FUN(rq1);
 	CALL_FUN(rq2);
+	CALL_FUN(rq3_binary_tree);
 
 	//------------------------
 #ifndef _MSC_VER
