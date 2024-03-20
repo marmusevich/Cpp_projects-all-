@@ -95,24 +95,20 @@ namespace
 			}
 		}
 
-		~Tree()
-		{
-			//todo delete
-			//std::vector<TreeNode*>  holdAll
-		}
 
 		TreeNode* get()
 		{
 			return mRoot.get();
 		}
-
+		//----------------------------------------------------------------------------------
+		// iteration version
 		template <typename FN>
-		void BFS(FN fn)
+		friend void BFS(TreeNode* node, FN fn)
 		{
 			std::queue< TreeNode*> nodes;
-			if (mRoot)
+			if (node != nullptr)
 			{
-				nodes.push(mRoot.get());
+				nodes.push(node);
 			}
 			
 			while (!std::empty(nodes))
@@ -128,14 +124,16 @@ namespace
 			}
 		}
 
+		//Pre - order, NLR
 		template <typename FN>
-		void DFS(FN fn)
+		friend void DFS(TreeNode* node, FN fn)
 		{
 			std::stack< TreeNode*> nodes;
-			if (mRoot)
+			if (node != nullptr)
 			{
-				nodes.push(mRoot.get());
+				nodes.push(node);
 			}
+
 
 			while (!std::empty(nodes))
 			{
@@ -149,19 +147,92 @@ namespace
 				}
 			}
 		}
-
 		//----------------------------------------------------------------------------------
+		// recursion version
+		//Pre - order, NLR
 		template <typename FN>
-		friend void BFS_r(TreeNode* n, FN fn)
+		friend void DFS_NLR_r(TreeNode* n, FN fn)
 		{
+			if (n == nullptr) return;
 
+			fn(*n);
+			DFS_NLR_r(n->left, fn);
+			DFS_NLR_r(n->right, fn);
 		}
-
+		//Post - order, LRN
 		template <typename FN>
-		friend void DFS_r(TreeNode* n, FN fn)
+		friend void DFS_LRN_r(TreeNode* n, FN fn)
 		{
+			if (n == nullptr) return;
 
+			DFS_LRN_r(n->left, fn);
+			DFS_LRN_r(n->right, fn);
+			fn(*n);
 		}
+		//In - order, LNR
+		template <typename FN>
+		friend void DFS_LNR_r(TreeNode* n, FN fn)
+		{
+			if (n == nullptr) return;
+
+			DFS_LNR_r(n->left, fn);
+			fn(*n);
+			DFS_LNR_r(n->right, fn);
+		}
+		//Reverse pre - order, NRL
+		template <typename FN>
+		friend void DFS_NRL_r(TreeNode* n, FN fn)
+		{
+			if (n == nullptr) return;
+
+			fn(*n);
+			DFS_NRL_r(n->right, fn);
+			DFS_NRL_r(n->left, fn);
+		}
+		//Reverse post - order, RLN
+		template <typename FN>
+		friend void DFS_RLN_r(TreeNode* n, FN fn)
+		{
+			if (n == nullptr) return;
+
+			DFS_RLN_r(n->right, fn);
+			DFS_RLN_r(n->left, fn);
+			fn(*n);
+		}
+		//Reverse in - order, RNL
+		template <typename FN>
+		friend void DFS_RNL_r(TreeNode* n, FN fn)
+		{
+			if (n == nullptr) return;
+
+			DFS_RNL_r(n->right, fn);
+			fn(*n);
+			DFS_RNL_r(n->left, fn);
+		}
+		//----------------------------------------------------------------------------------
+		~Tree()
+		{
+			//todo delete
+			//std::vector<TreeNode*>  holdAll
+
+
+			DFS_LRN_r(mRoot.get(), [](TreeNode& n)
+				{
+					if (n.left != nullptr) 
+					{
+						delete n.left; 
+						n.left = nullptr;
+					}
+					if (n.right != nullptr)
+					{
+						delete n.right;
+						n.right = nullptr;
+					}
+				});
+		}
+		//----------------------------------------------------------------------------------
+
+
 
 		friend int maxSum(TreeNode* n)
 		{
@@ -171,8 +242,6 @@ namespace
 			}
 			return n->val + std::max(maxSum(n->left), maxSum(n->right));
 		}
-
-
 		friend int maxlev(TreeNode* n)
 		{
 			if (n == nullptr)
@@ -189,7 +258,6 @@ namespace
 			//return v + m;
 		}
 
-
 		static void test()
 		{
 			std::cout << "----------------------------------------------------- \n";
@@ -204,54 +272,73 @@ namespace
 						<< ""; 
 				};
 
+			auto fnPrint2 = [](const TreeNode& n)
+				{
+					std::cout << n.val << " ";
+				};
+
+
+#define RUN(TREE, FN) \
+do \
+{ \
+	std::cout << #FN << " ==> { "; \
+	FN(TREE.get(), fnPrint2); \
+	std::cout << "}\n"; \
+} \
+while (false)
+//[END] RUN(TREE, FN)
+
 
 			Tree t1{ 1, std::nullopt ,2 };
-			//t1.BFS(fnPrint);
+			//BFS(t1.get(), fnPrint);
 			//std::cout << "----- \n";
-			//t1.DFS(fnPrint);
+			//DFS(t1.get(), fnPrint);
 			//std::cout << "----- \n";
-			auto m1 = maxlev(t1.get());
-			std::cout << "maxlev = " << m1 << " \n";
+			RUN(t1, BFS);
+			RUN(t1, DFS);
+			RUN(t1, DFS_NLR_r);
+			RUN(t1, DFS_LRN_r);
+			RUN(t1, DFS_LNR_r);
+			RUN(t1, DFS_NRL_r);
+			RUN(t1, DFS_RLN_r);
+			RUN(t1, DFS_RNL_r);
 
 
 			std::cout << "***----------------------------------------------------- \n";
-			Tree  t2{ 3, 9, 20, std::nullopt, std::nullopt, 15, 7 };
-			//t2.BFS(fnPrint);
+			//Tree  t2{ 3, 9, 20, std::nullopt, std::nullopt, 15, 7 };
+			Tree  t2{ 11,21,22,31,32,33,34 };
+			//BFS(t2.get(), fnPrint);
 			//std::cout << "----- \n";
-			//t2.DFS(fnPrint);
+			//DFS(t2.get(), fnPrint);
 			//std::cout << "----- \n";
-			auto m2 = maxlev(t2.get());
-			std::cout << "maxlev = " << m2 << " \n";
+			RUN(t2, BFS);
+			RUN(t2, DFS);
+			RUN(t2, DFS_NLR_r);
+			RUN(t2, DFS_LRN_r);
+			RUN(t2, DFS_LNR_r);
+			RUN(t2, DFS_NRL_r);
+			RUN(t2, DFS_RLN_r);
+			RUN(t2, DFS_RNL_r);
 
 
 			std::cout << "***----------------------------------------------------- \n";
-			Tree  t3{ 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15 };
-			//t3.BFS(fnPrint);
+			Tree  t3{ 11,21,22,31,32,33,34,41,42,43,44,45,46,47,48 };
+			//BFS(t3.get(), fnPrint);
 			//std::cout << "----- \n";
-			//t3.DFS(fnPrint);
+			//DFS(t3.get(), fnPrint);
 			//std::cout << "----- \n";
-			auto m3 = maxlev(t3.get());
-			std::cout << "maxlev = " << m3 << " \n";
+			RUN(t3, BFS);
+			RUN(t3, DFS);
+			RUN(t3, DFS_NLR_r);
+			RUN(t3, DFS_LRN_r);
+			RUN(t3, DFS_LNR_r);
+			RUN(t3, DFS_NRL_r);
+			RUN(t3, DFS_RLN_r);
+			RUN(t3, DFS_RNL_r);
 
 
-
-			//IS_TRUE(? ? ? == EXPECT);
-
-			/*
-				Example 1:
-				Input: root = [3,9,20,null,null,15,7]
-				Output: 3
-
-				Example 2:
-				Input: root = [1,null,2]
-				Output: 2
-
-			*/
-
-
+#undef RUN
 		}
-
-
 	};
 
 
