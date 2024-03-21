@@ -373,7 +373,6 @@ while (false)
 				&& isSameTree(p->right, q->right);
 		}
 
-
 		static void test()
 		{
 			std::cout << "----------------------------------------------------- \n";
@@ -398,18 +397,66 @@ while (false)
 				Tree t2{ 3, 9, 20, std::nullopt, std::nullopt, 15, 7 };
 				IS_TRUE(s.isSameTree(t1.get(), t2.get()) == false);
 			}
-
 		}
-
-
 	};
 
+	//101. Symmetric Tree
+	// https://leetcode.com/problems/symmetric-tree/description/?envType=study-plan-v2&envId=top-interview-150
+	class Solution_101 
+	{
+	public:
+
+		bool isMirror(TreeNode* p, TreeNode* q)
+		{
+			if (p == nullptr && q == nullptr) return true;
+			if (p == nullptr || q == nullptr) return false;
+
+			// both != NULL
+			return (p->val == q->val)
+				&& isMirror(p->left, q->right)
+				&& isMirror(p->right, q->left);
+		}
+
+		bool isSymmetric(TreeNode* root) 
+		{
+			if (root == nullptr ) return true;
+
+			return isMirror(root->left, root->right);
+		}
+
+		static void test()
+		{
+			std::cout << "----------------------------------------------------- \n";
+			std::cout << "101. Symmetric Tree \n";
+			std::cout << "----------------------------------------------------- \n";
+
+			Solution_101 s;
+
+			{
+				Tree t{ 1, std::nullopt ,2 };
+				IS_TRUE(s.isSymmetric(t.get()) == false);
+			}
+			{
+				Tree t{ 1, 2 ,2 };
+				IS_TRUE(s.isSymmetric(t.get()));
+			}
+			{
+				Tree t{ 3, 9, 20, std::nullopt, std::nullopt, 15, 7 };
+				IS_TRUE(s.isSymmetric(t.get()) == false);
+			}
+			{
+				Tree t{ 1,2,2,3,4,4,3 };
+				IS_TRUE(s.isSymmetric(t.get()));
+			}
+		}
+	};
 }
 
 void rq3_binary_tree_test()
 {
 	Solution_104::test();
 	Solution_100::test();
+	Solution_101::test();
 
 
 	//helper
