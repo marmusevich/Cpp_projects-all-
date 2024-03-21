@@ -212,10 +212,6 @@ namespace
 		//----------------------------------------------------------------------------------
 		~Tree()
 		{
-			//todo delete
-			//std::vector<TreeNode*>  holdAll
-
-
 			DFS_LRN_r(mRoot.get(), [](TreeNode& n)
 				{
 					if (n.left != nullptr) 
@@ -290,10 +286,6 @@ while (false)
 
 
 			Tree t1{ 1, std::nullopt ,2 };
-			//BFS(t1.get(), fnPrint);
-			//std::cout << "----- \n";
-			//DFS(t1.get(), fnPrint);
-			//std::cout << "----- \n";
 			RUN(t1, BFS);
 			RUN(t1, DFS);
 			RUN(t1, DFS_NLR_r);
@@ -307,10 +299,6 @@ while (false)
 			std::cout << "***----------------------------------------------------- \n";
 			//Tree  t2{ 3, 9, 20, std::nullopt, std::nullopt, 15, 7 };
 			Tree  t2{ 11,21,22,31,32,33,34 };
-			//BFS(t2.get(), fnPrint);
-			//std::cout << "----- \n";
-			//DFS(t2.get(), fnPrint);
-			//std::cout << "----- \n";
 			RUN(t2, BFS);
 			RUN(t2, DFS);
 			RUN(t2, DFS_NLR_r);
@@ -323,10 +311,6 @@ while (false)
 
 			std::cout << "***----------------------------------------------------- \n";
 			Tree  t3{ 11,21,22,31,32,33,34,41,42,43,44,45,46,47,48 };
-			//BFS(t3.get(), fnPrint);
-			//std::cout << "----- \n";
-			//DFS(t3.get(), fnPrint);
-			//std::cout << "----- \n";
 			RUN(t3, BFS);
 			RUN(t3, DFS);
 			RUN(t3, DFS_NLR_r);
@@ -340,30 +324,7 @@ while (false)
 #undef RUN
 		}
 	};
-
-
 	//======================================================================================================
-	/*   >>>>>>>>>>>>>>>>>>> template for solution
-		//
-		class Solution_
-		{
-		public:
-
-
-			static void test()
-			{
-				std::cout << "----------------------------------------------------- \n";
-				std::cout << " \n";
-				std::cout << "----------------------------------------------------- \n";
-
-				Solution_ s;
-				IS_TRUE(??? == EXPECT);
-			}
-		};
-	*/
-	//======================================================================================================
-
-
 
 	//104. Maximum Depth of Binary Tree
 	// https://leetcode.com/problems/maximum-depth-of-binary-tree/description/?envType=study-plan-v2&envId=top-interview-150
@@ -396,17 +357,62 @@ while (false)
 		}
 	};
 
+	//100. Same Tree
+	// https://leetcode.com/problems/same-tree/description/?envType=study-plan-v2&envId=top-interview-150
+	class Solution_100 
+	{
+	public:
+		bool isSameTree(TreeNode* p, TreeNode* q) 
+		{
+			if (p == nullptr && q == nullptr) return true;
+			if (p == nullptr || q == nullptr) return false;
 
+			// both != NULL
+			return (p->val == q->val) 
+				&& isSameTree(p->left, q->left) 
+				&& isSameTree(p->right, q->right);
+		}
+
+
+		static void test()
+		{
+			std::cout << "----------------------------------------------------- \n";
+			std::cout << "100. Same Tree \n";
+			std::cout << "----------------------------------------------------- \n";
+
+			Solution_100 s;
+
+			{
+				Tree t1{ 1, std::nullopt ,2 };
+				Tree t2{ 1, std::nullopt ,2 };
+				IS_TRUE(s.isSameTree(t1.get(), t2.get()));
+			}
+			{
+				Tree t1{ 3, 9, 20, std::nullopt, std::nullopt, 15, 7 };
+				Tree t2{ 3, 9, 20, std::nullopt, std::nullopt, 15, 7 };
+				IS_TRUE(s.isSameTree(t1.get(), t2.get()));
+			}
+
+			{
+				Tree t1{ 1, std::nullopt ,2 };
+				Tree t2{ 3, 9, 20, std::nullopt, std::nullopt, 15, 7 };
+				IS_TRUE(s.isSameTree(t1.get(), t2.get()) == false);
+			}
+
+		}
+
+
+	};
 
 }
 
 void rq3_binary_tree_test()
 {
 	Solution_104::test();
-
+	Solution_100::test();
 
 
 	//helper
-	Tree::test();
+	//Tree::test();
 
 }
