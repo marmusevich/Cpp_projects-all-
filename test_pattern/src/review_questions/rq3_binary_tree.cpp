@@ -39,10 +39,6 @@ namespace
 	{
 		std::unique_ptr<TreeNode> mRoot;
 
-		//std::vector<std::unique_ptr<TreeNode>>  holdAll;
-
-
-
 		//disble move / copy
 		Tree(const Tree&) = delete;
 		Tree& operator=(const Tree&) = delete;
@@ -450,6 +446,122 @@ while (false)
 			}
 		}
 	};
+
+	//637. Average of Levels in Binary Tree
+	// https://leetcode.com/problems/average-of-levels-in-binary-tree/description/?envType=study-plan-v2&envId=top-interview-150
+	class Solution_637 
+	{
+	public:
+		std::vector<double> averageOfLevels_v1(TreeNode* root)
+		{
+			std::vector<double> result;
+
+			std::queue< TreeNode*> nodes;
+			if (root != nullptr)
+			{
+				nodes.push(root);
+			}
+
+			while (!std::empty(nodes))
+			{
+				std::queue<TreeNode*> tmp;
+				double summ = 0.0;
+				int count = 0;
+
+				while (!std::empty(nodes))
+				{
+					auto* n = nodes.front();
+					nodes.pop();
+					if (n)
+					{
+						summ += n->val;
+						count ++;
+
+						tmp.push(n->left);
+						tmp.push(n->right);
+					}
+				}
+
+				nodes = tmp;
+				if(count != 0) result.push_back(summ / count);
+			}
+
+			return result;
+		}
+
+		std::vector<double> averageOfLevels(TreeNode* root)
+		{
+			std::vector<double> result;
+
+			if (root == nullptr)
+			{
+				return result;
+			}
+
+			std::queue< TreeNode*> nodes;
+			nodes.push(root);
+
+			while (!std::empty(nodes))
+			{
+				double summ = 0.0;
+				int count = nodes.size();
+				for (int i = 0; i < count; ++i)
+				{
+					auto* n = nodes.front();
+					nodes.pop();
+
+					summ += n->val;
+					if (n->left)
+					{
+						nodes.push(n->left);
+					}
+					if (n->right)
+					{
+						nodes.push(n->right);
+					}
+				}
+				if (count != 0) result.push_back(summ / count);
+			}
+
+			return result;
+		}
+
+
+		static void test()
+		{
+			std::cout << "----------------------------------------------------- \n";
+			std::cout << "637. Average of Levels in Binary Tree \n";
+			std::cout << "----------------------------------------------------- \n";
+
+			Solution_637 s;
+
+			std::vector<double> EXPECTED{ 3.0, 14.5, 11.0 };
+
+			{
+				Tree t{ 3, 9, 20, std::nullopt, std::nullopt, 15, 7 };
+				IS_TRUE(s.averageOfLevels(t.get()) == EXPECTED);
+			}
+			{
+				Tree t{ 3,9,20,15,7 };
+				IS_TRUE(s.averageOfLevels(t.get()) == EXPECTED);
+			}
+
+			{
+				Tree t{ 1, std::nullopt ,2 };
+				std::vector<double> E{ 1.0, 2.0 };
+				IS_TRUE(s.averageOfLevels(t.get()) == E);
+			}
+			{
+				Tree t{ 1, 2 ,2 };
+				std::vector<double> E{ 1.0, 2.0 };
+				IS_TRUE(s.averageOfLevels(t.get()) == E);
+			}
+
+
+
+		}
+	};
+
 }
 
 void rq3_binary_tree_test()
@@ -457,7 +569,7 @@ void rq3_binary_tree_test()
 	Solution_104::test();
 	Solution_100::test();
 	Solution_101::test();
-
+	Solution_637::test();
 
 	//helper
 	//Tree::test();
