@@ -8,6 +8,7 @@
 #include <iostream>
 #include <array>
 #include <vector>
+#include <unordered_map>
 
 namespace
 {
@@ -34,7 +35,162 @@ namespace
 
 
 	//======================================================================================================
-		//help and manege raw pointered tree for tests
+	// iteration version
+	template <typename FN>
+	void BFS(TreeNode* node, FN fn)
+	{
+		std::queue< TreeNode*> nodes;
+		if (node != nullptr)
+		{
+			nodes.push(node);
+		}
+
+		while (!std::empty(nodes))
+		{
+			auto* n = nodes.front();
+			nodes.pop();
+			if (n)
+			{
+				fn(*n);
+				nodes.push(n->left);
+				nodes.push(n->right);
+			}
+		}
+	}
+
+	//Pre - order, NLR
+	template <typename FN>
+	void DFS(TreeNode* node, FN fn)
+	{
+		std::stack< TreeNode*> nodes;
+		if (node != nullptr)
+		{
+			nodes.push(node);
+		}
+
+
+		while (!std::empty(nodes))
+		{
+			auto* n = nodes.top();
+			nodes.pop();
+			if (n)
+			{
+				fn(*n);
+				nodes.push(n->right);
+				nodes.push(n->left);
+			}
+		}
+	}
+	//----------------------------------------------------------------------------------
+	// recursion version
+	//Pre - order, NLR
+	template <typename FN>
+	void DFS_NLR_r(TreeNode* n, FN fn)
+	{
+		if (n == nullptr) return;
+
+		fn(*n);
+		DFS_NLR_r(n->left, fn);
+		DFS_NLR_r(n->right, fn);
+	}
+	//Post - order, LRN
+	template <typename FN>
+	void DFS_LRN_r(TreeNode* n, FN fn)
+	{
+		if (n == nullptr) return;
+
+		DFS_LRN_r(n->left, fn);
+		DFS_LRN_r(n->right, fn);
+		fn(*n);
+	}
+	//In - order, LNR
+	template <typename FN>
+	void DFS_LNR_r(TreeNode* n, FN fn)
+	{
+		if (n == nullptr) return;
+
+		DFS_LNR_r(n->left, fn);
+		fn(*n);
+		DFS_LNR_r(n->right, fn);
+	}
+	//Reverse pre - order, NRL
+	template <typename FN>
+	void DFS_NRL_r(TreeNode* n, FN fn)
+	{
+		if (n == nullptr) return;
+
+		fn(*n);
+		DFS_NRL_r(n->right, fn);
+		DFS_NRL_r(n->left, fn);
+	}
+	//Reverse post - order, RLN
+	template <typename FN>
+	void DFS_RLN_r(TreeNode* n, FN fn)
+	{
+		if (n == nullptr) return;
+
+		DFS_RLN_r(n->right, fn);
+		DFS_RLN_r(n->left, fn);
+		fn(*n);
+	}
+	//Reverse in - order, RNL
+	template <typename FN>
+	void DFS_RNL_r(TreeNode* n, FN fn)
+	{
+		if (n == nullptr) return;
+
+		DFS_RNL_r(n->right, fn);
+		fn(*n);
+		DFS_RNL_r(n->left, fn);
+	}
+
+	//----------------------------------------------------------------------------------
+	void print(TreeNode* node, std::string_view caption = "")
+	{
+		std::queue<TreeNode*> nodes;
+		nodes.push(node);
+
+		std::cout << caption << " print:: { ";
+
+		while (!std::empty(nodes))
+		{
+			auto* n = nodes.front();
+			nodes.pop();
+			if (n)
+			{
+				std::cout << n->val << ", ";
+				nodes.push(n->left);
+				nodes.push(n->right);
+			}
+			else
+			{
+				std::cout << "std::nullopt, ";
+			}
+		}
+
+		std::cout << "};\n";
+	}
+
+	int maxSum(TreeNode* n)
+	{
+		if (n == nullptr)
+		{
+			return 0;
+		}
+		return n->val + std::max(maxSum(n->left), maxSum(n->right));
+	}
+	
+	int maxlev(TreeNode* n)
+	{
+		if (n == nullptr)
+		{
+			return 0;
+		}
+		return 1 + std::max(maxlev(n->left), maxlev(n->right));
+	}
+	
+	//======================================================================================================
+	//help and manege raw pointered tree for tests
 	class Tree final
 	{
 		std::unique_ptr<TreeNode> mRoot;
@@ -48,11 +204,19 @@ namespace
 	public:
 		using tElementOfList = std::optional<int>;
 
+		//empty
 		Tree()
 		: mRoot{nullptr}
 		{
 		}
 
+		//take to own
+		Tree(TreeNode* root)
+			: mRoot{ root }
+		{
+		}
+
+		//make from binary heap representation
 		Tree(std::initializer_list<tElementOfList> il)
 			: Tree()
 		{
@@ -71,13 +235,14 @@ namespace
 			while (it != il.end())
 			{
 				auto n = nodes.front();
-				nodes.pop();
-				
+
+				bool isInserted = false;
 				//left
 				if (*it)
 				{
 					nodes.push(new TreeNode(it->value()));
 					n->left = nodes.back();
+					isInserted = true;
 				}
 				++it;
 
@@ -86,126 +251,22 @@ namespace
 				{
 					nodes.push(new TreeNode(it->value()));
 					n->right = nodes.back();
+					isInserted = true;
 				}
 				++it;
+				
+				if (isInserted)
+				{
+					nodes.pop();
+				}
 			}
 		}
-
 
 		TreeNode* get()
 		{
 			return mRoot.get();
 		}
-		//----------------------------------------------------------------------------------
-		// iteration version
-		template <typename FN>
-		friend void BFS(TreeNode* node, FN fn)
-		{
-			std::queue< TreeNode*> nodes;
-			if (node != nullptr)
-			{
-				nodes.push(node);
-			}
-			
-			while (!std::empty(nodes))
-			{
-				auto* n = nodes.front();
-				nodes.pop();
-				if(n)
-				{
-					fn(*n);
-					nodes.push(n->left);
-					nodes.push(n->right);
-				}
-			}
-		}
 
-		//Pre - order, NLR
-		template <typename FN>
-		friend void DFS(TreeNode* node, FN fn)
-		{
-			std::stack< TreeNode*> nodes;
-			if (node != nullptr)
-			{
-				nodes.push(node);
-			}
-
-
-			while (!std::empty(nodes))
-			{
-				auto* n = nodes.top();
-				nodes.pop();
-				if (n)
-				{
-					fn(*n);
-					nodes.push(n->right);
-					nodes.push(n->left);
-				}
-			}
-		}
-		//----------------------------------------------------------------------------------
-		// recursion version
-		//Pre - order, NLR
-		template <typename FN>
-		friend void DFS_NLR_r(TreeNode* n, FN fn)
-		{
-			if (n == nullptr) return;
-
-			fn(*n);
-			DFS_NLR_r(n->left, fn);
-			DFS_NLR_r(n->right, fn);
-		}
-		//Post - order, LRN
-		template <typename FN>
-		friend void DFS_LRN_r(TreeNode* n, FN fn)
-		{
-			if (n == nullptr) return;
-
-			DFS_LRN_r(n->left, fn);
-			DFS_LRN_r(n->right, fn);
-			fn(*n);
-		}
-		//In - order, LNR
-		template <typename FN>
-		friend void DFS_LNR_r(TreeNode* n, FN fn)
-		{
-			if (n == nullptr) return;
-
-			DFS_LNR_r(n->left, fn);
-			fn(*n);
-			DFS_LNR_r(n->right, fn);
-		}
-		//Reverse pre - order, NRL
-		template <typename FN>
-		friend void DFS_NRL_r(TreeNode* n, FN fn)
-		{
-			if (n == nullptr) return;
-
-			fn(*n);
-			DFS_NRL_r(n->right, fn);
-			DFS_NRL_r(n->left, fn);
-		}
-		//Reverse post - order, RLN
-		template <typename FN>
-		friend void DFS_RLN_r(TreeNode* n, FN fn)
-		{
-			if (n == nullptr) return;
-
-			DFS_RLN_r(n->right, fn);
-			DFS_RLN_r(n->left, fn);
-			fn(*n);
-		}
-		//Reverse in - order, RNL
-		template <typename FN>
-		friend void DFS_RNL_r(TreeNode* n, FN fn)
-		{
-			if (n == nullptr) return;
-
-			DFS_RNL_r(n->right, fn);
-			fn(*n);
-			DFS_RNL_r(n->left, fn);
-		}
-		//----------------------------------------------------------------------------------
 		~Tree()
 		{
 			DFS_LRN_r(mRoot.get(), [](TreeNode& n)
@@ -222,34 +283,8 @@ namespace
 					}
 				});
 		}
+
 		//----------------------------------------------------------------------------------
-
-
-
-		friend int maxSum(TreeNode* n)
-		{
-			if (n == nullptr)
-			{
-				return 0;
-			}
-			return n->val + std::max(maxSum(n->left), maxSum(n->right));
-		}
-		friend int maxlev(TreeNode* n)
-		{
-			if (n == nullptr)
-			{
-				return 0;
-			}
-			return 1 + std::max(maxlev(n->left), maxlev(n->right));
-
-			//int v = 1;
-			//int l = maxlev(n->left);
-			//int r = maxlev(n->right);
-			//int m = std::max(l, r);
-			//printf("v = %d, l = %d, r = %d, m = %d, (v + m) = %d \n", v, l, r, m, v + m);
-			//return v + m;
-		}
-
 		static void test()
 		{
 			std::cout << "----------------------------------------------------- \n";
@@ -281,43 +316,59 @@ while (false)
 //[END] RUN(TREE, FN)
 
 
-			Tree t1{ 1, std::nullopt ,2 };
-			RUN(t1, BFS);
-			RUN(t1, DFS);
-			RUN(t1, DFS_NLR_r);
-			RUN(t1, DFS_LRN_r);
-			RUN(t1, DFS_LNR_r);
-			RUN(t1, DFS_NRL_r);
-			RUN(t1, DFS_RLN_r);
-			RUN(t1, DFS_RNL_r);
+			//Tree t1{ 1, std::nullopt ,2 };
+			//RUN(t1, BFS);
+			//RUN(t1, DFS);
+			//RUN(t1, DFS_NLR_r);
+			//RUN(t1, DFS_LRN_r);
+			//RUN(t1, DFS_LNR_r);
+			//RUN(t1, DFS_NRL_r);
+			//RUN(t1, DFS_RLN_r);
+			//RUN(t1, DFS_RNL_r);
 
 
-			std::cout << "***----------------------------------------------------- \n";
-			//Tree  t2{ 3, 9, 20, std::nullopt, std::nullopt, 15, 7 };
-			Tree  t2{ 11,21,22,31,32,33,34 };
+			//std::cout << "***----------------------------------------------------- \n";
+			Tree  t2{ 3, 9, 20, std::nullopt, std::nullopt, 15, 7 };
+			//Tree  t2{ 11,21,22,31,32,33,34 };
+			print(t2.get(), "t2");
 			RUN(t2, BFS);
 			RUN(t2, DFS);
 			RUN(t2, DFS_NLR_r);
 			RUN(t2, DFS_LRN_r);
 			RUN(t2, DFS_LNR_r);
-			RUN(t2, DFS_NRL_r);
-			RUN(t2, DFS_RLN_r);
-			RUN(t2, DFS_RNL_r);
+			//RUN(t2, DFS_NRL_r);
+			//RUN(t2, DFS_RLN_r);
+			//RUN(t2, DFS_RNL_r);
+
+
+			//std::cout << "***----------------------------------------------------- \n";
+			//Tree  t3{ 11,21,22,31,32,33,34,41,42,43,44,45,46,47,48 };
+			//RUN(t3, BFS);
+			//RUN(t3, DFS);
+			//RUN(t3, DFS_NLR_r);
+			//RUN(t3, DFS_LRN_r);
+			//RUN(t3, DFS_LNR_r);
+			//RUN(t3, DFS_NRL_r);
+			//RUN(t3, DFS_RLN_r);
+			//RUN(t3, DFS_RNL_r);
 
 
 			std::cout << "***----------------------------------------------------- \n";
-			Tree  t3{ 11,21,22,31,32,33,34,41,42,43,44,45,46,47,48 };
-			RUN(t3, BFS);
-			RUN(t3, DFS);
-			RUN(t3, DFS_NLR_r);
-			RUN(t3, DFS_LRN_r);
-			RUN(t3, DFS_LNR_r);
-			RUN(t3, DFS_NRL_r);
-			RUN(t3, DFS_RLN_r);
-			RUN(t3, DFS_RNL_r);
-
+			Tree  t4{ 11,21,22,31,32,33,34, 41, 42, 43, 44, 45, 46, 47, 48/*, 51, 52, 53, 54, 55, 56, 57, 58, 61, 62, 63, 64, 65, 66, 67, 68*/ };
+			RUN(t4, BFS);
+			RUN(t4, DFS);
+			RUN(t4, DFS_NLR_r);
+			RUN(t4, DFS_LRN_r);
+			RUN(t4, DFS_LNR_r);
 
 #undef RUN
+
+
+			std::cout << "***----------------------------------------------------- \n";
+			Tree  t_rigt_only{ 1, std::nullopt, 2, std::nullopt, std::nullopt, std::nullopt, 3 };
+			print(t_rigt_only.get(), "rigt_only");
+			Tree  t_left_only{ 1, 2, std::nullopt, 3, std::nullopt, std::nullopt, std::nullopt };
+			print(t_left_only.get(), "left_only");
 		}
 	};
 	//======================================================================================================
@@ -556,11 +607,114 @@ while (false)
 				std::vector<double> E{ 1.0, 2.0 };
 				IS_TRUE(s.averageOfLevels(t.get()) == E);
 			}
-
-
-
 		}
 	};
+
+	//105. Construct Binary Tree from Preorder and Inorder Traversal
+	// https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/description/?envType=study-plan-v2&envId=top-interview-150
+	class Solution_105
+	{
+	public:
+		TreeNode* buildTree(std::vector<int>& preorder, std::vector<int>& inorder)
+		{
+			if (preorder.empty() || inorder.empty() || preorder.size() != inorder.size())
+			{
+				return nullptr;
+			}
+
+			std::unordered_map<int, int> indxes;
+			for (int i = 0; i < inorder.size(); ++i)
+			{
+				indxes[inorder[i]] = i;
+			}
+
+			struct Builder
+			{
+				const std::vector<int>& m_preorder;
+				const std::vector<int>& m_inorder;
+				const std::unordered_map<int, int>& m_indxes;
+
+				Builder(const std::vector<int>& preorder, const std::vector<int>& inorder, const std::unordered_map<int, int>& indxes)
+					: m_preorder(preorder)
+					, m_inorder(inorder)
+					, m_indxes(indxes)
+				{
+
+				}
+
+				TreeNode* build(int preBeg, int preEnd, int inBeg, int inEnd)
+				{
+					if (preBeg > preEnd) return nullptr;
+
+					const int val = m_preorder[preBeg];
+					const int index = m_indxes.at(val);
+					const int len = index - inBeg;
+
+					TreeNode* root = new TreeNode(val);
+					root->left = build(preBeg + 1, preBeg + len, inBeg, inBeg + len);
+					root->right = build(preBeg + len + 1, preEnd, inBeg + len + 1, inEnd);
+
+					return root;
+				}
+			};
+;
+			Builder b{ preorder, inorder, indxes };
+
+			return b.build(0, preorder.size()-1, 0, inorder.size()-1);
+		}
+
+		static void test()
+		{
+			std::cout << "----------------------------------------------------- \n";
+			std::cout << "105. Construct Binary Tree from Preorder and Inorder Traversal \n";
+			std::cout << "----------------------------------------------------- \n";
+
+			Solution_105 s;
+
+			{
+				std::vector<int> preorder{};
+				std::vector<int> inorder{};
+				Tree t{ s.buildTree(preorder, inorder)};
+
+				print(t.get(), "1)");
+			}
+
+			{
+				std::vector<int> preorder{ 3, 9, 20, 15, 7 };
+				std::vector<int> inorder{ 9, 3, 15, 20, 7 };
+				Tree t{ s.buildTree(preorder, inorder) };
+
+				print(t.get(), "2)");
+			}
+		}
+
+
+
+		/*
+		
+printf("   preBeg = %d, preEnd = %d, inBeg = %d, inEnd = %d \n", preBeg, preEnd, inBeg, inEnd);
+
+					if (preBeg > preEnd) return nullptr;
+
+					const int val = m_preorder[preBeg];
+					const int index = m_indxes.at(val);
+					const int len = index - inBeg;
+
+printf(">> preBeg = %d, preEnd = %d, inBeg = %d, inEnd = %d, \t val = %d, index = %d, len = %d \n", preBeg, preEnd, inBeg, inEnd, val, index, len);
+
+					TreeNode* root = new TreeNode(val);
+printf("left  ->   ");
+					root->left = build(preBeg + 1, preBeg + len, inBeg, inBeg + len);
+printf("right ->   ");
+					root->right = build(preBeg + len + 1, preEnd, inBeg + len + 1, inEnd);
+
+					return root;
+
+		
+		
+		*/
+	};
+
 
 }
 
@@ -570,8 +724,8 @@ void rq3_binary_tree_test()
 	Solution_100::test();
 	Solution_101::test();
 	Solution_637::test();
+	Solution_105::test();
 
 	//helper
 	//Tree::test();
-
 }
