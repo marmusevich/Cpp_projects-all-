@@ -687,44 +687,66 @@ while (false)
 				print(t.get(), "2)");
 			}
 		}
-
-
-
-		/*
-		
-printf("   preBeg = %d, preEnd = %d, inBeg = %d, inEnd = %d \n", preBeg, preEnd, inBeg, inEnd);
-
-					if (preBeg > preEnd) return nullptr;
-
-					const int val = m_preorder[preBeg];
-					const int index = m_indxes.at(val);
-					const int len = index - inBeg;
-
-printf(">> preBeg = %d, preEnd = %d, inBeg = %d, inEnd = %d, \t val = %d, index = %d, len = %d \n", preBeg, preEnd, inBeg, inEnd, val, index, len);
-
-					TreeNode* root = new TreeNode(val);
-printf("left  ->   ");
-					root->left = build(preBeg + 1, preBeg + len, inBeg, inBeg + len);
-printf("right ->   ");
-					root->right = build(preBeg + len + 1, preEnd, inBeg + len + 1, inEnd);
-
-					return root;
-
-		
-		
-		*/
 	};
 
+	//112. Path Sum
+	// https://leetcode.com/problems/path-sum/description/
+	class Solution_112
+	{
+	public:
+		bool hasPathSum(TreeNode* root, int targetSum) 
+		{
+
+		}
+
+		static void test()
+		{
+			std::cout << "----------------------------------------------------- \n";
+			std::cout << "112. Path Sum \n";
+			std::cout << "----------------------------------------------------- \n";
+
+			Solution_112 s;
+/*
+Given the root of a binary tree and an integer targetSum, return true if the tree has a root-to-leaf path such that adding up all the values along the path equals targetSum.
+
+A leaf is a node with no children.
+
+Example 1:
+Input: root = [5,4,8,11,null,13,4,7,2,null,null,null,1], targetSum = 22
+Output: true
+Explanation: The root-to-leaf path with the target sum is shown.
+
+
+Example 2:
+Input: root = [1,2,3], targetSum = 5
+Output: false
+Explanation: There two root-to-leaf paths in the tree:
+(1 --> 2): The sum is 3.
+(1 --> 3): The sum is 4.
+There is no root-to-leaf path with sum = 5.
+
+
+Example 3:
+Input: root = [], targetSum = 0
+Output: false
+Explanation: Since the tree is empty, there are no root-to-leaf paths.
+
+
+*/
+		}
+
+	};
 
 }
 
 void rq3_binary_tree_test()
 {
-	Solution_104::test();
-	Solution_100::test();
-	Solution_101::test();
-	Solution_637::test();
-	Solution_105::test();
+	//Solution_104::test();
+	//Solution_100::test();
+	//Solution_101::test();
+	//Solution_637::test();
+	//Solution_105::test();
+	Solution_112::test();
 
 	//helper
 	//Tree::test();
