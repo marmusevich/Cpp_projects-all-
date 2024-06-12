@@ -171,10 +171,98 @@ namespace
 		}
 	};
 
+
+	//26. Remove Duplicates from Sorted Array
+	class Solution_26 
+	{
+	public:
+		int removeDuplicates(std::vector<int>& nums) 
+		{
+			if (nums.empty())
+			{
+				return 0;
+			}
+
+			auto it_write = nums.begin();
+			auto it_read = nums.begin();
+
+			//it_read++;
+
+			while (it_read != nums.end())
+			{
+				if (*it_write != *it_read)
+				{
+					it_write++;
+					if (it_write != it_read)
+					{
+						*it_write = *it_read;
+					}
+				}
+
+				it_read++;
+			}
+
+			return std::distance(nums.begin(), it_write) + 1;
+		}
+
+
+		static void test()
+		{
+			std::cout << "----------------------------------------------------- \n";
+			std::cout << "26. Remove Duplicates from Sorted Array \n";
+			std::cout << "----------------------------------------------------- \n";
+
+			Solution_26 s;
+
+			{
+				std::vector<int> nums{  };
+				int k = s.removeDuplicates(nums);
+
+				const std::vector<int> EXPECT{  };
+				IS_TRUE(k == EXPECT.size());
+			}
+
+			{
+				std::vector<int> nums{ 1, 2, 3 };
+				int k = s.removeDuplicates(nums);
+
+				const std::vector<int> EXPECT{ 1, 2, 3 };
+				IS_TRUE(k == EXPECT.size());
+				IS_TRUE(std::vector/*temp*/(nums.begin(), std::next(nums.begin(), k)) == EXPECT);
+			}
+
+
+
+			{
+				std::vector<int> nums{ 1, 1, 2 };
+				int k = s.removeDuplicates(nums);
+
+				const std::vector<int> EXPECT{ 1, 2 };
+				IS_TRUE(k == EXPECT.size());
+				IS_TRUE(std::vector/*temp*/(nums.begin(), std::next(nums.begin(), k)) == EXPECT);
+			}
+
+			{
+				std::vector<int> nums{ 0,0,1,1,1,2,2,3,3,4 };
+				int k = s.removeDuplicates(nums);
+
+				const std::vector<int> EXPECT{ 0,1,2,3,4 };
+				IS_TRUE(k == EXPECT.size());
+				IS_TRUE(std::vector/*temp*/(nums.begin(), std::next(nums.begin(), k)) == EXPECT);
+
+			}
+		}
+	};
+
+
+
+
 }
+
 
 void rq3_test()
 {
-	Solution_27::test();
+	//Solution_27::test();
+	Solution_26::test();
 
 }
