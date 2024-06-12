@@ -25,83 +25,128 @@ namespace
 	class Solution_27
 	{
 	public:
-		int removeElement_it_ver(std::vector<int>& nums, int val) 
+		int removeElement_(std::vector<int>& nums, int val)
 		{
-			auto it1 = nums.begin();
-			auto it2 = nums.end();
-
-			while (it1 < it2)
+			if (nums.empty()) // special case - empty 
 			{
-				if (*it1 == val)
+				return 0;
+			}
+
+			if (nums.size() == 1)// special case - only one element
+			{
+				if (*(nums.begin()) == val)//end we must delete it
 				{
-					while (it1 < it2 && *(--it2) == val) {}
-					std::swap(*it1, *it2);
+					return 0;
 				}
-				++it1;
+				return 1;//or not
 			}
 
-			return std::distance(nums.begin(), it1);
-		}
 
-		int removeElement_2(std::vector<int>& nums, int val)
-		{
-			int ib = 0;
-			int ik = nums.size();
+			auto it_write = nums.begin();
+			auto it_read = nums.begin();
 
-			if (nums.size() == 1)
+			int c = 0;
+
+			while (it_read != nums.end() && it_write != nums.end())
 			{
-				if (nums[0] != val) ib = 1;
-			}
-			else if (!nums.empty())
-			{
+				//printf("it_read [%d] = %d \tit_write [%d] = %d \t\t c = %d \n", 
+				//	std::distance(nums.begin(), it_read) , *it_read,
+				//	std::distance(nums.begin(), it_write), *it_write,
+				//	c);
 
-				--ik;
 
-				while (ib < ik)
+
+				if (*it_write != val)
 				{
-					if (nums[ib] == val)
+					it_write++;
+					c++;
+				}
+				else
+				{
+					if (it_read > it_write && *it_read != val)
 					{
-						while (ib < ik && nums[ik] == val) { --ik; }
-						if (ib != ik) std::swap(nums[ib], nums[ik]);
+						//*it_write = *it_read;
+						std::swap(*it_write, *it_read);
+						it_write++;
+						c++;
 					}
-					++ib;
 				}
-			}
-			else {}
+				it_read++;
 
-			return ib;
+			}
+
+			//printf("---it_read [%d] = %d \tit_write [%d] = %d \t\t c = %d\n",
+			//	(it_read != nums.end() ? std::distance(nums.begin() , it_read) : -1), (it_read != nums.end() ? *it_read : -1),
+			//	(it_write != nums.end() ? std::distance(nums.begin(), it_write) : -1), (it_write != nums.end() ? *it_write : -1),
+			//	c);
+
+			return c;
+			//return std::distance(nums.begin(), it_write);
 		}
 
 		int removeElement(std::vector<int>& nums, int val)
 		{
-			int ib = 0;
-			int ik = nums.size();
-
-			if (nums.size() == 1)
+			if (nums.empty()) // special case - empty 
 			{
-				if (nums[0] != val) ib = 1;
+				return 0;
 			}
-			else if (!nums.empty())
-			{
-				
-				--ik;
 
-				while (ib < ik)
+			if (nums.size() == 1)// special case - only one element
+			{
+				if (*(nums.begin()) == val)//end we must delete it
 				{
-					if (nums[ib] == val)
-					{
-						while (ib < ik && nums[ik] == val) { --ik; }
-						if(ib !=ik) std::swap(nums[ib], nums[ik]);
-					}
-					++ib;
+					return 0;
 				}
+				return 1;//or not
 			}
-			else {}
 
-			return ib;
+			auto it_write = nums.begin();
+			auto it_read = std::prev(nums.end());
+
+			int c = 0;
+
+			while (it_read > it_write)
+			{
+				//printf("it_read [%d] = %d \tit_write [%d] = %d \t\t c = %d \n", 
+				//	std::distance(nums.begin(), it_read) , *it_read,
+				//	std::distance(nums.begin(), it_write), *it_write,
+				//	c);
+
+
+
+				if (*it_write != val)
+				{
+					it_write++;
+					c++;
+				}
+				else
+				{
+					if (it_read > it_write && *it_read != val)
+					{
+						std::swap(*it_write, *it_read);
+						it_write++;
+						it_read--;
+						c++;
+					}
+				}
+
+				if (*it_read == val)
+				{
+					it_read--;
+				}
+
+
+
+			}
+
+			//printf("---it_read [%d] = %d \tit_write [%d] = %d \t\t c = %d\n",
+			//	(it_read != nums.end() ? std::distance(nums.begin() , it_read) : -1), (it_read != nums.end() ? *it_read : -1),
+			//	(it_write != nums.end() ? std::distance(nums.begin(), it_write) : -1), (it_write != nums.end() ? *it_write : -1),
+			//	c);
+
+			return c;
+			//return std::distance(nums.begin(), it_write);
 		}
-
-
 
 		static void test()
 		{
@@ -136,7 +181,7 @@ namespace
 
 				const std::vector<int> EXPECT{ 1 };
 				IS_TRUE(k == EXPECT.size());
-				IS_TRUE(std::is_permutation(nums.begin(), std::next(nums.begin(), k), EXPECT.begin()) );
+				IS_TRUE(std::is_permutation(nums.begin(), std::next(nums.begin(), k - 1), EXPECT.begin()) );
 			}
 
 			{
@@ -146,7 +191,16 @@ namespace
 
 				const std::vector<int> EXPECT{ 2, 2 };
 				IS_TRUE(k == EXPECT.size());
-				IS_TRUE(std::is_permutation(nums.begin(), std::next(nums.begin(), k), EXPECT.begin()));
+				IS_TRUE(std::is_permutation(nums.begin(), std::next(nums.begin(), k-1), EXPECT.begin()));
+			}
+			{
+				std::vector<int> nums{ 3, 2, 2, 3 };
+				const int val = 1;
+				int k = s.removeElement(nums, val);
+
+				const std::vector<int> EXPECT{ 3, 2, 2, 3 };
+				IS_TRUE(k == EXPECT.size());
+				IS_TRUE(std::is_permutation(nums.begin(), std::next(nums.begin(), k - 1), EXPECT.begin()));
 			}
 			{
 				std::vector<int> nums{ 3, 3 };
@@ -155,7 +209,6 @@ namespace
 
 				const std::vector<int> EXPECT{ };
 				IS_TRUE(k == EXPECT.size());
-				IS_TRUE(std::is_permutation(nums.begin(), std::next(nums.begin(), k), EXPECT.begin()));
 			}
 
 
@@ -164,9 +217,9 @@ namespace
 				const int val = 2;
 				int k = s.removeElement(nums, val);
 
-				const std::vector<int> EXPECT{ 0, 1, 4, 0, 3 };
+				const std::vector<int> EXPECT{ 0, 1, 3, 0, 4 };
 				IS_TRUE(k == EXPECT.size());
-				IS_TRUE(std::is_permutation(nums.begin(), std::next(nums.begin(), k), EXPECT.begin()));
+				IS_TRUE(std::is_permutation(nums.begin(), std::next(nums.begin(), k - 1), EXPECT.begin()));
 			}
 		}
 	};
@@ -186,8 +239,6 @@ namespace
 			auto it_write = nums.begin();
 			auto it_read = nums.begin();
 
-			//it_read++;
-
 			while (it_read != nums.end())
 			{
 				if (*it_write != *it_read)
@@ -195,7 +246,8 @@ namespace
 					it_write++;
 					if (it_write != it_read)
 					{
-						*it_write = *it_read;
+						//*it_write = *it_read;
+						std::swap(*it_write, *it_read);
 					}
 				}
 
@@ -231,8 +283,6 @@ namespace
 				IS_TRUE(std::vector/*temp*/(nums.begin(), std::next(nums.begin(), k)) == EXPECT);
 			}
 
-
-
 			{
 				std::vector<int> nums{ 1, 1, 2 };
 				int k = s.removeDuplicates(nums);
@@ -255,14 +305,12 @@ namespace
 	};
 
 
-
-
 }
 
 
 void rq3_test()
 {
-	//Solution_27::test();
 	Solution_26::test();
+	Solution_27::test();
 
 }
