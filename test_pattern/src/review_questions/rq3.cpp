@@ -52,8 +52,8 @@ namespace
 			{
 				if (*it_write != val)
 				{
-					it_write++;
-					c++;
+					++it_write;
+					++c;
 				}
 				else
 				{
@@ -61,11 +61,11 @@ namespace
 					{
 						//*it_write = *it_read;
 						std::swap(*it_write, *it_read);
-						it_write++;
-						c++;
+						++it_write;
+						++c;
 					}
 				}
-				it_read++;
+				++it_read;
 
 			}
 
@@ -169,7 +169,7 @@ namespace
 			{
 				if (*it_write != *it_read)
 				{
-					it_write++;
+					++it_write;
 					if (it_write != it_read)
 					{
 						//*it_write = *it_read;
@@ -177,7 +177,7 @@ namespace
 					}
 				}
 
-				it_read++;
+				++it_read;
 			}
 
 			return std::distance(nums.begin(), it_write) + 1;
@@ -281,6 +281,55 @@ namespace
 		}
 	};
 
+	//392. Is Subsequence
+	//https://leetcode.com/problems/is-subsequence/description/?envType=study-plan-v2&envId=top-interview-150
+	class Solution_392
+	{
+	public:
+		bool isSubsequence(std::string s, std::string t)
+		{
+			auto it_s = s.begin();
+			auto it_t = t.begin();
+			while (it_s != s.end())
+			{
+				while (it_t != t.end() && *it_s != *it_t)
+				{
+					++it_t;
+				}
+
+				if (it_t == t.end()) // the end of t, bat not of s
+				{
+					return false;
+				}
+
+				if (*it_s == *it_t)
+				{
+					++it_s;
+					++it_t;
+				}
+			}
+
+			return it_s == s.end(); // check all charasters
+		}
+
+		static void test()
+		{
+			std::cout << "----------------------------------------------------- \n";
+			std::cout << "392. Is Subsequence \n";
+			std::cout << "----------------------------------------------------- \n";
+
+			Solution_392 s;
+
+			IS_TRUE(s.isSubsequence("", "") == true);
+
+			IS_TRUE(s.isSubsequence("abc", "ahbgdc") == true);
+			IS_TRUE(s.isSubsequence("axc", "ahbgdc") == false);
+			IS_TRUE(s.isSubsequence("a", "b") == false);
+			IS_TRUE(s.isSubsequence("aaaaaa", "bbaaaa") == false);
+		}
+	};
+
+
 
 }
 
@@ -290,4 +339,5 @@ void rq3_test()
 	Solution_26::test();
 	Solution_27::test();
 	Solution_20::test();
+	Solution_392::test();
 }
