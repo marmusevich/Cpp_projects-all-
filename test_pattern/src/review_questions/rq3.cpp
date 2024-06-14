@@ -16,6 +16,7 @@
 #include <memory>
 #include <functional>
 #include <thread>
+#include <stack>
 
 
 namespace
@@ -105,7 +106,7 @@ namespace
 
 				const std::vector<int> EXPECT{ 1 };
 				IS_TRUE(k == EXPECT.size());
-				IS_TRUE(std::is_permutation(nums.begin(), std::next(nums.begin(), k - 1), EXPECT.begin()) );
+				IS_TRUE(std::is_permutation(nums.begin(), std::next(nums.begin(), k - 1), EXPECT.begin()));
 			}
 
 			{
@@ -115,7 +116,7 @@ namespace
 
 				const std::vector<int> EXPECT{ 2, 2 };
 				IS_TRUE(k == EXPECT.size());
-				IS_TRUE(std::is_permutation(nums.begin(), std::next(nums.begin(), k-1), EXPECT.begin()));
+				IS_TRUE(std::is_permutation(nums.begin(), std::next(nums.begin(), k - 1), EXPECT.begin()));
 			}
 			{
 				std::vector<int> nums{ 3, 2, 2, 3 };
@@ -150,10 +151,11 @@ namespace
 
 
 	//26. Remove Duplicates from Sorted Array
-	class Solution_26 
+	//
+	class Solution_26
 	{
 	public:
-		int removeDuplicates(std::vector<int>& nums) 
+		int removeDuplicates(std::vector<int>& nums)
 		{
 			if (nums.empty())
 			{
@@ -228,6 +230,57 @@ namespace
 		}
 	};
 
+	//20. Valid Parentheses
+	//https://leetcode.com/problems/valid-parentheses/description/?envType=study-plan-v2&envId=top-interview-150
+	class Solution_20
+	{
+	public:
+		bool isValid(std::string s)
+		{
+			std::stack<char> preds;
+			for (const auto cur : s)
+			{
+				if (cur == '(' || cur == '{' || cur == '[') //open braces
+				{
+					preds.push(cur);
+				}
+				else //close braces
+				{
+					if (preds.empty()) { return false; }
+
+					const auto last = preds.top();
+					//close brace is equal close
+					if ((last == '{' && cur == '}')
+						|| (last == '(' && cur == ')')
+						|| (last == '[' && cur == ']'))
+					{
+						preds.pop();
+					}
+					else
+					{
+						return false;
+					}
+				}
+			}
+
+			return preds.empty();
+		}
+
+		static void test()
+		{
+			std::cout << "----------------------------------------------------- \n";
+			std::cout << "20. Valid Parentheses \n";
+			std::cout << "----------------------------------------------------- \n";
+
+			Solution_20 s;
+
+			IS_TRUE(s.isValid("") == true);
+			IS_TRUE(s.isValid("()") == true);
+			IS_TRUE(s.isValid("()[]{}") == true);
+			IS_TRUE(s.isValid("(]") == false);
+		}
+	};
+
 
 }
 
@@ -236,5 +289,5 @@ void rq3_test()
 {
 	Solution_26::test();
 	Solution_27::test();
-
+	Solution_20::test();
 }
