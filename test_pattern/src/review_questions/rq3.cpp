@@ -330,6 +330,69 @@ namespace
 	};
 
 
+	//383. Ransom Note
+	//https://leetcode.com/problems/ransom-note/description/?envType=study-plan-v2&envId=top-interview-150
+	class Solution_383
+	{
+	public:
+		bool canConstruct(std::string ransomNote, std::string magazine)
+		{
+
+			std::unordered_map<char, int> chars;
+
+			//hash 'magazine'
+			for (const auto c : magazine)
+			{
+				auto it = chars.find(c);
+				if (it != chars.end())
+				{
+					++(*it).second;
+				}
+				else
+				{
+					chars[c] = 1;
+				}
+
+			}
+
+			//try build 'ransomNote' from 'magazine' chars
+			for (const auto c : ransomNote)
+			{
+				auto it = chars.find(c);
+				if (it == chars.end())
+				{
+					return false;
+				}
+				else
+				{
+					auto& count = (*it).second;
+					--count;
+					if (count < 0)
+					{
+						return false;
+						/*and remove ch from map*/
+					}
+				}
+			}
+
+			return true;
+		}
+
+		static void test()
+		{
+			std::cout << "----------------------------------------------------- \n";
+			std::cout << "383. Ransom Note \n";
+			std::cout << "----------------------------------------------------- \n";
+
+			Solution_383 s;
+
+			IS_TRUE(s.canConstruct("", "") == true);
+
+			IS_TRUE(s.canConstruct("a", "b") == false);
+			IS_TRUE(s.canConstruct("aa", "ab") == false);
+			IS_TRUE(s.canConstruct("aa", "aab") == true);
+		}
+	};
 
 }
 
@@ -340,4 +403,5 @@ void rq3_test()
 	Solution_27::test();
 	Solution_20::test();
 	Solution_392::test();
+	Solution_383::test();
 }
