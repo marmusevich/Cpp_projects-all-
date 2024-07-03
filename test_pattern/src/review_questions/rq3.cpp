@@ -404,4 +404,23 @@ void rq3_test()
 	Solution_20::test();
 	Solution_392::test();
 	Solution_383::test();
+
+
+
+	//std::cout << "----------------------------------------------------- \n";
+	//std::cout << "sizeof(uint8_t)  " << sizeof(uint8_t) << " \n";
+	//std::cout << "sizeof(uint16_t) " << sizeof(uint16_t) << " \n";
+	//std::cout << "sizeof(uint32_t) " << sizeof(uint32_t) << " \n";
+	//std::cout << "sizeof(uint64_t) " << sizeof(uint64_t) << " \n";
+
+	//std::cout << "sizeof(uint_fast8_t)  " << sizeof(uint_fast8_t) << " \n";
+	//std::cout << "sizeof(uint_fast16_t) " << sizeof(uint_fast16_t) << " \n";
+	//std::cout << "sizeof(uint_fast32_t) " << sizeof(uint_fast32_t) << " \n";
+	//std::cout << "sizeof(uint_fast64_t) " << sizeof(uint_fast64_t) << " \n";
+
+	//std::cout << "sizeof(uint_least8_t)  " << sizeof(uint_least8_t) << " \n";
+	//std::cout << "sizeof(uint_least16_t) " << sizeof(uint_least16_t) << " \n";
+	//std::cout << "sizeof(uint_least32_t) " << sizeof(uint_least32_t) << " \n";
+	//std::cout << "sizeof(uint_least64_t) " << sizeof(uint_least64_t) << " \n";
+
 }
