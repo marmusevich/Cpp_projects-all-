@@ -1,6 +1,8 @@
-//#include <gtest/gtest.h>
+#pragma once
+
 
 #include <random>
+#include <cassert>
 
 
 //std::ranlux24_base
@@ -62,6 +64,8 @@ struct Rn {
    template< class IT >
    auto select(IT first, IT last)
    {
+      assert(first != last);
+
       auto it = first;
       std::advance(it, get(std::distance(first, last)));
       return  it == last ? *first : *it;

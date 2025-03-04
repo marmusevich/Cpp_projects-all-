@@ -1,26 +1,33 @@
+#pragma once
 
-#include <array>
+//#include <array>
 
 #include <string>
 
 #include <iterator>
-#include <random>
 #include <algorithm>
-#include <numeric>
 #include <unordered_set>
 #include <functional>  // for std::hash
 
-
-
-
-
-//////////////////////////////////////////////////////////////////////////////////////////////////
+#include "util.hpp"
+#include "rand.hpp"
 
 
 using tMatrix = std::vector<uint8_t>;
 using tSize = tMatrix::size_type;
-//using tPoint = std::pair<tSize, tSize>;
 using tPoint = std::tuple<tSize, tSize>;
+
+inline auto getX(const tPoint p) { return std::get<0>(p); }
+inline auto getY(const tPoint p) { return std::get<1>(p); }
+
+
+//inline bool operator==(const tPoint& lhs, const tPoint& rhs) {
+//   return lhs == rhs;
+//}
+//inline bool operator!=(const tPoint& lhs, const tPoint& rhs) {
+//   return !(lhs == rhs);
+//}
+
 
 namespace std {
 
@@ -51,8 +58,8 @@ public:
       
       printf("\n---------------------------------------------------------\n\n");
 
-      //wcf_1(); not work
-      wcf_2();
+      wcf();
+
       print();
    }
 
@@ -128,8 +135,9 @@ private:
       enumerare([&](const tSize x, const tSize y) { set(x, y, uint8_t(x % mBlockSize +1) + uint8_t(y % mBlockSize) * mBlockSize );});
    }
 
+   
    //WaveFunctionCollapse
-   void wcf_1() {
+   void wcf() {
       using tElements = std::unordered_set<uint8_t>;
 
       tElements elements(mSize);
@@ -138,254 +146,252 @@ private:
       }
 
       std::vector<tElements> mtx(mMatrix.size(), elements);
-
       std::unordered_set<tPoint> toFill;
-      enumerare([&](const tSize x, const tSize y) { toFill.emplace(x, y); });
-
-      auto fnSet = [&](const tSize x, const tSize y, const tElements val) -> void {
-         mtx[y * mSize + x] = val;
-         };
-      auto fnGet = [&](const tSize x, const tSize y) -> tElements {
-         return mtx[y * mSize + x];
-         };
 
 
-      auto fnP = [](const auto els) {
+      auto fnSet = [&](const tPoint p, const tElements val) -> void {
+         mtx[getY(p) * mSize + getX(p)] = val;
+      };
+      auto fnGet = [&](const tPoint p) -> tElements {
+         return mtx[getY(p) * mSize + getX(p)];
+      };
+
+      //-----------------------------------------------------------
+      auto fnPrEl = [&elements](const auto& elToPr) {
+         static const size_t MAX = elements.size();
+
          printf("{");
-         for (const auto& e : els){
+         
+         for (const auto& e : elToPr){
             printf("%d ", (int)e);
          }
-      printf("}");
-   };
+         printf("%s", std::string( (MAX - elToPr.size())*2, ' ' ).c_str());
+         printf("}");
+      };
 
-      auto fnRow = [&](const tSize x, const tSize y, const uint8_t val) -> void {
-         printf("\tfnRow(%d, %d, %d) -> ", (int)x, (int)y, (int)val);
-         for (tSize xx = 0; xx < mSize; xx++) {
-            if (xx != x) {
-               printf("(%d,%d)", (int)xx, (int)y);
-               auto el = fnGet(xx, y);
-               fnP(el);
-               if (el.size() > 1) {
-                  el.erase(val);
-                  fnSet(xx, y, el);
-                  printf(">>>");
-                  fnP(el);
-                  if (el.size() == 1) {
-                     printf("[!]");
-                     toFill.erase(std::make_tuple(xx, y));
-                  }
-               }
-               else {
-                  printf("(!)");
-                  toFill.erase(std::make_tuple(xx, y));
-               }
-               printf(", ");
+      auto fnPrMtx = [&]() {
+         for (tSize y = 0; y < mSize; y++) {
+            if (y % mBlockSize == 0) {
+               printf("\n");
             }
+
+            for (tSize x = 0; x < mSize; x++) {
+               if (x % mBlockSize == 0) {
+                  printf(" ");
+               }
+
+               fnPrEl(fnGet({x , y}));
+            }
+            printf("\n");
+         }
+      };
+
+      auto fnPrPoints = [&](const std::string& title, const std::unordered_set<tPoint>& points) {
+         printf("%s\t", title.c_str());
+         for (const auto& p : points) {
+            printf(" [%lld, %lld] ", getX(p), getY(p));
+            fnPrEl(fnGet(p));
          }
          printf("\n");
       };
-      auto fnCol = [&](const tSize x, const tSize y, const uint8_t val) -> void{
-         printf("\tfnCol(%d, %d, %d) -> ", (int)x, (int)y, (int)val);
-         for (tSize yy = 0; yy < mSize; yy++) {
-            if (yy != y) {
-               printf("(%d,%d)", (int)x, (int)yy);
-               auto el = fnGet(x, yy);
-               fnP(el);
-               if (el.size() > 1) {
-                  el.erase(val);
-                  fnSet(x, yy, el);
-                  printf(">>>");
-                  fnP(el);
-                  if (el.size() == 1) {
-                     printf("[!]");
-                     toFill.erase(std::make_tuple(x, yy));
-                  }
-               }
-               else {
-                  printf("(!)");
-                  toFill.erase(std::make_tuple(x, yy));
-               }
-               printf(", ");
-            }
-         }
-         printf("\n");
-      };
-      auto fnBlock = [&](const tSize x, const tSize y, const uint8_t val) -> void{
-         printf("\tfnBlock(%d, %d, %d), ", (int)x, (int)y, (int)val);
 
-         const auto block_x = x / mBlockSize;
-         const auto block_y = y / mBlockSize;
-         printf(" Block[%d, %d] -> ", (int)block_x, (int)block_y);
+      //-----------------------------------------------------------
+      auto fnCallapse = [&](const tPoint point) -> std::unordered_set<tPoint> {
+         std::unordered_set<tPoint> toCallapse;
+         std::unordered_set<tPoint> touched;
 
-         for (tSize by = 0; by < mBlockSize; by++) {
-            for (tSize bx = 0; bx < mBlockSize; bx++) {
-               const tSize xx = block_x * mBlockSize + bx;
-               const tSize yy = block_y * mBlockSize + by;
+         toCallapse.insert(point);
 
-               if (yy != y || xx != x) {
-                  printf("(%d,%d)", (int)xx, (int)yy);
-                  auto el = fnGet(xx, yy);
-                  fnP(el);
+         auto fnRow = [&](const tSize x, const tSize y, const uint8_t v) {
+            for (tSize xx = 0; xx < mSize; xx++) {
+               if (xx != x) {
+                  auto el = fnGet({ xx, y });
                   if (el.size() > 1) {
-                     el.erase(val);
-                     fnSet(xx, yy, el);
-                     printf(">>>");
-                     fnP(el);
+                     el.erase(v);
+                     fnSet({ xx, y }, el);
+
                      if (el.size() == 1) {
-                        printf("[!]");
-                        toFill.erase(std::make_tuple(xx, yy));
+                        toCallapse.insert({ xx, y });
+                     }
+                     else {
+                        touched.insert({ xx, y });
                      }
                   }
-                  else {
-                     printf("(!)");
-                     toFill.erase(std::make_tuple(xx, yy));
-                  }
-                  printf(", ");
                }
             }
+         };
+
+         auto fnCol = [&](const tSize x, const tSize y, const uint8_t v) {
+            for (tSize yy = 0; yy < mSize; yy++) {
+               if (yy != y) {
+                  auto el = fnGet({ x, yy });
+                  if (el.size() > 1) {
+                     el.erase(v);
+                     fnSet({ x, yy }, el);
+
+                     if (el.size() == 1) {
+                        toCallapse.insert({ x, yy });
+                     }
+                     else {
+                        touched.insert({ x, yy });
+                     }
+                  }
+               }
+            }
+         };
+
+         auto fnBlock = [&](const tSize x, const tSize y, const uint8_t v) {
+            const auto block_x = x / mBlockSize;
+            const auto block_y = y / mBlockSize;
+
+            for (tSize by = 0; by < mBlockSize; by++) {
+               for (tSize bx = 0; bx < mBlockSize; bx++) {
+                  const tSize xx = block_x * mBlockSize + bx;
+                  const tSize yy = block_y * mBlockSize + by;
+
+                  if (yy != y || xx != x) {
+                     auto el = fnGet({ xx, yy });
+                     if (el.size() > 1) {
+                        el.erase(v);
+                        fnSet({ xx, yy }, el);
+
+                        if (el.size() == 1) {
+                           toCallapse.insert({ xx, yy });
+                        }
+                        else {
+                           touched.insert({ xx, yy });
+                        }
+                     }
+                  }
+               }
+            }
+         };
+
+         // calapse
+         while (!toCallapse.empty()) {
+            const auto p = *toCallapse.begin();
+            toCallapse.erase(p);
+
+            const auto x = getX(p);
+            const auto y = getY(p);
+            const auto v = *fnGet(p).begin();
+
+            fnRow(x, y, v);
+            fnCol(x, y, v);
+            fnBlock(x, y, v);
+
+            printf("    - \n");
+            printf("       touched.size() = %lld, toCallapse.size() = %lld \n", touched.size(), toCallapse.size());
+            fnPrPoints("touched", touched);
+            fnPrPoints("toCallapse", toCallapse);
+
+            fnPrMtx();
+            printf("    - \n");
          }
-         printf("\n");
+
+
+         printf("before remove       touched.size() = %lld,  \n", touched.size());
+         fnPrPoints("touched", touched);
+
+         for (auto it = touched.begin(); it != touched.end();)
+         {
+            if (fnGet(*it).size() <= 1)
+               it = touched.erase(it);
+            else
+               ++it;
+         }
+
+         printf("after remove       touched.size() = %lld,  \n", touched.size());
+         fnPrPoints("touched", touched);
+
+
+         return touched;
       };
 
 
+
+      auto fnEntropy = [&](std::unordered_set<tPoint>&& touched) -> std::unordered_set<tPoint> {
+         std::unordered_set<tPoint> toFill;
+
+         if (touched.empty()) {
+            return toFill;
+         }
+
+         auto it = touched.begin();
+         auto cur_min = fnGet(*it).size();
+         toFill.insert(*it);
+         it++;
+         while (it != touched.end()) {
+            auto cur = fnGet(*it).size();
+            if (cur < cur_min) {
+               cur_min = cur;
+               toFill.clear();
+               toFill.insert(*it);
+            }
+            else if (cur == cur_min) {
+               toFill.insert(*it);
+            }
+            else {
+            }
+
+            it++;
+         }
+         return toFill;
+      };
+
+
+      //-----------------------------------------------------------
+
       Rn<std::minstd_rand> rnd(10);
+      toFill.insert({ rnd.get(mSize), rnd.get(mSize) });
+
+      //fnPrMtx();
 
       while (!toFill.empty()) {
-         printf("====================================================\n");
-//         printf("toFill.size() = %d\n", (int)toFill.size());
+         printf("\n====================================================\n");
+         printf("toFill.size() = %d\n", (int)toFill.size());
 
-         auto p = rnd.select(toFill);
+         const auto p = rnd.select(toFill);
+         if (p == std::make_tuple(0, 8))
+            printf("");
 
-         toFill.erase(p);
 
-         auto x = std::get<0>(p);
-         auto y = std::get<1>(p);
+         const uint8_t val =  rnd.select(fnGet(p));
+         fnSet(p, tElements{ val });
 
-         tElements el = fnGet(x, y);
-         uint8_t v = rnd.select(el);
+         printf("    ===> p[%lld, %lld] = %d \n", getX(p), getY(p), val);
+         printf("before calapse \n");
+         fnPrMtx();
+         printf(" ---- \n");
 
-         fnSet(x, y, tElements{v});
 
-         fnRow(x, y, v);
-         fnCol(x, y, v);
-         fnBlock(x, y, v);
+         //----
+         printf("++++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
+         auto touched = fnCallapse(p);
+         printf("++++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
 
-//         printf("toFill.size() = %d\n\n", (int)toFill.size());
+         printf("-------------------------------------------\n");
+         printf("after comllaps\n");
+         //fnPrMtx();
+         printf("    touched.size() = %lld  \n", touched.size());
+         fnPrPoints("touched", touched);
+         printf(" - \n");
+         printf("-------------------------------------------\n");
+
+         toFill = fnEntropy(std::move(touched));
+
+
+         printf("-------------------------------------------\n");
+         printf("ENTROPY       ");
+         printf("    toFill.size() = %lld  \n", toFill.size());
+         fnPrPoints("toFill", toFill);
+         printf("\n");
       }
 
       std::transform(mtx.begin(), mtx.end(), mMatrix.begin(), [](auto el) {return *el.begin(); });
    }
 
-   //WaveFunctionCollapse
-   void wcf_2() {
-      using tElements = std::unordered_set<uint8_t>;
 
-      auto fnAllPosible = [&]() -> tElements {
-         tElements elements(mSize);
-         for (uint8_t i = 1; i < mSize + 1; i++) {
-            elements.insert(i);
-         }
-         return elements;
-      };
-
-      auto fnRow = [&](const tSize x, const tSize y, tElements& elements) -> void {
-         for (tSize xx = 0; xx < mSize; xx++) {
-            if (xx != x) {
-               auto el = get(xx, y);
-               if (el != 0) {
-                  elements.erase(el);
-               }
-            }
-         }
-      };
-      auto fnCol = [&](const tSize x, const tSize y, tElements& elements) -> void{
-         for (tSize yy = 0; yy < mSize; yy++) {
-            if (yy != y) {
-               auto el = get(x, yy);
-               if (el != 0) {
-                  elements.erase(el);
-               }
-            }
-         }
-      };
-      auto fnBlock = [&](const tSize x, const tSize y, tElements& elements) -> void{
-         const auto block_x = x / mBlockSize;
-         const auto block_y = y / mBlockSize;
-
-         for (tSize by = 0; by < mBlockSize; by++) {
-            for (tSize bx = 0; bx < mBlockSize; bx++) {
-               const tSize xx = block_x * mBlockSize + bx;
-               const tSize yy = block_y * mBlockSize + by;
-
-               if (yy != y || xx != x) {
-                  auto el = get(xx, yy);
-                  if (el != 0) {
-                     elements.erase(el);
-                  }
-               }
-            }
-         }
-      };
-
-
-      std::unordered_set<tPoint> toFill;
-      enumerare([&](const tSize x, const tSize y) { toFill.emplace(x, y); });
-
-
-
-      auto fnP = [](const auto els) {
-         printf("{");
-         for (const auto& e : els){
-            printf("%d ", (int)e);
-         }
-         printf("}");
-         };
-
-
-      Rn<std::minstd_rand> rnd(10);
-
-      while (!toFill.empty()) {
-         printf("====================================================\n");
-         printf("toFill.size() = %d\n", (int)toFill.size());
-
-         auto p = rnd.select(toFill);
-         toFill.erase(p);
-         auto x = std::get<0>(p);
-         auto y = std::get<1>(p);
-
-         tElements el = fnAllPosible();
-
-         printf("[%d,%d]\t", (int)x, (int)y);
-
-         printf("all:");
-         fnP(el);
-
-         fnRow(x, y, el);
-         printf(", fnRow:");
-         fnP(el);
-
-         fnCol(x, y, el);
-         printf(", fnCol:");
-         fnP(el);
-
-         fnBlock(x, y, el);
-         printf(", fnBlock:");
-         fnP(el);
-
-         printf("\t\t");
-
-         if (!el.empty()) {
-            uint8_t v = rnd.select(el);
-
-            printf("   [%d,%d] = %d", (int)x, (int)y, (int)v);
-
-            set(x, y, v);
-         }
-         printf("\n");
-
-         print();
-      }
-   }
 
 
    void set(const tSize x, const tSize y, const uint8_t val)

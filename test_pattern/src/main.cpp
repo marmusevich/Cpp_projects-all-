@@ -1,5 +1,6 @@
 #include "macros.h"
 
+#include "../../store/cSudoku.hpp"
 
 
 //fwd
@@ -39,8 +40,8 @@ int main()
 	//review questions
 	//CALL_FUN(rq1);
 	//CALL_FUN(rq2);
-	CALL_FUN(rq3);
-	CALL_FUN(rq3_binary_tree);
+	//CALL_FUN(rq3);
+	//CALL_FUN(rq3_binary_tree);
 
 	//------------------------
 #ifndef _MSC_VER
@@ -49,6 +50,9 @@ int main()
 #endif // !_MSC_VER
 
 
+
+	cSudoku s{3};
+	
 	
 }
 

@@ -1,3 +1,7 @@
+#pragma once
+#include <chrono>
+
+
 template <typename FN>
 auto measureTime(FN&& fn) {
    auto start = std::chrono::high_resolution_clock::now();
