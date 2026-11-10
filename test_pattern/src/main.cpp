@@ -25,23 +25,23 @@ DEF_FUN(rq3_binary_tree);
 
 int main()
 {
-	//CALL_FUN(abstractFactory);
-	//CALL_FUN(composit);
-	//CALL_FUN(decorator);
-	//CALL_FUN(factory);
-	//CALL_FUN(iterator);
-	//CALL_FUN(observer);
-	//CALL_FUN(state);
-	//CALL_FUN(stratege);
-	//CALL_FUN(templMethod);
-	//CALL_FUN(visitor);
+	CALL_FUN(abstractFactory);
+	CALL_FUN(composit);
+	CALL_FUN(decorator);
+	CALL_FUN(factory);
+	CALL_FUN(iterator);
+	CALL_FUN(observer);
+	CALL_FUN(state);
+	CALL_FUN(stratege);
+	CALL_FUN(templMethod);
+	CALL_FUN(visitor);
 
 	//------------------------
 	//review questions
-	//CALL_FUN(rq1);
-	//CALL_FUN(rq2);
-	//CALL_FUN(rq3);
-	//CALL_FUN(rq3_binary_tree);
+	CALL_FUN(rq1);
+	CALL_FUN(rq2);
+	CALL_FUN(rq3);
+	CALL_FUN(rq3_binary_tree);
 
 	//------------------------
 #ifndef _MSC_VER
@@ -51,7 +51,7 @@ int main()
 
 
 
-	cSudoku s{3};
+	//cSudoku s{3};
 	
 	
 }
